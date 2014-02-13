@@ -29,7 +29,7 @@ A barebones AppEngine application that uses Facebook for login.
 """
 FACEBOOK_APP_ID = "608511272550491"
 FACEBOOK_APP_SECRET = "7cf6282934b900d77afe7c4ceed90669"
-URL = "http://elections-test.appspot.com/verify?%s"
+CONFIRMATION_URL = "http://elections-test.appspot.com/verify?%s"
 
 import facebook
 import webapp2
@@ -39,6 +39,8 @@ import re
 import urllib
 import logging
 import datetime
+import random
+import string
 
 from google.appengine.api import mail
 from google.appengine.ext import db
@@ -58,6 +60,8 @@ class User(db.Model):
     email_verified = db.BooleanProperty(required=True)
     verification_code = db.StringProperty(required=True)
 
+def generate_verification_code():
+    return "".join([string.ascii_letters[random.randint(0, 51)] for _ in range(10)])
 
 class BaseHandler(webapp2.RequestHandler):
     """Provides access to the active Facebook user in self.current_user
@@ -87,7 +91,7 @@ class BaseHandler(webapp2.RequestHandler):
                     graph = facebook.GraphAPI(cookie["access_token"])
                     profile = graph.get_object("me")
                     email_verified = False
-                    verification_code = "bart"
+                    verification_code = generate_verification_code()
                     user = User(
                         key_name=str(profile["id"]),
                         id=str(profile["id"]),
@@ -140,8 +144,14 @@ def verify_penn_email(email):
     return re.search(r"(\.upenn\.edu)$", email)
 
 def send_verification_email(email, id, code):
+    """
+    Function to send mail to the given email with id and verification code
+    """
+
     params = urllib.urlencode({'id': id, 'verification_code': code})
-    url = URL % params
+    url = CONFIRMATION_URL % params
+
+    ## sending mail
     logging.info("Mailing to %s, with link %s", email, url)
     message = mail.EmailMessage()
     message.sender = "tarunreddy.bethi@gmail.com"
@@ -158,10 +168,9 @@ class HomeHandler(BaseHandler):
         if self.current_user is not None:
             if self.current_user['email_verified']:
                 self.redirect('/nominations')
-                #self.response.out.write("Email verified")
                 return
 
-        template = jinja_environment.get_template('example.html')
+        template = jinja_environment.get_template('main.html')
         self.response.out.write(template.render(dict(
             facebook_app_id=FACEBOOK_APP_ID,
             current_user=self.current_user,
@@ -171,13 +180,13 @@ class HomeHandler(BaseHandler):
     def post(self):
         email = self.request.get('email')
         logging.info("Entered email "+email)
+
         if not verify_penn_email(email):
-            template = jinja_environment.get_template('example.html')
+            template = jinja_environment.get_template('main.html')
             self.response.out.write(template.render(dict(
             facebook_app_id=FACEBOOK_APP_ID,
             current_user=self.current_user,
             error_msg="Invalid Email id")))
-            return
         else:
             send_verification_email(email, self.current_user['id'], self.current_user['verification_code'])
             template = jinja_environment.get_template('verification_email_sent.html')
@@ -218,7 +227,7 @@ class NominationsHandler(BaseHandler):
         self.response.out.write("Current time is %s. Check back when nominations start."%datetime.datetime.now())
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
-jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
+jinja_environment = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
                                autoescape = True)
 
 app = webapp2.WSGIApplication(
