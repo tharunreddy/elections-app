@@ -165,8 +165,8 @@ def send_verification_email(email, id, code):
 
 class HomeHandler(BaseHandler):
     def get(self):
-
         if self.current_user is not None:
+            logging.info("User is not none")
             if not self.current_user['email_verified']:
                 self.redirect('/email')
                 return
@@ -178,6 +178,7 @@ class HomeHandler(BaseHandler):
             error_msg=""
         )))
 
+    """
     def post(self):
         email = self.request.get('email')
         logging.info("Entered email "+email)
@@ -196,7 +197,7 @@ class HomeHandler(BaseHandler):
             facebook_app_id=FACEBOOK_APP_ID,
             current_user=self.current_user,
             email=email)))
-
+"""
 
 
 class LogoutHandler(BaseHandler):

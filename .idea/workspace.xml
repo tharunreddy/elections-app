@@ -26,7 +26,7 @@
       <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="166" column="18" selection-start="5942" selection-end="5942" vertical-scroll-proportion="0.27966103" vertical-offset="2657" max-vertical-offset="4777">
+            <state line="178" column="11" selection-start="6392" selection-end="6392" vertical-scroll-proportion="0.79322034" vertical-offset="2558" max-vertical-offset="4794">
               <folding>
                 <element signature="e#1234#1249#0" expanded="true" />
               </folding>
@@ -59,7 +59,7 @@
       <file leaf-file-name="main.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="118" column="39" selection-start="2081" selection-end="2081" vertical-scroll-proportion="-16.346153" vertical-offset="1581" max-vertical-offset="3944">
+            <state line="108" column="9" selection-start="1815" selection-end="1815" vertical-scroll-proportion="41.192307" vertical-offset="2907" max-vertical-offset="3944">
               <folding />
             </state>
           </provider>
@@ -86,7 +86,7 @@
       <file leaf-file-name="app.yaml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="14" selection-start="246" selection-end="246" vertical-scroll-proportion="-11.56" vertical-offset="0" max-vertical-offset="459">
+            <state line="18" column="0" selection-start="251" selection-end="251" vertical-scroll-proportion="-12.24" vertical-offset="0" max-vertical-offset="459">
               <folding />
             </state>
           </provider>
@@ -561,13 +561,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="14" selection-start="246" selection-end="246" vertical-scroll-proportion="-11.56" vertical-offset="0" max-vertical-offset="459">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="38" selection-start="258" selection-end="258" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
@@ -593,7 +586,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="39" selection-start="2081" selection-end="2081" vertical-scroll-proportion="-16.346153" vertical-offset="1581" max-vertical-offset="3944">
+        <state line="108" column="9" selection-start="1815" selection-end="1815" vertical-scroll-proportion="41.192307" vertical-offset="2907" max-vertical-offset="3944">
           <folding />
         </state>
       </provider>
@@ -607,9 +600,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="251" selection-end="251" vertical-scroll-proportion="-12.24" vertical-offset="0" max-vertical-offset="459">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="166" column="18" selection-start="5942" selection-end="5942" vertical-scroll-proportion="0.27966103" vertical-offset="2657" max-vertical-offset="4777">
+        <state line="178" column="11" selection-start="6392" selection-end="6392" vertical-scroll-proportion="0.79322034" vertical-offset="2558" max-vertical-offset="4794">
           <folding>
             <element signature="e#1234#1249#0" expanded="true" />
           </folding>
