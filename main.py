@@ -159,6 +159,7 @@ def send_verification_email(email, id, code):
     message.body = """
     Please confirm your email by clicking %s""" % url
     message.send()
+    return
 
 
 
@@ -166,8 +167,8 @@ class HomeHandler(BaseHandler):
     def get(self):
 
         if self.current_user is not None:
-            if self.current_user['email_verified']:
-                self.redirect('/nominations')
+            if not self.current_user['email_verified']:
+                self.redirect('/email')
                 return
 
         template = jinja_environment.get_template('main.html')
@@ -188,12 +189,14 @@ class HomeHandler(BaseHandler):
             current_user=self.current_user,
             error_msg="Invalid Email id")))
         else:
-            send_verification_email(email, self.current_user['id'], self.current_user['verification_code'])
+            #send_verification_email(email, self.current_user['id'], self.current_user['verification_code'])
             template = jinja_environment.get_template('verification_email_sent.html')
+            logging.info("Writing verification email sent")
             self.response.out.write(template.render(dict(
             facebook_app_id=FACEBOOK_APP_ID,
             current_user=self.current_user,
             email=email)))
+
 
 
 class LogoutHandler(BaseHandler):
@@ -222,6 +225,38 @@ class VerifyHandler(BaseHandler):
                 self.redirect('/nominations')
         return
 
+class EmailHandler(BaseHandler):
+
+    def get(self):
+        template = jinja_environment.get_template('email_form.html')
+        self.response.out.write(template.render(dict(
+            current_user=self.current_user,
+            error_msg=""
+            )))
+
+    def post(self):
+        template = jinja_environment.get_template('email_form.html')
+        email = self.request.get('email')
+        logging.info("Entered email "+email)
+        if not verify_penn_email(email):
+            self.response.out.write(template.render(dict(
+            current_user=self.current_user,
+            error_msg="Invalid Email"
+            )))
+
+            return
+
+        if not self.current_user['email_verified']:
+            send_verification_email(email, self.current_user['id'], self.current_user['verification_code'])
+            template = jinja_environment.get_template('verification_email_sent.html')
+            logging.info("Writing verification email sent")
+            self.response.out.write(template.render(dict(
+            facebook_app_id=FACEBOOK_APP_ID,
+            current_user=self.current_user,
+            email=email)))
+
+
+
 class NominationsHandler(BaseHandler):
     def get(self):
         self.response.out.write("Current time is %s. Check back when nominations start."%datetime.datetime.now())
@@ -234,6 +269,7 @@ app = webapp2.WSGIApplication(
     [('/', HomeHandler),
      ('/logout', LogoutHandler),
         ('/verify', VerifyHandler),
+        ('/email', EmailHandler),
         ('/nominations', NominationsHandler)],
     debug=True,
     config=config
