@@ -57,6 +57,7 @@ class BaseHandler(webapp2.RequestHandler):
     user. See http://developers.facebook.com/docs/authentication/ for
     more information.
     """
+
     @property
     def current_user(self):
         session = get_current_session()
@@ -164,6 +165,9 @@ class EmailHandler(WriteHandler):
     def get(self):
         # if user is not verified, send him a confirmation page
         logging.info("I'm in email handler and "+str(self.current_user))
+        if self.current_user is None:
+            self.redirect('/')
+            return
         if not self.current_user['email_verified']:
             self.render("email_form.html", error_msg="")
         else:
