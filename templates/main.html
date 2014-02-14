@@ -13,6 +13,8 @@
 	<script src="js/jquery.js"></script>
 	<script>
 	$(document).ready(function(){
+		$('#wrapper').fadeOut(0);
+		
 	  window.fbAsyncInit = function() {
 	  FB.init({
 	    appId      : '{{facebook_app_id}}',
@@ -25,13 +27,17 @@
 			//Logged in and authorized
 		   location.replace(location.href+"email");
 	    } else if (response.status === 'not_authorized') {
-			//Not authorized app
+			notAuth();
 	    } else {
-			//Not logged in
+			notAuth();
 	    }
 	  });
 	  };
-
+	
+		function notAuth(){
+			$('#wrapper').fadeIn(500);
+		}
+		
 	  // Load the SDK asynchronously
 	  (function(d){
 	   var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
