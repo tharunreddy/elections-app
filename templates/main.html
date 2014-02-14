@@ -8,114 +8,11 @@
 	<![endif]-->
 	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300,200,400' rel='stylesheet' type='text/css'>
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-	<style>
-	body,html{
-		font-family:'Yanone Kaffeesatz', sans-serif;
-		font-size:18px;
-		font-weight:200;
-		background:url('img/back.png');
-	}
-	h1{
-		font-size:100px;
-		font-weight:300;
-		line-height:1;
-		color:#333;
-	}
-	h2{
-		font-size:50px;
-		font-weight:200;
-		line-height:1;
-		color:#999;
-	}
-	header{
-		margin:10px 0;
-	}
-	#head{
-		margin:auto;
-		width:1000px;
-	}
-	#logo{
-		padding:0 20px;
-	}
-	#social{
-		margin:60px 0 10px 0;
-	}
-	#social img{
-		float:left;
-		margin:0 7px;
-		width:40px;
-		opacity:0.7;
-	}
-	#social img:hover{
-		opacity:1;
-	}
-	.left{
-		float:left;
-	}
-	.right{
-		float:right;
-	}
-	.clear{
-		clear:both;
-	}
-	#wrapper{
-		width:1000px;
-		margin:0 auto;
-	}
-	#election-head,#election-foot{
-		text-align:center;
-		width:400px;
-		margin:auto;
-		padding:20px;
-		background-color:white;
-		border-color:#bbb;
-		border-width:1px 1px 0 1px;
-		border-style:solid;
-	}
-	#election-foot{
-		border-width:0 1px 1px 1px !important;
-		color:#777;
-		padding:10px 20px;
-		font-size:14px;
-	}
-	#election-head{
-		padding-bottom:40px;
-	}
-	#election-desc{
-		background-color:#333;
-		text-align:center;
-		position:relative;
-		color:white;
-		padding:30px 0 20px 0;
-		border-bottom:10px solid #e68f3f;
-	}
-	#election-desc p{
-		margin:10px;
-	}
-	#login-fb{
-		cursor:pointer;
-		opacity:0.9;
-	}
-	#login-fb:hover{
-		opacity:0.95;
-	}
-	#login-fb-div{
-		position:absolute;
-		top:-20px;
-		text-align:center;
-		width:100%;
-	}
-	</style>
-  </head>
-  <body>
-	<div id="fb-root"></div>
+	<link href="css/main.css" rel="stylesheet" media="screen">
+	<!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
 	<script src="js/jquery.js"></script>
-	<script src="js/jquery.stellar.js"></script>
-	<script src="js/google.spreadsheet.js"></script>
 	<script>
 	$(document).ready(function(){
-	  $.stellar();
-		
 	  window.fbAsyncInit = function() {
 	  FB.init({
 	    appId      : '{{facebook_app_id}}',
@@ -125,14 +22,12 @@
 	  });
 	  FB.Event.subscribe('auth.authResponseChange', function(response) {
 	    if (response.status === 'connected') {
+			//Logged in and authorized
 		   location.replace(location.href+"email");
-	      //runAPI(response.authResponse.accessToken);
 	    } else if (response.status === 'not_authorized') {
-		
-	      //notAuth();
+			//Not authorized app
 	    } else {
-		
-	      //notLogged();
+			//Not logged in
 	    }
 	  });
 	  };
@@ -149,7 +44,8 @@
 	});
 	</script>
     <script src="js/bootstrap.min.js"></script>
-	
+  </head>
+  <body>
 	<header>
 		<div id="head">
 			<div id="logo" class="left">
@@ -177,19 +73,14 @@
 		</div>
 		<div id="election-desc">
 			<div id="login-fb-div">
-				<img src="img/login.jpg" id="login-fb" onclick="FB.login(function(response){},{scope:'email,user_groups'})" alt="Login">
+				<img src="img/login.jpg" id="login-fb" onclick="FB.login(function(response){},{scope:'user_groups,email'})" alt="Login">
 			</div>
-			<p>After an awesome year, that time has come around where you pick an even awesomer team to guide RANGOLI. So pick up your mice and vote!</p>
-<p>
-			It is time for YOU to choose.</p>
+			<p>After an awesome year, that time has come around where you pick an even awesomer team to guide RANGOLI. So pick up your mice and VOTE!</p>
+			<p>It is time for YOU to choose.</p>
 		</div>
 		<div id="election-foot">
 			Copyright 2014. Penn Rangoli.
 		</div>
-	
 	</div>
-    <!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
-	
-	
   </body>
 </html>
