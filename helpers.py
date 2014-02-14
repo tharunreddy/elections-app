@@ -3,6 +3,8 @@ __author__ = 'Tharun'
 import re
 import logging
 import urllib
+import string
+import random
 from google.appengine.api import mail
 
 CONFIRMATION_URL = "http://elections-test.appspot.com/verify?%s"

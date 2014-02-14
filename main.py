@@ -38,8 +38,6 @@ import jinja2
 import logging
 import datetime
 
-from webapp2_extras import sessions
-from google.appengine.api import memcache
 from gaesessions import get_current_session
 
 from helpers import verify_penn_email,\
@@ -61,10 +59,9 @@ class BaseHandler(webapp2.RequestHandler):
     """
     @property
     def current_user(self):
-
         session = get_current_session()
-
         if session.has_key("user"):
+            logging.info("returning user directly with "+str(session["user"]))
             return session["user"]
         else:
             # Either used just logged in or just saw the first page
@@ -104,78 +101,10 @@ class BaseHandler(webapp2.RequestHandler):
                     email_verified = user.email_verified,
                     verification_code = user.verification_code
                 )
-
+                logging.info("returning user with "+str(session["user"]))
                 return session["user"]
-
-
-
-
-        if self.session.get("user"):
-            # User is logged in
-            return self.session.get("user")
-        else:
-            # Either used just logged in or just saw the first page
-            # We'll see here
-            cookie = facebook.get_user_from_cookie(self.request.cookies,
-                                                   FACEBOOK_APP_ID,
-                                                   FACEBOOK_APP_SECRET)
-            if cookie:
-                # Okay so user logged in.
-                # Now, check to see if existing user
-                user = User.get_by_key_name(cookie["uid"])
-                if not user:
-                    # Not an existing user so get user info
-                    graph = facebook.GraphAPI(cookie["access_token"])
-                    profile = graph.get_object("me")
-                    email_verified = False
-                    verification_code = generate_verification_code()
-                    user = User(
-                        key_name=str(profile["id"]),
-                        id=str(profile["id"]),
-                        name=profile["name"],
-                        profile_url=profile["link"],
-                        access_token=cookie["access_token"],
-                        email_verified = email_verified,
-                        verification_code = verification_code
-                    )
-                    user.put()
-                elif user.access_token != cookie["access_token"]:
-                    user.access_token = cookie["access_token"]
-                    user.put()
-                # User is now logged in
-                self.session["user"] = dict(
-                    name=user.name,
-                    profile_url=user.profile_url,
-                    id=user.id,
-                    access_token=user.access_token,
-                    email_verified = user.email_verified,
-                    verification_code = user.verification_code
-                )
-                return self.session.get("user")
         return None
 
-    def dispatch(self):
-        """
-        This snippet of code is taken from the webapp2 framework documentation.
-        See more at
-        http://webapp-improved.appspot.com/api/webapp2_extras/sessions.html
-
-        """
-        self.session_store = sessions.get_store(request=self.request)
-        try:
-            webapp2.RequestHandler.dispatch(self)
-        finally:
-            self.session_store.save_sessions(self.response)
-
-    @webapp2.cached_property
-    def session(self):
-        """
-        This snippet of code is taken from the webapp2 framework documentation.
-        See more at
-        http://webapp-improved.appspot.com/api/webapp2_extras/sessions.html
-
-        """
-        return self.session_store.get_session()
 
 class WriteHandler(BaseHandler):
     def write(self, *a, **kw):
@@ -192,19 +121,14 @@ class WriteHandler(BaseHandler):
 
 class HomeHandler(WriteHandler):
     def get(self):
-        """
-        if self.current_user is not None:
-            logging.info("User is not none")
-            if not self.current_user['email_verified']:
-                self.redirect('/email')
-                return
-        """
         self.render("main.html", error_msg="")
 
 class LogoutHandler(WriteHandler):
     def get(self):
-        if self.current_user is not None:
-            self.session['user'] = None
+        session = get_current_session()
+        if session.has_key("user"):
+            del session["user"]
+            session.terminate()
         self.redirect('/')
 
 
@@ -223,23 +147,23 @@ class VerifyHandler(WriteHandler):
 
         #user has already been verified, so redirect him to elections page
         if user.email_verified:
-            self.redirect('/nominations')
+            self.write("You are already verified")
+            #self.redirect('/nominations')
         else:
             if user.verification_code == verification_code:
                 user.email_verified = True
                 user.put()
-                session_info = self.session.get("user")
-                session_info['email_verified'] = True
-                self.session["user"] = session_info
-                self.response.out.write("Email verified, redirecting you to elections page")
-                self.redirect('/nominations')
+                session = get_current_session()
+                if session.has_key("user"):
+                    session["user"]["email_verified"] = True
+                self.render("verified_email.html")
 
 
 class EmailHandler(WriteHandler):
 
     def get(self):
         # if user is not verified, send him a confirmation page
-        logging.info(self.current_user)
+        logging.info("I'm in email handler and "+str(self.current_user))
         if not self.current_user['email_verified']:
             self.render("email_form.html", error_msg="")
         else:
@@ -252,6 +176,7 @@ class EmailHandler(WriteHandler):
             self.render("email_form.html", error_msg="Invalid Email")
 
         # if email is not verified
+        #logging.info("current user is "+self.current_user)
         if not self.current_user['email_verified']:
             send_verification_email(email, self.current_user['id'], self.current_user['verification_code'])
             logging.info("Writing verification email sent")
