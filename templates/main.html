@@ -125,7 +125,7 @@
 	  });
 	  FB.Event.subscribe('auth.authResponseChange', function(response) {
 	    if (response.status === 'connected') {
-		   location.replace(location.href+"/email");
+		   location.replace(location.href+"email");
 	      //runAPI(response.authResponse.accessToken);
 	    } else if (response.status === 'not_authorized') {
 		
