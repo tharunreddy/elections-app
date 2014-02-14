@@ -125,7 +125,7 @@
 	  });
 	  FB.Event.subscribe('auth.authResponseChange', function(response) {
 	    if (response.status === 'connected') {
-		   //window.location.replace('loggedin.php');
+		   location.reload(true);
 	      //runAPI(response.authResponse.accessToken);
 	    } else if (response.status === 'not_authorized') {
 		
