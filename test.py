@@ -2,6 +2,8 @@ __author__ = 'Tharun'
 
 import random
 import string
+import re
+
 
 def generate_verification_code():
     code = ""
@@ -11,3 +13,8 @@ def generate_verification_code():
 
 for _ in range(5):
     print generate_verification_code()
+
+def verify_email(email):
+    return re.search(r"(\.upenn\.edu)$", email)
+
+assert not verify_email("")
