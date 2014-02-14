@@ -40,9 +40,10 @@ import datetime
 
 from gaesessions import get_current_session
 
-from helpers import verify_penn_email,\
+from helpers import verify_email,\
                     send_verification_email, \
                     generate_verification_code
+
 
 from models import User
 
@@ -129,9 +130,8 @@ class LogoutHandler(WriteHandler):
         session = get_current_session()
         if session.has_key("user"):
             del session["user"]
-            session.terminate()
+        session.terminate()
         self.redirect('/')
-
 
 class VerifyHandler(WriteHandler):
     def get(self):
@@ -161,7 +161,6 @@ class VerifyHandler(WriteHandler):
 
 
 class EmailHandler(WriteHandler):
-
     def get(self):
         # if user is not verified, send him a confirmation page
         logging.info("I'm in email handler and "+str(self.current_user))
@@ -176,13 +175,18 @@ class EmailHandler(WriteHandler):
     def post(self):
         email = self.request.get('email')
         logging.info("Entered email "+email)
-        if not verify_penn_email(email):
+        if not verify_email(email):
             self.render("email_form.html", error_msg="Invalid Email")
+            return
 
         # if email is not verified
         #logging.info("current user is "+self.current_user)
         if not self.current_user['email_verified']:
             send_verification_email(email, self.current_user['id'], self.current_user['verification_code'])
+            user = User.add_email(self.current_user['id'], email)
+            if user is None:
+                return
+            user.put()
             logging.info("Writing verification email sent")
             self.render("verification_email_sent.html", email=email)
 
