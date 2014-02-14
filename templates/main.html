@@ -146,38 +146,6 @@
 	   ref.parentNode.insertBefore(js, ref);
 	  }(document));
 
-
-	  function runAPI(accessToken) {
-	    $('#login-fb').hide();
-		FB.api(
-		    "/me",
-		    function (response) {
-		      if (response && !response.error) {
-		        $('#wel_msg').html('Welcome '+response.email);
-		      }
-		    }
-		);
-		$('#wel').show();
-	  }
-	
-	  function notAuth(){
-		$('#login-fb').val('Auth App using FB');
-		$('#wel').hide();
-	}
-	
-	function notLogged(){
-		$('#login-fb').val('Login using FB');
-		$('#wel').hide();
-	}
-	
-	localStorage.clear();
-	      var url = "https://docs.google.com/spreadsheet/pub?key=0Al6K2RiGjS67dDVNYmFOM25DREV2clRkQzc2eVoyRGc&output=html";
-	      var googleSpreadsheet = new GoogleSpreadsheet();
-	      googleSpreadsheet.url(url);
-	      googleSpreadsheet.load(function(result) {
-			var json_data=JSON.parse(JSON.stringify(result));
-	       // $('#results').html(json_data.data);
-	      });
 	});
 	</script>
     <script src="js/bootstrap.min.js"></script>
