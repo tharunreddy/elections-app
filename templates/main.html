@@ -11,58 +11,64 @@
 	<link href="css/main.css" rel="stylesheet" media="screen">
 	<!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
 	<script src="js/jquery.js"></script>
-	<script>
-	 
 	
-	$(document).ready(function(){
-		//$('#wrapper').fadeOut(0);
-		$('#loading').hide();
-		
-		window.fbAsyncInit = function() {
-		  FB.init({
-		    appId      : '{{facebook_app_id}}',
-		    status     : true, // check login status
-		    cookie     : true, // enable cookies to allow the server to access the session
-		    xfbml      : true  // parse XFBML
-		  });
-		  FB.Event.subscribe('auth.authResponseChange', function(response) {
-		    if (response.status === 'connected') {
-				//Logged in and authorized
-			   location.replace(location.href+"email");
-		    } else if (response.status === 'not_authorized') {
-				//notAuth();
-		    } else {
-				//$('#loading').hide();
-				//$('#wrapper').fadeIn(500);
-		    }
-		  });
-		  };
-
-			function notAuth(){
-				$('#loading').hide();
-				$('#wrapper').fadeIn(500);
-			}
-
-		  // Load the SDK asynchronously
-		  (function(d){
-		   var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-		   if (d.getElementById(id)) {return;}
-		   js = d.createElement('script'); js.id = id; js.async = true;
-		   js.src = "//connect.facebook.net/en_US/all.js";
-		   ref.parentNode.insertBefore(js, ref);
-		  }(document));
-	});
-	</script>
     <script src="js/bootstrap.min.js"></script>
   </head>
   <body>
-	{% include 'header.html' %}
+	
+	<div id="fb-root"></div>
+	<script>
+	 window.fbAsyncInit = function() {
+	  FB.init({
+	    appId      : '{{facebook_app_id}}',
+	    status     : true, // check login status
+	    cookie     : true, // enable cookies to allow the server to access the session
+	    xfbml      : true  // parse XFBML
+	  });
 
+	FB.getLoginStatus(function(response){
+		if (response.status === 'connected') {
+	     location.replace(location.href+"email");
+	    } else if (response.status === 'not_authorized') {
+	      notAuth();
+	    } else {
+	      notAuth();
+	    }
+	});
+	  FB.Event.subscribe('auth.authResponseChange', function(response) {
+	    if (response.status === 'connected') {
+	      location.replace(location.href+"email");
+	    } else if (response.status === 'not_authorized') {
+	      notAuth();
+	    } else {
+	      notAuth();
+	    }
+	  });
+	  };
+
+	  // Load the SDK asynchronously
+	  (function(d){
+	   var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+	   if (d.getElementById(id)) {return;}
+	   js = d.createElement('script'); js.id = id; js.async = true;
+	   js.src = "//connect.facebook.net/en_US/all.js";
+	   ref.parentNode.insertBefore(js, ref);
+	  }(document));
+
+	  function notAuth(){
+		$('#loading').hide();
+		$('#wrapper').fadeIn(500);
+	}
+
+	</script>
+	
+	
+	{% include 'header.html' %}
 	<div id="loading">
 		<div class="instr" style="padding:10px;font-size:20px">Loading</div>
 		<img src="img/loading.gif">
 	</div>
-	<div id="wrapper">
+	<div id="wrapper" style="display:none">
 		<div id="election-head">
 			<h1>ELECTIONS</h1>
 			<h2>2014</h2>
