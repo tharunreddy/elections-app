@@ -27,7 +27,9 @@ class User(db.Model):
     @classmethod
     def set_email(cls, id, email):
         user = User.get_by_key_name(id)
+        penn_id = email.split("@")[0]
         user.email = email
+        user.penn_id = penn_id
         user.put()
         User.update_cache()
 
@@ -38,6 +40,15 @@ class User(db.Model):
             all_emails = {user.email : user.email_verified for user in all_data}
             logging.info("all email information "+ str(all_emails))
             return all_emails.get(email, False)
+
+    @classmethod
+    def is_pennid_verified(cls, email):
+        penn_id = email.split("@")[0]
+        all_data = memcache.get("users")
+        if all_data is not None:
+            all_penn_ids = {user.penn_id: user.email_verified for user in all_data}
+            logging.info("all penn id information" + str(all_penn_ids))
+            return all_penn_ids.get(penn_id, False)
 
 
 

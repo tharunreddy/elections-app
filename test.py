@@ -15,19 +15,17 @@ for _ in range(5):
     print generate_verification_code()
 
 def verify_email(email):
-    return re.search(r"(\.upenn\.edu)$", email)
+    return re.search(r"([A-Za-z0-9_]+)@([A-Za-z0-9]+)(\.upenn\.edu)$", email)
+
+def get_penn_id(email):
+    return email.split("@")[0]
+
+assert get_penn_id("tharun@seas.upenn.edu") == "tharun"
+assert get_penn_id("nityaa@design.upenn.edu") == "nityaa"
 
 assert not verify_email("")
+assert verify_email("tharun@seas.upenn.edu")
+assert verify_email("nityaa@design.upenn.edu")
+assert not verify_email("yolo@upenn.edu")
+assert not verify_email("yolo@gmail.com")
 
-print """
-
-Dear %s,
-
-You have requested to verify the following Facebook profile - %s - for Rangoli Elections 2014.
-Please confirm your email by clicking on the following link:
-
-%s
-
-If the above Facebook profile isn't you, please ignore!
-
-""" %("1", "2", "3")

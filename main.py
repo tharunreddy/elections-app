@@ -80,10 +80,6 @@ class BaseHandler(webapp2.RequestHandler):
 
     def dispatch(self):
         """
-        This snippet of code is taken from the webapp2 framework documentation.
-        See more at
-        http://webapp-improved.appspot.com/api/webapp2_extras/sessions.html
-
         """
         self.session_store = sessions.get_store(request=self.request)
         try:
@@ -94,10 +90,6 @@ class BaseHandler(webapp2.RequestHandler):
     @webapp2.cached_property
     def session(self):
         """
-        This snippet of code is taken from the webapp2 framework documentation.
-        See more at
-        http://webapp-improved.appspot.com/api/webapp2_extras/sessions.html
-
         """
         return self.session_store.get_session()
 
@@ -185,9 +177,12 @@ class EmailHandler(WriteHandler):
             self.render("email_form.html", error_msg="Email already Verified")
             return
 
+        if User.is_pennid_verified(email):
+            self.render("email_form.html", error_msg="Penn ID already verified")
+            return
+
         # if email is not verified
         #logging.info("current user is "+self.current_user)
-
         if not self.current_user['email_verified']:
             User.set_email(self.current_user['id'], email)
             send_verification_email(email, self.current_user)
