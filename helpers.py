@@ -34,7 +34,7 @@ def send_verification_email(email, user):
     Function to send mail to the given email with id and verification code
     """
 
-    params = urllib.urlencode({'id': id, 'verification_code': user['verification_code']})
+    params = urllib.urlencode({'id': user['id'], 'verification_code': user['verification_code']})
     url = CONFIRMATION_URL % params
 
     ## sending mail
