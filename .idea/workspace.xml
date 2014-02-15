@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5bf5bc4-6fef-4bf9-92fd-60b1ede45d9d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/helpers.py" afterPath="$PROJECT_DIR$/helpers.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models.py" afterPath="$PROJECT_DIR$/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.py" afterPath="$PROJECT_DIR$/test.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fbExample.iws" />
@@ -32,10 +29,19 @@
       <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="47" selection-start="2071" selection-end="2071" vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="3706">
+            <state line="202" column="16" selection-start="7114" selection-end="7114" vertical-scroll-proportion="-10.653846" vertical-offset="3157" max-vertical-offset="3774">
               <folding>
                 <element signature="e#152#167#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vote.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/vote.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="69" selection-start="522" selection-end="522" vertical-scroll-proportion="0.3406193" vertical-offset="0" max-vertical-offset="1666">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -49,10 +55,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="18" selection-start="996" selection-end="996" vertical-scroll-proportion="0.4217687" vertical-offset="262" max-vertical-offset="850">
+            <state line="34" column="38" selection-start="1081" selection-end="1081" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
               <folding>
                 <element signature="e#23#64#0" expanded="true" />
               </folding>
@@ -126,9 +132,10 @@
         <option value="$PROJECT_DIR$/templates/main.html" />
         <option value="$PROJECT_DIR$/models.py" />
         <option value="$PROJECT_DIR$/templates/verification_code_wrong.html" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/helpers.py" />
+        <option value="$PROJECT_DIR$/templates/vote.html" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -500,11 +507,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/verification_email_sent.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="33" selection-start="591" selection-end="591" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1156" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/helpers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="0" selection-start="361" selection-end="457" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="714">
@@ -836,15 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="47" selection-start="2071" selection-end="2071" vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="3706">
-          <folding>
-            <element signature="e#152#167#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm30/system/python_stubs/-762174762/__builtin__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2161" column="8" selection-start="74607" selection-end="74607" vertical-scroll-proportion="0.33333334" vertical-offset="36541" max-vertical-offset="86683">
@@ -854,10 +847,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="18" selection-start="996" selection-end="996" vertical-scroll-proportion="0.4217687" vertical-offset="262" max-vertical-offset="850">
+        <state line="34" column="38" selection-start="1081" selection-end="1081" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
           <folding>
             <element signature="e#23#64#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="202" column="16" selection-start="7114" selection-end="7114" vertical-scroll-proportion="-10.653846" vertical-offset="3157" max-vertical-offset="3774">
+          <folding>
+            <element signature="e#152#167#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/vote.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="69" selection-start="522" selection-end="522" vertical-scroll-proportion="0.3406193" vertical-offset="0" max-vertical-offset="1666">
+          <folding />
         </state>
       </provider>
     </entry>
