@@ -1,32 +1,8 @@
 #!/usr/bin/env python
 #
-# Copyright 2010 Facebook
+# Penn Rangoli Elections 2014
 #
-# Licensed under the Apache License, Version 2.0 (the "License"); you may
-# not use this file except in compliance with the License. You may obtain
-# a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-# License for the specific language governing permissions and limitations
-# under the License.
 
-"""
-A barebones AppEngine application that uses Facebook for login.
-
-1.  Make sure you add a copy of facebook.py (from python-sdk/src/)
-    into this directory so it can be imported.
-2.  Don't forget to tick Login With Facebook on your facebook app's
-    dashboard and place the app's url wherever it is hosted
-3.  Place a random, unguessable string as a session secret below in
-    config dict.
-4.  Fill app id and app secret.
-5.  Change the application name in app.yaml.
-
-"""
 FACEBOOK_APP_ID = "608511272550491"
 FACEBOOK_APP_SECRET = "7cf6282934b900d77afe7c4ceed90669"
 
@@ -38,14 +14,10 @@ import jinja2
 import logging
 import datetime
 
-#from gaesessions import get_current_session
 from webapp2_extras import sessions
-
 from helpers import verify_email,\
                     send_verification_email, \
                     generate_verification_code
-
-
 from models import User
 
 config = {}
@@ -167,9 +139,10 @@ class VerifyHandler(WriteHandler):
 
         #user has already been verified, so redirect him to elections page
         if user.email_verified:
-            self.write("You are already verified")
-            #self.redirect('/nominations')
+            logging.info("User's email is verified, redirecting him to elections page")
+            self.redirect('/vote')
         else:
+            logging.info("Verifying user's Verification cod")
             if user.verification_code == verification_code:
                 user.email_verified = True
                 logging.info("email verified set to true")
@@ -177,14 +150,23 @@ class VerifyHandler(WriteHandler):
                 User.update_cache()
                 self.render("verified_email.html")
                 self.redirect('/logout')
+            else:
+                self.render("email_form.html", error_msg="Your Verification Code is wrong. Try again.")
+        return None
 
 class EmailHandler(WriteHandler):
     def get(self):
         # if user is not verified, send him a confirmation page
-        logging.info("I'm in email handler and "+str(self.current_user))
+        try:
+            logging.info("I'm in email handler and user is "+str(self.current_user['name']))
+        except:
+            logging.info("self.current_user error")
+            return
+
         if self.current_user is None:
             self.redirect('/')
             return
+
         if not self.current_user['email_verified']:
             self.render("email_form.html", error_msg="")
         else:
@@ -200,14 +182,15 @@ class EmailHandler(WriteHandler):
             return
 
         if User.is_email_verified(email):
-            self.render("email_form.html", error_msg="User already Verified")
+            self.render("email_form.html", error_msg="Email already Verified")
             return
+
         # if email is not verified
         #logging.info("current user is "+self.current_user)
 
         if not self.current_user['email_verified']:
-            send_verification_email(email, self.current_user['id'], self.current_user['verification_code'])
             User.set_email(self.current_user['id'], email)
+            send_verification_email(email, self.current_user)
             logging.info("Writing verification email sent")
             self.render("verification_email_sent.html", email=email)
 
@@ -220,7 +203,7 @@ jinja_environment = jinja2.Environment(loader = jinja2.FileSystemLoader(template
                                autoescape = True)
 
 app = webapp2.WSGIApplication(
-     [('/', HomeHandler),
+       [('/', HomeHandler),
         ('/logout', LogoutHandler),
         ('/verify', VerifyHandler),
         ('/email', EmailHandler),
