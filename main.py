@@ -192,18 +192,20 @@ class EmailHandler(WriteHandler):
         logging.info(self.request.cookies)
         email = self.request.get('email')
         logging.info("Entered email "+email)
+
         if not verify_email(email):
             self.render("email_form.html", error_msg="Invalid Email")
             return
 
+        if User.is_email_verified(email):
+            self.render("email_form.html", error_msg="User already Verified")
+            return
         # if email is not verified
         #logging.info("current user is "+self.current_user)
+
         if not self.current_user['email_verified']:
             send_verification_email(email, self.current_user['id'], self.current_user['verification_code'])
-            user = User.add_email(self.current_user['id'], email)
-            if user is None:
-                return
-            user.put()
+            User.set_email(self.current_user['id'], email)
             logging.info("Writing verification email sent")
             self.render("verification_email_sent.html", email=email)
 
