@@ -196,7 +196,11 @@ class EmailHandler(WriteHandler):
 
 class VotingHandler(WriteHandler):
     def get(self):
-        self.render("vote.html")
+        if self.current_user is not None:
+            if self.current_user['email_verified']:
+                self.render("vote.html")
+        else:
+            self.redirect("/")
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
