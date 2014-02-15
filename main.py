@@ -172,7 +172,9 @@ class VerifyHandler(WriteHandler):
         else:
             if user.verification_code == verification_code:
                 user.email_verified = True
+                logging.info("email verified set to true")
                 user.put()
+                User.update_cache()
                 self.render("verified_email.html")
                 self.redirect('/logout')
 
@@ -186,7 +188,7 @@ class EmailHandler(WriteHandler):
         if not self.current_user['email_verified']:
             self.render("email_form.html", error_msg="")
         else:
-            self.redirect('/nominations')
+            self.redirect('/vote')
 
     def post(self):
         logging.info(self.request.cookies)
@@ -209,9 +211,9 @@ class EmailHandler(WriteHandler):
             logging.info("Writing verification email sent")
             self.render("verification_email_sent.html", email=email)
 
-class NominationsHandler(WriteHandler):
+class VotingHandler(WriteHandler):
     def get(self):
-        self.response.out.write("Current time is %s. Check back when nominations start."%datetime.datetime.now())
+        self.render("vote.html")
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
@@ -222,7 +224,7 @@ app = webapp2.WSGIApplication(
         ('/logout', LogoutHandler),
         ('/verify', VerifyHandler),
         ('/email', EmailHandler),
-        ('/nominations', NominationsHandler)],
+        ('/vote', VotingHandler)],
     debug=True,
     config=config
 )
