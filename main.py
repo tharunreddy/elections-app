@@ -38,7 +38,8 @@ import jinja2
 import logging
 import datetime
 
-from gaesessions import get_current_session
+#from gaesessions import get_current_session
+from webapp2_extras import sessions
 
 from helpers import verify_email,\
                     send_verification_email, \
@@ -61,10 +62,9 @@ class BaseHandler(webapp2.RequestHandler):
 
     @property
     def current_user(self):
-        session = get_current_session()
-        if session.has_key("user"):
-            logging.info("returning user directly with "+str(session["user"]))
-            return session["user"]
+        if self.session.get("user"):
+            # User is logged in
+            return self.session.get("user")
         else:
             # Either used just logged in or just saw the first page
             # We'll see here
@@ -94,8 +94,8 @@ class BaseHandler(webapp2.RequestHandler):
                 elif user.access_token != cookie["access_token"]:
                     user.access_token = cookie["access_token"]
                     user.put()
-
-                session["user"] = dict(
+                # User is now logged in
+                self.session["user"] = dict(
                     name=user.name,
                     profile_url=user.profile_url,
                     id=user.id,
@@ -103,10 +103,31 @@ class BaseHandler(webapp2.RequestHandler):
                     email_verified = user.email_verified,
                     verification_code = user.verification_code
                 )
-                logging.info("returning user with "+str(session["user"]))
-                return session["user"]
+                return self.session.get("user")
         return None
 
+    def dispatch(self):
+        """
+        This snippet of code is taken from the webapp2 framework documentation.
+        See more at
+        http://webapp-improved.appspot.com/api/webapp2_extras/sessions.html
+
+        """
+        self.session_store = sessions.get_store(request=self.request)
+        try:
+            webapp2.RequestHandler.dispatch(self)
+        finally:
+            self.session_store.save_sessions(self.response)
+
+    @webapp2.cached_property
+    def session(self):
+        """
+        This snippet of code is taken from the webapp2 framework documentation.
+        See more at
+        http://webapp-improved.appspot.com/api/webapp2_extras/sessions.html
+
+        """
+        return self.session_store.get_session()
 
 class WriteHandler(BaseHandler):
     def write(self, *a, **kw):
@@ -127,10 +148,8 @@ class HomeHandler(WriteHandler):
 
 class LogoutHandler(WriteHandler):
     def get(self):
-        session = get_current_session()
-        if session.has_key("user"):
-            del session["user"]
-        session.terminate()
+        if self.current_user is not None:
+            self.session["user"] = None
         self.redirect('/')
 
 class VerifyHandler(WriteHandler):
@@ -154,11 +173,8 @@ class VerifyHandler(WriteHandler):
             if user.verification_code == verification_code:
                 user.email_verified = True
                 user.put()
-                session = get_current_session()
-                if session.has_key("user"):
-                    session["user"]["email_verified"] = True
                 self.render("verified_email.html")
-
+                self.redirect('/logout')
 
 class EmailHandler(WriteHandler):
     def get(self):
@@ -173,6 +189,7 @@ class EmailHandler(WriteHandler):
             self.redirect('/nominations')
 
     def post(self):
+        logging.info(self.request.cookies)
         email = self.request.get('email')
         logging.info("Entered email "+email)
         if not verify_email(email):

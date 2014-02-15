@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="183" column="51" selection-start="6571" selection-end="6571" vertical-scroll-proportion="0.43235293" vertical-offset="2964" max-vertical-offset="3638">
+            <state line="40" column="1" selection-start="1258" selection-end="1258" vertical-scroll-proportion="0.0" vertical-offset="3358" max-vertical-offset="3927">
               <folding>
                 <element signature="e#1170#1185#0" expanded="true" />
               </folding>
@@ -37,10 +37,8 @@
       <file leaf-file-name="test.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="47" selection-start="343" selection-end="343" vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="442">
-              <folding>
-                <element signature="e#23#36#0" expanded="true" />
-              </folding>
+            <state line="15" column="0" selection-start="270" selection-end="270" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="442">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -48,17 +46,10 @@
       <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="20" selection-start="570" selection-end="570" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="email.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/email.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="70" selection-start="993" selection-end="993" vertical-scroll-proportion="-17.653847" vertical-offset="0" max-vertical-offset="816">
-              <folding />
+            <state line="17" column="20" selection-start="570" selection-end="570" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="476">
+              <folding>
+                <marker date="1392413060643" expanded="true" signature="82:671" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -66,27 +57,25 @@
       <file leaf-file-name="email_form.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/email_form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="212" column="27" selection-start="4818" selection-end="4818" vertical-scroll-proportion="-11.230769" vertical-offset="3312" max-vertical-offset="3995">
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/main.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="39" selection-start="363" selection-end="363" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="3400">
+            <state line="49" column="31" selection-start="1606" selection-end="1606" vertical-scroll-proportion="-7.1538463" vertical-offset="647" max-vertical-offset="1309">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="verification_email_sent.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/verification_email_sent.html">
+      <file leaf-file-name="header.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/header.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="118" column="39" selection-start="2081" selection-end="2081" vertical-scroll-proportion="-9.615385" vertical-offset="1756" max-vertical-offset="3876">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="442">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/main.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="71" column="10" selection-start="2287" selection-end="2287" vertical-scroll-proportion="0.75317603" vertical-offset="792" max-vertical-offset="1343">
               <folding />
             </state>
           </provider>
@@ -97,7 +86,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="16" column="0" selection-start="361" selection-end="457" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="714">
               <folding>
-                <element signature="e#23#32#0" expanded="true" />
+                <marker date="1392411163924" expanded="true" signature="385:457" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -106,7 +95,7 @@
       <file leaf-file-name="appengine_config.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/appengine_config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="57" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
+            <state line="6" column="57" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="221">
               <folding />
             </state>
           </provider>
@@ -115,7 +104,7 @@
       <file leaf-file-name="facebook.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/facebook.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="499" column="45" selection-start="18256" selection-end="18256" vertical-scroll-proportion="0.0" vertical-offset="8099" max-vertical-offset="10302">
+            <state line="499" column="45" selection-start="18256" selection-end="18256" vertical-scroll-proportion="0.0" vertical-offset="8483" max-vertical-offset="10455">
               <folding />
             </state>
           </provider>
@@ -138,16 +127,16 @@
         <option value="$PROJECT_DIR$/example.html" />
         <option value="$PROJECT_DIR$/example.py" />
         <option value="$PROJECT_DIR$/app.yaml" />
-        <option value="$PROJECT_DIR$/templates/main.html" />
         <option value="$PROJECT_DIR$/appengine_config.py" />
         <option value="$PROJECT_DIR$/templates/email_form.html" />
         <option value="$PROJECT_DIR$/verified_email.html" />
-        <option value="$PROJECT_DIR$/templates/verification_email_sent.html" />
         <option value="$PROJECT_DIR$/extra_users.py" />
         <option value="$PROJECT_DIR$/helpers.py" />
         <option value="$PROJECT_DIR$/models.py" />
         <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/templates/verification_email_sent.html" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/templates/main.html" />
       </list>
     </option>
   </component>
@@ -183,7 +172,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -218,6 +206,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -438,7 +427,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32954547" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -485,6 +474,112 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/templates/verification_email_sent.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="33" selection-start="591" selection-end="591" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1156">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/helpers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="361" selection-end="457" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="714">
+          <folding>
+            <marker date="1392411163924" expanded="true" signature="385:457" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appengine_config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="57" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="221">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/facebook.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="499" column="45" selection-start="18256" selection-end="18256" vertical-scroll-proportion="0.0" vertical-offset="8483" max-vertical-offset="10455">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="174" column="41" selection-start="6256" selection-end="6256" vertical-scroll-proportion="0.0" vertical-offset="2743" max-vertical-offset="3638">
+          <folding>
+            <element signature="e#1170#1185#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="270" selection-end="270" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="442">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="20" selection-start="570" selection-end="570" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="476">
+          <folding>
+            <marker date="1392413060643" expanded="true" signature="82:671" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/email_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="21" selection-start="1118" selection-end="1122" vertical-scroll-proportion="0.0" vertical-offset="406" max-vertical-offset="1309">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="6" selection-start="38" selection-end="38" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="1343">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/verification_email_sent.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="33" selection-start="591" selection-end="591" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1156">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/helpers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="361" selection-end="457" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="714">
+          <folding>
+            <marker date="1392411163924" expanded="true" signature="385:457" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appengine_config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="57" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="221">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/facebook.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="499" column="45" selection-start="18256" selection-end="18256" vertical-scroll-proportion="0.0" vertical-offset="8483" max-vertical-offset="10455">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="56" selection-start="1167" selection-end="1167" vertical-scroll-proportion="0.0" vertical-offset="282" max-vertical-offset="3502">
@@ -496,9 +591,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/verified_email.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="45" selection-start="161" selection-end="161" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="255">
-          <folding />
-        </state>
+        <state line="7" column="45" selection-start="161" selection-end="161" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="255" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
@@ -513,9 +606,7 @@
     <entry file="file://$PROJECT_DIR$/templates/email_form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="210" column="55" selection-start="4685" selection-end="4685" vertical-scroll-proportion="0.0" vertical-offset="3256" max-vertical-offset="3978">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -536,9 +627,7 @@
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="38" selection-start="258" selection-end="258" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="323">
-          <folding>
-            <element signature="e#23#36#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -566,9 +655,7 @@
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="38" selection-start="258" selection-end="258" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="323">
-          <folding>
-            <element signature="e#23#36#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -680,55 +767,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/extra_users.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="23" selection-end="23" vertical-scroll-proportion="0.059753954" vertical-offset="0" max-vertical-offset="569">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="39" selection-start="363" selection-end="363" vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="3400">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/verified_email.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="45" selection-start="161" selection-end="161" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="255">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/verification_email_sent.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="39" selection-start="2081" selection-end="2081" vertical-scroll-proportion="-9.615385" vertical-offset="1756" max-vertical-offset="3876">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/email_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="212" column="27" selection-start="4818" selection-end="4818" vertical-scroll-proportion="-11.230769" vertical-offset="3312" max-vertical-offset="3995">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/email.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="70" selection-start="993" selection-end="993" vertical-scroll-proportion="-17.653847" vertical-offset="0" max-vertical-offset="816">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/helpers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="0" selection-start="361" selection-end="457" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="714">
           <folding>
-            <element signature="e#23#32#0" expanded="true" />
+            <marker date="1392411163924" expanded="true" signature="385:457" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -736,25 +779,58 @@
     <entry file="file://$PROJECT_DIR$/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="20" selection-start="570" selection-end="570" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
+          <folding>
+            <marker date="1392413060643" expanded="true" signature="82:671" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/verified_email.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="45" selection-start="161" selection-end="161" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="255" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/verification_email_sent.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="33" selection-start="591" selection-end="591" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1156">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="47" selection-start="343" selection-end="343" vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="442">
-          <folding>
-            <element signature="e#23#36#0" expanded="true" />
-          </folding>
+        <state line="15" column="0" selection-start="270" selection-end="270" vertical-scroll-proportion="0.0" vertical-offset="76" max-vertical-offset="442">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="183" column="51" selection-start="6571" selection-end="6571" vertical-scroll-proportion="0.43235293" vertical-offset="2964" max-vertical-offset="3638">
+        <state line="40" column="1" selection-start="1258" selection-end="1258" vertical-scroll-proportion="0.0" vertical-offset="3358" max-vertical-offset="3927">
           <folding>
             <element signature="e#1170#1185#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/email_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="31" selection-start="1606" selection-end="1606" vertical-scroll-proportion="-7.1538463" vertical-offset="647" max-vertical-offset="1309">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="10" selection-start="2287" selection-end="2287" vertical-scroll-proportion="0.75317603" vertical-offset="792" max-vertical-offset="1343">
+          <folding />
         </state>
       </provider>
     </entry>
