@@ -98,6 +98,9 @@ header{
 .error{
 	background-color: #FF8686;padding: 10px;color: white;font-family: Arial;font-size: 14px;
 }
+.correct{
+	background-color:#BFB;
+}
 .instr{
 	font-size: 15px;font-weight: 300;font-family: arial;padding: 10px;
 }

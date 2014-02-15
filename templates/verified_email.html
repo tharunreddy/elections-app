@@ -11,22 +11,35 @@
 	<link href="css/main.css" rel="stylesheet">
 	<!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
 	<script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </head>
+  <body>
+	<div id="fb-root"></div>
 	<script>
-	$(document).ready(function(){
-	  window.fbAsyncInit = function() {
+	 window.fbAsyncInit = function() {
 	  FB.init({
 	    appId      : '{{facebook_app_id}}',
 	    status     : true, // check login status
 	    cookie     : true, // enable cookies to allow the server to access the session
 	    xfbml      : true  // parse XFBML
 	  });
+
+	FB.getLoginStatus(function(response){
+		if (response.status === 'connected') {
+	      //Auth();
+	    } else if (response.status === 'not_authorized') {
+	      //notAuth();
+	    } else {
+	      //notAuth();
+	    }
+	});
 	  FB.Event.subscribe('auth.authResponseChange', function(response) {
 	    if (response.status === 'connected') {
-			//run();
+	      //Auth();
 	    } else if (response.status === 'not_authorized') {
-	      	//notAuth();
+	      //notAuth();
 	    } else {
-	      	//notLogged();
+	      //notAuth();
 	    }
 	  });
 	  };
@@ -39,12 +52,7 @@
 	   js.src = "//connect.facebook.net/en_US/all.js";
 	   ref.parentNode.insertBefore(js, ref);
 	  }(document));
-	
-	});
 	</script>
-    <script src="js/bootstrap.min.js"></script>
-  </head>
-  <body>
 	{% include "header.html" %}
 	
 	<div id="wrapper">
@@ -52,7 +60,7 @@
 			<h1>ELECTIONS</h1>
 			<h2>2014</h2>
 			<div>
-                <div class="instr">Congratulations! You email has been verified!</div>
+                <div class="instr correct">Congratulations! You email has been verified!</div>
 			</div>
 		</div>
 		<div id="election-foot">
