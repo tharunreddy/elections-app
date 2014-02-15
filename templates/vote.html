@@ -28,20 +28,20 @@
 
 	FB.getLoginStatus(function(response){
 		if (response.status === 'connected') {
-	     location.replace(location.href+"email");
+	     //location.replace(location.href+"email");
 	    } else if (response.status === 'not_authorized') {
-	      notAuth();
+	      //notAuth();
 	    } else {
-	      notAuth();
+	      //notAuth();
 	    }
 	});
 	  FB.Event.subscribe('auth.authResponseChange', function(response) {
 	    if (response.status === 'connected') {
-	      location.replace(location.href+"email");
+	      //location.replace(location.href+"email");
 	    } else if (response.status === 'not_authorized') {
-	      notAuth();
+	      //notAuth();
 	    } else {
-	      notAuth();
+	      //notAuth();
 	    }
 	  });
 	  };
@@ -54,11 +54,6 @@
 	   js.src = "//connect.facebook.net/en_US/all.js";
 	   ref.parentNode.insertBefore(js, ref);
 	  }(document));
-
-	  function notAuth(){
-		$('#loading').hide();
-		$('#wrapper').fadeIn(500);
-	}
 
 	</script>
 	
