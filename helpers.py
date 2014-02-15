@@ -7,9 +7,21 @@ import string
 import random
 from google.appengine.api import mail
 
-
 extra_users = ["tarunreddy.bethi@gmail.com"]
 CONFIRMATION_URL = "http://elections-test.appspot.com/verify?%s"
+
+email_message = """
+
+Dear %s,
+
+You have requested to verify the following Facebook profile - %s - for Rangoli Elections 2014.
+Please confirm your email by clicking on the following link:
+
+%s
+
+If it isn't you, please ignore!
+
+"""
 
 def generate_verification_code():
     return "".join([string.ascii_letters[random.randint(0, 51)] for _ in range(10)])
@@ -17,20 +29,20 @@ def generate_verification_code():
 def verify_email(email):
     return re.search(r"(\.upenn\.edu)$", email) or email in extra_users
 
-def send_verification_email(email, id, code):
+def send_verification_email(email, user):
     """
     Function to send mail to the given email with id and verification code
     """
 
-    params = urllib.urlencode({'id': id, 'verification_code': code})
+    params = urllib.urlencode({'id': id, 'verification_code': user['verification_code']})
     url = CONFIRMATION_URL % params
 
     ## sending mail
     logging.info("Mailing to %s, with link %s", email, url)
     message = mail.EmailMessage()
     message.sender = "tarunreddy.bethi@gmail.com"
+    message.subject = "Rangoli Elections 2014"
     message.to = email
-    message.body = """
-    Please confirm your email by clicking %s""" % url
+    message.body = email_message % (user['name'], user['profile_url'], url)
     message.send()
     return
