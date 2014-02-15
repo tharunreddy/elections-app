@@ -1,0 +1,19 @@
+body,html{
+	font-family:'Yanone Kaffeesatz', sans-serif;
+	font-size:18px;
+	font-weight:200;
+	background:url('../img/back.png');
+}
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
+.clear{
+	clear:both;
+}
+
+header{
+	padding:20px 50px;
+}
