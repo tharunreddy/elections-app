@@ -13,11 +13,16 @@ import os
 import jinja2
 import logging
 import datetime
+import simplejson
 
 from webapp2_extras import sessions
 from helpers import verify_email,\
                     send_verification_email, \
                     generate_verification_code
+from candidates import CHAIRS, COMMUNICATIONS_CHAIR, GAPSA_LIASON, MARKETING_CHAIR, OPERATIONS_CHAIR, SOCIAL_CHAIR, \
+                       TREASURER, VICE_CHAIR, WEB_ADMIN
+
+
 from models import User
 
 config = {}
@@ -192,10 +197,60 @@ class EmailHandler(WriteHandler):
 class VotingHandler(WriteHandler):
     def get(self):
         if self.current_user is not None:
+            user = User.get_by_key_name(self.current_user['id'])
             if self.current_user['email_verified']:
-                self.render("vote.html")
+                self.render("vote.html", user=user, results=results)
         else:
             self.redirect("/")
+
+    def post(self):
+
+        if self.current_user is not None:
+            user = User.get_by_key_name(self.current_user['id'])
+
+            if user is not None:
+                chair = self.request.get("chair")
+                vice_chair = self.request.get("vicechair")
+                treasurer = self.request.get("treasurer")
+                social_chair = self.request.get("socialchair")
+                operations_chair = self.request.get("operationschair")
+                gapsa_liason = self.request.get("gapsaliason")
+                communications_chair = self.request.get("communicationschair")
+                web_admin = self.request.get("webadmin")
+                marketing_chair = self.request.get("marketingchair")
+
+            if chair in CHAIRS:
+                user.chair = chair
+            if vice_chair in VICE_CHAIR:
+                user.vice_chair = vice_chair
+            if treasurer in TREASURER:
+                user.treasurer = treasurer
+            if social_chair in SOCIAL_CHAIR:
+                user.social_chair = social_chair
+            if operations_chair in OPERATIONS_CHAIR:
+                user.operations_chair = operations_chair
+            if gapsa_liason in GAPSA_LIASON:
+                user.gapsa_liason = gapsa_liason
+            if communications_chair in COMMUNICATIONS_CHAIR:
+                user.communications_chair = communications_chair
+            if web_admin in WEB_ADMIN:
+                user.web_admin = web_admin
+            if marketing_chair in MARKETING_CHAIR:
+                user.marketing_chair = marketing_chair
+            user.put()
+
+
+class ChairHandler(BaseHandler):
+    def get(self):
+        some_result = {'saxena': 30, 'nirmal': 31}
+        json = simplejson.dumps(some_result)
+        self.response.headers.add_header('content-type', 'application/json', charset='utf-8')
+        self.response.out.write(json)
+
+    def post(self):
+        logging.info("Posted chair")
+        pass
+
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
@@ -206,7 +261,8 @@ app = webapp2.WSGIApplication(
         ('/logout', LogoutHandler),
         ('/verify', VerifyHandler),
         ('/email', EmailHandler),
-        ('/vote', VotingHandler)],
+        ('/vote', VotingHandler),
+        ('/vote/chair', ChairHandler)],
     debug=True,
     config=config
 )
