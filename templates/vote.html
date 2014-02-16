@@ -7,11 +7,59 @@
 	  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300,200,400' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 	<link href="css/vote.css" rel="stylesheet" media="screen">
 	<!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
 	<script src="js/jquery.js"></script>
-	
+	<script src="js/jquery.stellar.js"></script>
+	<script>
+	$(document).ready(function(){
+		$.stellar();
+		
+		$('.total-noms > .left').on('click keydown',function(){
+			$(this).siblings('input[type=radio]').attr('checked',false);
+			$(this).prev('input[type=radio]').attr('checked',true);
+			$(this).siblings('.left').children('img').fadeTo(0,0.5);
+			$(this).children('img').fadeTo(0,1);
+		});
+		
+		$('input[type=submit]').click(function(e){
+			e.preventDefault();
+			var position = $(this).parent().attr('id').substring(5);
+			var chosen="";
+			$('input[name='+position+']').each(function(){
+				if($(this).attr('checked')){
+					chosen=$(this).val();
+				}
+			});
+			if(chosen!=''){
+				$.ajax({
+					url:'/'+position,
+					type:'POST',
+					data:position+'='+chosen,
+					success:function(response){
+						$('#'+position).find('.positions-results-page').trigger('click');
+					}
+				});
+			}
+			
+		});
+		
+		$('.positions-results-page').click(function(){
+			$(this).parent().siblings('.positions-overflow').find('.positions-holder').stop().animate({'top':'-300px'});
+			$(this).siblings('.left').removeClass('nav-sel');
+			$(this).addClass('nav-sel');
+		});
+		
+		$('.positions-vote-page').click(function(){
+			$(this).parent().siblings('.positions-overflow').find('.positions-holder').stop().animate({'top':0});
+			$(this).siblings('.left').removeClass('nav-sel');
+			$(this).addClass('nav-sel');
+		});
+		
+	})
+	</script>
     <script src="js/bootstrap.min.js"></script>
   </head>
   <body>
@@ -28,7 +76,7 @@
 
 	FB.getLoginStatus(function(response){
 		if (response.status === 'connected') {
-	     //location.replace(location.href+"email");
+	     runAPI(response.authResponse.accessToken);
 	    } else if (response.status === 'not_authorized') {
 	      //notAuth();
 	    } else {
@@ -37,7 +85,7 @@
 	});
 	  FB.Event.subscribe('auth.authResponseChange', function(response) {
 	    if (response.status === 'connected') {
-	      //location.replace(location.href+"email");
+	      runAPI(response.authResponse.accessToken);
 	    } else if (response.status === 'not_authorized') {
 	      //notAuth();
 	    } else {
@@ -54,34 +102,103 @@
 	   js.src = "//connect.facebook.net/en_US/all.js";
 	   ref.parentNode.insertBefore(js, ref);
 	  }(document));
-
+		
+	function runAPI(accessToken){
+		FB.api(
+		    "/me?fields=picture",
+		    function (response) {
+		      if (response && !response.error) {
+		        //$('#user-welcome').html('Welcome '+response.name);
+				$('.user-pic').html("<img src='"+response.picture.data.url+"' alt='profile'>");
+		      }
+		    }
+		);
+		FB.api(
+		    "/me",
+		    function (response) {
+		      if (response && !response.error) {
+		        $('#user-welcome').html('Welcome '+response.name);
+		      }
+		    }
+		);
+	}
+	
 	</script>
 	
 	
 	<header>
 		<div id="logo" class="left">
-			<img src="img/logotest.png" width="150px">
+			<img src="img/logotest.png" width="250px">
 		</div>
 		<div id="user" class="right">
-			
+			<div id="user-show">
+				<div class="user-pic right"></div>
+				<div id="user-welcome" class="right"></div>
+				<div class="clear"></div>
+			</div>
+			<div id="user-hover">
+				<div class="right user-pic"></div>
+				<div class="right logout" onclick="FB.logout()">Logout of Facebook</div>
+				<div class="clear"></div>
+			</div>
 		</div>
 		<div class="clear"></div>
+		<div style="position:absolute;top:140px;width:100%">
+			<div id="head-election">ELECTIONS 2014</div>
+		</div>
 	</header>
-	<div id="wrapper" style="display:none">
-		<div id="election-head">
-			<h1>ELECTIONS</h1>
-			<h2>2014</h2>
+	
+	<div class="stellar-background" style="background:url(img/love.jpg) no-repeat" data-stellar-background-ratio="0.5"></div>
+	
+	<div class="positions" id="chair">
+		<h1>CHAIR</h1>
+		<div class="positions-desc">
+			<ul>
+				<li>Overlooks the entire board and becomes the face of the organisation representing Rangoli to the other institutions.</li> 
+				<li>Ensures that every office bearer performs his/her duties with due diligence facilitating smooth functioning of the Rangoli office.</li> 
+				<li>The Chair must head all Rangoli meetings.</li>
+			</ul>
 		</div>
-		<div id="election-desc">
-			<div id="login-fb-div">
-				<img src="img/login.jpg" id="login-fb" onclick="FB.login(function(response){},{scope:'user_groups,email'})" alt="Login">
+		<div class="positions-vote">
+			<div class="positions-nav">
+				<div class="positions-vote-page left nav-sel">VOTE</div>
+				<div class="positions-results-page left">RESULTS</div>
+				<div class="clear"></div>
 			</div>
-			<p>After an awesome year, that time has come around where you pick an even awesomer team to guide RANGOLI. So pick up your mice and VOTE!</p>
-			<p>It is time for YOU to choose.</p>
-		</div>
-		<div id="election-foot">
-			Copyright 2014. Penn Rangoli.
+			<div class="positions-overflow">
+				<div class="positions-holder">
+					<div class="positions-noms positions-slide">
+						<form id="form-chair" method="POST">
+							<div class="total-noms">
+								<input type="radio" name="chair" value="nirmal01">
+								<div class="left">
+									<img src="img/nirmal.png">
+									<div class="nom-name">Nirmal Utwani 01</div>
+								</div>
+								<input type="radio" name="chair" value="nirmal02">
+								<div class="left">
+									<img src="img/nirmal.png">
+									<div class="nom-name">Nirmal Utwani 02</div>
+								</div>
+								<input type="radio" name="chair" value="nirmal03">
+								<div class="left">
+									<img src="img/nirmal.png">
+									<div class="nom-name">Nirmal Utwani 03</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<input class="vote-submit" type="submit" value="Vote">
+						</form>
+					</div>
+					<div class="positions-results positions-slide">
+					
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
+	
+	<div class="stellar-background" style="background:url(img/college-hall.jpg) no-repeat" data-stellar-background-ratio="0.5"></div>
+	
   </body>
 </html>

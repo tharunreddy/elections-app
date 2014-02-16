@@ -107,6 +107,9 @@ header{
 #conf-submit{
 	padding: 10px 30px;border: 0;background-color: #444;color: white;
 }
+#conf-submit:hover{
+	background-color:#222;
+}
 
 #loading{
 	text-align:center;
