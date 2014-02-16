@@ -58,6 +58,20 @@
 			$(this).addClass('nav-sel');
 		});
 		
+		function getResults(pos){
+			$.ajax({
+				url:'/vote/'+position,
+				type: 'GET',
+				dataType: 'json',
+				success:function(response){
+					var items=[];
+					$.each(function(key,val){
+						
+					}
+				}
+			});
+		}
+		
 	})
 	</script>
     <script src="js/bootstrap.min.js"></script>
@@ -191,7 +205,30 @@
 						</form>
 					</div>
 					<div class="positions-results positions-slide">
-					
+						<div class="positions-results-nom">
+							<div class="left res-nom-name">Nirmal Utwani</div>
+							<div class="left bar">
+								<div class="filled" style="width:57%"></div>
+							</div>
+							<div class="left percentage">57%</div>
+							<div class="clear"></div>
+						</div>
+						<div class="positions-results-nom">
+							<div class="left res-nom-name">Nirmal Utwani</div>
+							<div class="left bar">
+								<div class="filled" style="width:23%"></div>
+							</div>
+							<div class="left percentage">23%</div>
+							<div class="clear"></div>
+						</div>
+						<div class="positions-results-nom">
+							<div class="left res-nom-name">Nirmal Utwani</div>
+							<div class="left bar">
+								<div class="filled" style="width:20%"></div>
+							</div>
+							<div class="left percentage">20%</div>
+							<div class="clear"></div>
+						</div>
 					</div>
 				</div>
 			</div>
