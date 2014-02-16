@@ -200,7 +200,7 @@ class VotingHandler(WriteHandler):
         if self.current_user is not None:
             user = User.get_by_key_name(self.current_user['id'])
             if self.current_user['email_verified']:
-                self.render("vote.html")
+                self.render("vote.html", user=user)
         else:
             self.redirect("/")
 
@@ -209,15 +209,16 @@ class VotingHandler(WriteHandler):
 
 
 class ChairHandler(BaseHandler):
-    """
+
     def get(self):
         some_result = {'saxena': 30, 'nirmal': 31}
         dump_json = json.dumps(some_result)
 
         self.response.headers.add_header('content-type', 'application/json', charset='utf-8')
         self.response.out.write(dump_json)
-    """
 
+
+    """
     def get(self):
         if self.current_user is not None:
             all_data = User.all_data()
@@ -227,7 +228,7 @@ class ChairHandler(BaseHandler):
                 del counted[None]
             total_votes = sum(counted.values())
             return json.dumps({x:y/total_votes for x,y in counted.iteritems()})
-
+    """
 
     def post(self):
         logging.info("Posted chair")
