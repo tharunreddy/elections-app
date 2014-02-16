@@ -13,7 +13,7 @@ import os
 import jinja2
 import logging
 import datetime
-import simplejson
+import json
 
 from webapp2_extras import sessions
 from helpers import verify_email,\
@@ -199,7 +199,7 @@ class VotingHandler(WriteHandler):
         if self.current_user is not None:
             user = User.get_by_key_name(self.current_user['id'])
             if self.current_user['email_verified']:
-                self.render("vote.html", user=user, results=results)
+                self.render("vote.html")
         else:
             self.redirect("/")
 
@@ -243,9 +243,9 @@ class VotingHandler(WriteHandler):
 class ChairHandler(BaseHandler):
     def get(self):
         some_result = {'saxena': 30, 'nirmal': 31}
-        json = simplejson.dumps(some_result)
+        dump_json = json.dumps(some_result)
         self.response.headers.add_header('content-type', 'application/json', charset='utf-8')
-        self.response.out.write(json)
+        self.response.out.write(dump_json)
 
     def post(self):
         logging.info("Posted chair")

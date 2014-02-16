@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5bf5bc4-6fef-4bf9-92fd-60b1ede45d9d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.yaml" afterPath="$PROJECT_DIR$/app.yaml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models.py" afterPath="$PROJECT_DIR$/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -30,10 +31,19 @@
       <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="242" column="32" selection-start="8842" selection-end="8842" vertical-scroll-proportion="0.19332162" vertical-offset="4004" max-vertical-offset="4641">
+            <state line="201" column="39" selection-start="7124" selection-end="7124" vertical-scroll-proportion="0.5518454" vertical-offset="3103" max-vertical-offset="4641">
               <folding>
                 <element signature="e#152#167#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.yaml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="0" selection-start="138" selection-end="138" vertical-scroll-proportion="-6.12" vertical-offset="0" max-vertical-offset="476">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -129,7 +139,6 @@
         <option value="$PROJECT_DIR$/verification_mail_sent.html" />
         <option value="$PROJECT_DIR$/example.html" />
         <option value="$PROJECT_DIR$/example.py" />
-        <option value="$PROJECT_DIR$/app.yaml" />
         <option value="$PROJECT_DIR$/appengine_config.py" />
         <option value="$PROJECT_DIR$/templates/email_form.html" />
         <option value="$PROJECT_DIR$/verified_email.html" />
@@ -142,6 +151,7 @@
         <option value="$PROJECT_DIR$/candidates.py" />
         <option value="$PROJECT_DIR$/models.py" />
         <option value="$PROJECT_DIR$/templates/vote.html" />
+        <option value="$PROJECT_DIR$/app.yaml" />
         <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
@@ -760,11 +770,6 @@
         <state line="13" column="0" selection-start="185" selection-end="185" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="323" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="251" selection-end="251" vertical-scroll-proportion="-12.24" vertical-offset="0" max-vertical-offset="459" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/appengine_config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="57" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187" />
@@ -852,9 +857,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="138" selection-end="138" vertical-scroll-proportion="-6.12" vertical-offset="0" max-vertical-offset="476">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="242" column="32" selection-start="8842" selection-end="8842" vertical-scroll-proportion="0.19332162" vertical-offset="4004" max-vertical-offset="4641">
+        <state line="201" column="39" selection-start="7124" selection-end="7124" vertical-scroll-proportion="0.5518454" vertical-offset="3103" max-vertical-offset="4641">
           <folding>
             <element signature="e#152#167#0" expanded="true" />
           </folding>
