@@ -14,6 +14,7 @@ import jinja2
 import logging
 import datetime
 import json
+from collections import Counter
 
 from webapp2_extras import sessions
 from helpers import verify_email,\
@@ -204,52 +205,46 @@ class VotingHandler(WriteHandler):
             self.redirect("/")
 
     def post(self):
-
-        if self.current_user is not None:
-            user = User.get_by_key_name(self.current_user['id'])
-
-            if user is not None:
-                chair = self.request.get("chair")
-                vice_chair = self.request.get("vicechair")
-                treasurer = self.request.get("treasurer")
-                social_chair = self.request.get("socialchair")
-                operations_chair = self.request.get("operationschair")
-                gapsa_liason = self.request.get("gapsaliason")
-                communications_chair = self.request.get("communicationschair")
-                web_admin = self.request.get("webadmin")
-                marketing_chair = self.request.get("marketingchair")
-
-            if chair in CHAIRS:
-                user.chair = chair
-            if vice_chair in VICE_CHAIR:
-                user.vice_chair = vice_chair
-            if treasurer in TREASURER:
-                user.treasurer = treasurer
-            if social_chair in SOCIAL_CHAIR:
-                user.social_chair = social_chair
-            if operations_chair in OPERATIONS_CHAIR:
-                user.operations_chair = operations_chair
-            if gapsa_liason in GAPSA_LIASON:
-                user.gapsa_liason = gapsa_liason
-            if communications_chair in COMMUNICATIONS_CHAIR:
-                user.communications_chair = communications_chair
-            if web_admin in WEB_ADMIN:
-                user.web_admin = web_admin
-            if marketing_chair in MARKETING_CHAIR:
-                user.marketing_chair = marketing_chair
-            user.put()
+        pass
 
 
 class ChairHandler(BaseHandler):
+    """
     def get(self):
         some_result = {'saxena': 30, 'nirmal': 31}
         dump_json = json.dumps(some_result)
+
         self.response.headers.add_header('content-type', 'application/json', charset='utf-8')
         self.response.out.write(dump_json)
+    """
+
+    def get(self):
+        if self.current_user is not None:
+            all_data = User.all_data()
+            chair = [user.chair for user in all_data]
+            counted = Counter(chair)
+            if None in counted:
+                del counted[None]
+            total_votes = sum(counted.values())
+            return json.dumps({x:y/total_votes for x,y in counted.iteritems()})
+
 
     def post(self):
         logging.info("Posted chair")
-        pass
+        logging.info(self.request.get("chair"))
+        if self.current_user is not None:
+            user = User.get_by_key_name(self.current_user['id'])
+        chair = self.request.get("chair")
+        if chair in CHAIRS:
+            if user.chair_count is None:
+                user.chair = chair
+                user.chair_count = 1
+            elif user.chair_count < 4:
+                user.chair = chair
+                user.chair_count += 1
+            else:
+                pass
+        user.put()
 
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')

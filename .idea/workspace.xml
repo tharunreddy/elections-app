@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5bf5bc4-6fef-4bf9-92fd-60b1ede45d9d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.yaml" afterPath="$PROJECT_DIR$/app.yaml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/helpers.py" afterPath="$PROJECT_DIR$/helpers.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models.py" afterPath="$PROJECT_DIR$/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.py" afterPath="$PROJECT_DIR$/test.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fbExample.iws" />
@@ -31,7 +32,7 @@
       <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="201" column="39" selection-start="7124" selection-end="7124" vertical-scroll-proportion="0.5518454" vertical-offset="3103" max-vertical-offset="4641">
+            <state line="246" column="18" selection-start="8492" selection-end="8492" vertical-scroll-proportion="0.6294278" vertical-offset="3951" max-vertical-offset="4556">
               <folding>
                 <element signature="e#152#167#0" expanded="true" />
               </folding>
@@ -60,7 +61,7 @@
       <file leaf-file-name="vote.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/vote.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="33" selection-start="2015" selection-end="2015" vertical-scroll-proportion="-4.0384617" vertical-offset="1034" max-vertical-offset="1581">
+            <state line="154" column="33" selection-start="4693" selection-end="4693" vertical-scroll-proportion="-4.0384617" vertical-offset="2513" max-vertical-offset="3570">
               <folding />
             </state>
           </provider>
@@ -78,7 +79,7 @@
       <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="0" selection-start="1506" selection-end="1506" vertical-scroll-proportion="0.0" vertical-offset="145" max-vertical-offset="1207">
+            <state line="21" column="52" selection-start="747" selection-end="747" vertical-scroll-proportion="0.0" vertical-offset="247" max-vertical-offset="1224">
               <folding />
             </state>
           </provider>
@@ -114,7 +115,7 @@
       <file leaf-file-name="helpers.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/helpers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="41" selection-start="758" selection-end="758" vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="901">
+            <state line="28" column="54" selection-start="668" selection-end="668" vertical-scroll-proportion="0.0" vertical-offset="247" max-vertical-offset="816">
               <folding />
             </state>
           </provider>
@@ -146,12 +147,12 @@
         <option value="$PROJECT_DIR$/templates/verification_email_sent.html" />
         <option value="$PROJECT_DIR$/templates/main.html" />
         <option value="$PROJECT_DIR$/templates/verification_code_wrong.html" />
-        <option value="$PROJECT_DIR$/helpers.py" />
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/candidates.py" />
-        <option value="$PROJECT_DIR$/models.py" />
         <option value="$PROJECT_DIR$/templates/vote.html" />
         <option value="$PROJECT_DIR$/app.yaml" />
+        <option value="$PROJECT_DIR$/models.py" />
+        <option value="$PROJECT_DIR$/helpers.py" />
+        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
@@ -471,9 +472,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24981412" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24981412" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24981412" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24981412" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32792208" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -794,16 +795,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
+    <entry file="file://$PROJECT_DIR$/templates/verification_email_sent.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="270" selection-end="270" vertical-scroll-proportion="0.37457627" vertical-offset="0" max-vertical-offset="595">
+        <state line="26" column="23" selection-start="941" selection-end="941" vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="1292">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/verification_email_sent.html">
+    <entry file="file://$PROJECT_DIR$/candidates.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="23" selection-start="941" selection-end="941" vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="1292">
+        <state line="10" column="21" selection-start="186" selection-end="186" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/vote.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="154" column="33" selection-start="4693" selection-end="4693" vertical-scroll-proportion="-4.0384617" vertical-offset="2513" max-vertical-offset="3570">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="138" selection-end="138" vertical-scroll-proportion="-6.12" vertical-offset="0" max-vertical-offset="476">
           <folding />
         </state>
       </provider>
@@ -822,6 +837,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="52" selection-start="747" selection-end="747" vertical-scroll-proportion="0.0" vertical-offset="111" max-vertical-offset="1224">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/helpers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="54" selection-start="668" selection-end="668" vertical-scroll-proportion="0.0" vertical-offset="247" max-vertical-offset="816">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="54" selection-start="350" selection-end="350" vertical-scroll-proportion="0.0" vertical-offset="7" max-vertical-offset="595">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/main.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="73" column="25" selection-start="2179" selection-end="2179" vertical-scroll-proportion="-8.769231" vertical-offset="1013" max-vertical-offset="1598">
@@ -829,44 +865,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/helpers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="41" selection-start="758" selection-end="758" vertical-scroll-proportion="0.0" vertical-offset="413" max-vertical-offset="901">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/candidates.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="21" selection-start="186" selection-end="186" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="0" selection-start="1506" selection-end="1506" vertical-scroll-proportion="0.0" vertical-offset="145" max-vertical-offset="1207">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/vote.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="33" selection-start="2015" selection-end="2015" vertical-scroll-proportion="-4.0384617" vertical-offset="1034" max-vertical-offset="1581">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="138" selection-end="138" vertical-scroll-proportion="-6.12" vertical-offset="0" max-vertical-offset="476">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="201" column="39" selection-start="7124" selection-end="7124" vertical-scroll-proportion="0.5518454" vertical-offset="3103" max-vertical-offset="4641">
+        <state line="246" column="18" selection-start="8492" selection-end="8492" vertical-scroll-proportion="0.6294278" vertical-offset="3951" max-vertical-offset="4556">
           <folding>
             <element signature="e#152#167#0" expanded="true" />
           </folding>

@@ -15,7 +15,7 @@ for _ in range(5):
     print generate_verification_code()
 
 def verify_email(email):
-    return re.search(r"([A-Za-z0-9_]+)@([A-Za-z0-9]+)(\.upenn\.edu)$", email)
+    return re.search(r"([A-Za-z0-9_]+)@([A-Za-z0-9]+)?(\.upenn\.edu)$", email)
 
 def get_penn_id(email):
     return email.split("@")[0]

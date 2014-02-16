@@ -19,6 +19,7 @@ class User(db.Model):
 
     #posts
     chair = db.StringProperty(required=False)
+    chair_count = db.IntegerProperty(required=False)
     vice_chair = db.StringProperty(required=False)
     treasurer = db.StringProperty(required=False)
     social_chair = db.StringProperty(required=False)
