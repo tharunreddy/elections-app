@@ -20,14 +20,11 @@ from webapp2_extras import sessions
 from helpers import verify_email,\
                     send_verification_email, \
                     generate_verification_code
-from candidates import CHAIRS, COMMUNICATIONS_CHAIR, GAPSA_LIASON, MARKETING_CHAIR, OPERATIONS_CHAIR, SOCIAL_CHAIR, \
-                       TREASURER, VICE_CHAIR, WEB_ADMIN
-
-
 from models import User
 
 config = {}
 config['webapp2_extras.sessions'] = dict(secret_key='fart')
+
 
 class BaseHandler(webapp2.RequestHandler):
     """Provides access to the active Facebook user in self.current_user
@@ -145,7 +142,7 @@ class VerifyHandler(WriteHandler):
                 user.email_verified = True
                 logging.info("email verified set to true")
                 user.put()
-                User.update_cache()
+                #User.update_cache()
                 self.render("verified_email.html")
                 self.redirect('/logout')
             else:
@@ -191,7 +188,7 @@ class EmailHandler(WriteHandler):
         #logging.info("current user is "+self.current_user)
         if not self.current_user['email_verified']:
             User.set_email(self.current_user['id'], email)
-            send_verification_email(email, self.current_user)
+            send_verification_email(email, self.current_user, webapp2.uri_for('verify', _full=True))
             logging.info("Writing verification email sent")
             self.render("verification_email_sent.html", email=email)
 
@@ -208,44 +205,6 @@ class VotingHandler(WriteHandler):
         pass
 
 
-class ChairHandler(BaseHandler):
-
-    def get(self):
-        some_result = {'saxena': 30, 'nirmal': 31}
-        dump_json = json.dumps(some_result)
-
-        self.response.headers.add_header('content-type', 'application/json', charset='utf-8')
-        self.response.out.write(dump_json)
-
-
-    """
-    def get(self):
-        if self.current_user is not None:
-            all_data = User.all_data()
-            chair = [user.chair for user in all_data]
-            counted = Counter(chair)
-            if None in counted:
-                del counted[None]
-            total_votes = sum(counted.values())
-            return json.dumps({x:y/total_votes for x,y in counted.iteritems()})
-    """
-
-    def post(self):
-        logging.info("Posted chair")
-        logging.info(self.request.get("chair"))
-        if self.current_user is not None:
-            user = User.get_by_key_name(self.current_user['id'])
-        chair = self.request.get("chair")
-        if chair in CHAIRS:
-            if user.chair_count is None:
-                user.chair = chair
-                user.chair_count = 1
-            elif user.chair_count < 4:
-                user.chair = chair
-                user.chair_count += 1
-            else:
-                pass
-        user.put()
 
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
@@ -253,12 +212,11 @@ jinja_environment = jinja2.Environment(loader = jinja2.FileSystemLoader(template
                                autoescape = True)
 
 app = webapp2.WSGIApplication(
-       [('/', HomeHandler),
-        ('/logout', LogoutHandler),
-        ('/verify', VerifyHandler),
-        ('/email', EmailHandler),
-        ('/vote', VotingHandler),
-        ('/vote/chair', ChairHandler)],
+       [webapp2.Route('/', handler=HomeHandler),
+        webapp2.Route('/logout', handler=LogoutHandler),
+        webapp2.Route('/verify', handler=VerifyHandler, name="verify"),
+        webapp2.Route('/email', handler=EmailHandler),
+        webapp2.Route('/vote', handler=VotingHandler),],
     debug=True,
     config=config
 )

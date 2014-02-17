@@ -19,7 +19,6 @@ class User(db.Model):
 
     #posts
     chair = db.StringProperty(required=False)
-    chair_count = db.IntegerProperty(required=False)
     vice_chair = db.StringProperty(required=False)
     treasurer = db.StringProperty(required=False)
     social_chair = db.StringProperty(required=False)
@@ -28,6 +27,17 @@ class User(db.Model):
     communications_chair = db.StringProperty(required=False)
     web_admin = db.StringProperty(required=False)
     marketing_chair = db.StringProperty(required=False)
+
+    #counts
+    chair_count = db.IntegerProperty(required=False, default=0)
+    vice_chair_count = db.IntegerProperty(required=False, default=0)
+    treasurer_count = db.IntegerProperty(required=False, default=0)
+    social_chair_count = db.IntegerProperty(required=False, default=0)
+    operations_chair_count = db.IntegerProperty(required=False, default=0)
+    gapsa_liason = db.IntegerProperty(required=False, default=0)
+    communications_chair = db.IntegerProperty(required=False, default=0)
+    web_admin = db.IntegerProperty(required=False, default=0)
+    marketing_chair = db.IntegerProperty(required=False, default=0)
 
     @classmethod
     def all_data(cls):

@@ -14,6 +14,9 @@ handlers:
 - url: /css
   static_dir: templates/css
 
+- url: /vote/.*
+  script: vote.app
+
 - url: /.*
   script: main.app
 
