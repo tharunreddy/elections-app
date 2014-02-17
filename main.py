@@ -129,7 +129,8 @@ class VerifyHandler(WriteHandler):
 
         # below should not happen
         if not user:
-            self.response.out.write("Invalid user, may be something went wrong")
+            logging.warning("Invalid User, this must not happen in Verify Handler")
+            self.redirect('/logout')
             return
 
         #user has already been verified, so redirect him to elections page
@@ -137,27 +138,21 @@ class VerifyHandler(WriteHandler):
             logging.info("User's email is verified, redirecting him to elections page")
             self.redirect('/vote')
         else:
-            logging.info("Verifying user's Verification cod")
+            logging.info("Verifying user's Verification code")
             if user.verification_code == verification_code:
                 user.email_verified = True
-                logging.info("email verified set to true")
                 user.put()
-                #User.update_cache()
+                #TODO Ask gopi to put a verified email and redirecting to homepage
                 self.render("verified_email.html")
                 self.redirect('/logout')
             else:
+                #TODO Ask gopi to put a verification code is wrong message and take him to login page
                 self.render("email_form.html", error_msg="Your Verification Code is wrong. Try again.")
         return None
 
 class EmailHandler(WriteHandler):
     def get(self):
         # if user is not verified, send him a confirmation page
-        try:
-            logging.info("I'm in email handler and user is "+str(self.current_user['name']))
-        except:
-            logging.info("self.current_user error")
-            return
-
         if self.current_user is None:
             self.redirect('/')
             return
@@ -168,44 +163,48 @@ class EmailHandler(WriteHandler):
             self.redirect('/vote')
 
     def post(self):
-        logging.info(self.request.cookies)
-        email = self.request.get('email')
-        logging.info("Entered email "+email)
+        if self.current_user is not None:
+            email = self.request.get('email')
 
-        if not verify_email(email):
-            self.render("email_form.html", error_msg="Invalid Email")
-            return
+            if not verify_email(email):
+                self.render("email_form.html", error_msg="Not a valid UPenn email or email not registered with Rangoli")
+                return
 
-        if User.is_email_verified(email):
-            self.render("email_form.html", error_msg="Email already Verified")
-            return
+            if User.is_email_verified(email):
+                self.render("email_form.html", error_msg="Email already Verified")
+                return
 
-        if User.is_pennid_verified(email):
-            self.render("email_form.html", error_msg="Penn ID already verified")
-            return
+            if User.is_pennid_verified(email):
+                self.render("email_form.html", error_msg="Penn ID already verified")
+                return
 
-        # if email is not verified
-        #logging.info("current user is "+self.current_user)
-        if not self.current_user['email_verified']:
-            User.set_email(self.current_user['id'], email)
-            send_verification_email(email, self.current_user, webapp2.uri_for('verify', _full=True))
-            logging.info("Writing verification email sent")
-            self.render("verification_email_sent.html", email=email)
+            # if email is not verified
+            #logging.info("current user is "+self.current_user)
+            if not self.current_user['email_verified']:
+                user = User.get_by_key_name(self.current_user['id'])
+                if user is None:
+                    logging.warning("User is None when posting email in confirm email page")
+                    self.redirect("/logout")
+                    return
+                user.email = email
+                user.penn_id = email.split("@")[0]
+                user.put()
+                send_verification_email(email, self.current_user, webapp2.uri_for('verify', _full=True))
+                self.render("verification_email_sent.html", email=email)
+            else:
+                self.redirect("/vote")
 
-class VotingHandler(WriteHandler):
+class VotingPageHandler(WriteHandler):
     def get(self):
         if self.current_user is not None:
             user = User.get_by_key_name(self.current_user['id'])
             if self.current_user['email_verified']:
                 self.render("vote.html", user=user)
         else:
-            self.redirect("/")
+            self.redirect("/logout")
 
     def post(self):
         pass
-
-
-
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
@@ -216,7 +215,7 @@ app = webapp2.WSGIApplication(
         webapp2.Route('/logout', handler=LogoutHandler),
         webapp2.Route('/verify', handler=VerifyHandler, name="verify"),
         webapp2.Route('/email', handler=EmailHandler),
-        webapp2.Route('/vote', handler=VotingHandler),],
+        webapp2.Route('/vote', handler=VotingPageHandler),],
     debug=True,
     config=config
 )

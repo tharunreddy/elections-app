@@ -8,7 +8,7 @@ import random
 from google.appengine.api import mail
 
 extra_users = ["tarunreddy.bethi@gmail.com"]
-#CONFIRMATION_URL = "http://elections-test.appspot.com/verify?%s"
+EMAIL_RE = re.compile(r"([A-Za-z0-9_]+)@([A-Za-z0-9]+)(\.upenn\.edu)$")
 email_message = """
 
 Dear %s,
@@ -26,7 +26,7 @@ def generate_verification_code():
     return "".join([string.ascii_letters[random.randint(0, 51)] for _ in range(10)])
 
 def verify_email(email):
-    return re.search(r"([A-Za-z0-9_]+)@([A-Za-z0-9]+)?(\.upenn\.edu)$", email) or email in extra_users
+    return EMAIL_RE.match(email) or email in extra_users
 
 def send_verification_email(email, user, verify_url):
     """
