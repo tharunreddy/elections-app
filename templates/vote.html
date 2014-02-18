@@ -15,15 +15,20 @@
 	<script src="js/jquery.stellar.js"></script>
 	<script>
 	$(document).ready(function(){
+		
+		var totalVotes=4;
+		
 		$.stellar();
 		
 		$('.total-noms > .left').on('click keydown',function(){
+			//Highlight corresponding input
 			$(this).siblings('input[type=radio]').attr('checked',false);
 			$(this).prev('input[type=radio]').attr('checked',true);
 			$(this).siblings('.left').children('img').fadeTo(0,0.5);
 			$(this).children('img').fadeTo(0,1);
 		});
 		
+		//Vote
 		$('input[type=submit]').click(function(e){
 			e.preventDefault();
 			var position = $(this).parent().attr('id').substring(5);
@@ -39,28 +44,37 @@
 					type:'POST',
 					data:position+'='+chosen,
 					success:function(response){
+						//Show results page
 						$('#'+position).find('.positions-results-page').trigger('click');
+						//Show results
+						$('#'+position).find('.results-refresh').trigger('click');
 					}
 				});
 			}
 			
 		});
 		
-		$('.positions-results-page').click(function(){
-			$(this).parent().siblings('.positions-overflow').find('.positions-holder').stop().animate({'top':'-350px'});
-			$(this).siblings('.left').removeClass('nav-sel');
-			$(this).addClass('nav-sel');
-			var pos=$(this).parent().parent().parent().attr('id');
-			getResults(pos);
-			
-		});
-		
+		//Refresh results button
 		$('.positions-results > .results-refresh').click(function(){
+			//Get result
 			var pos=$(this).parent().parent().parent().parent().parent().attr('id');
 			getResults(pos);
 		})
 		
+		//Results page button
+		$('.positions-results-page').click(function(){
+			//Animate slide
+			$(this).parent().siblings('.positions-overflow').find('.positions-holder').stop().animate({'top':'-350px'});
+			$(this).siblings('.left').removeClass('nav-sel');
+			$(this).addClass('nav-sel');
+			//var pos=$(this).parent().parent().parent().attr('id');
+			//getResults(pos);
+			
+		});
+		
+		//Vote page button
 		$('.positions-vote-page').click(function(){
+			//Animate slide
 			$(this).parent().siblings('.positions-overflow').find('.positions-holder').stop().animate({'top':0});
 			$(this).siblings('.left').removeClass('nav-sel');
 			$(this).addClass('nav-sel');
@@ -79,7 +93,7 @@
 					});
 					//console.log(data);
 					$('#'+pos).find('.positions-results-holder').html(items.join(""));
-					var votesLeft=4-data.count;
+					var votesLeft=totalVotes-data.count;
 					if(votesLeft!=0){
 						$('#'+pos).find('.vote-count').html("You have "+votesLeft+" votes left. Use them wisely.");
 					}else{
@@ -106,6 +120,7 @@
 			getResults('marketingchair');*/
 		}
 		
+		//Get all results the first time
 		getAllResults();
 		
 		/*var getRes=setInterval(function(){
@@ -254,7 +269,9 @@
 	<div class="stellar-background" style="background:url(img/college-hall.jpg) no-repeat" data-stellar-background-ratio="0.5"></div>
 	
 	<footer>
-		Copyright 2014. Penn Rangoli.
+		<div class="left">Copyright 2014. Penn Rangoli.</div>
+		<div class="right">Developed by Tharun Reddy. Designed by Gopinath Danda.</div>
+		<div class="clear"></div>
 	</footer>
   </body>
 </html>
