@@ -152,6 +152,7 @@ header{
 .total-noms .left{
 	width:180px;
 	padding:33px 10px;
+	cursor:pointer;
 }
 .nom-name{
 	font-family:'Yanone Kaffeesatz', sans-serif;
@@ -160,12 +161,11 @@ header{
 	width:150px;
 	margin:12px;
 	opacity:0.5;
-	cursor:pointer;
 }
 .total-noms .left img:hover{
 	opacity:1;
 }
-.vote-submit{
+.vote-submit,.results-refresh{
 	width:200px !important;
 	padding:10px;
 	background-color:#ff881e;
