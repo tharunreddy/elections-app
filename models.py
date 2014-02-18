@@ -16,28 +16,29 @@ class User(db.Model):
     penn_id = db.StringProperty(required=False)
     email_verified = db.BooleanProperty(required=True)
     verification_code = db.StringProperty(required=True)
+    is_part_of_rangoli = db.BooleanProperty(required=True)
 
     #posts
     chair = db.StringProperty(required=False)
-    vice_chair = db.StringProperty(required=False)
+    vicechair = db.StringProperty(required=False)
     treasurer = db.StringProperty(required=False)
-    social_chair = db.StringProperty(required=False)
-    operations_chair = db.StringProperty(required=False)
-    gapsa_liason = db.StringProperty(required=False)
-    communications_chair = db.StringProperty(required=False)
-    web_admin = db.StringProperty(required=False)
-    marketing_chair = db.StringProperty(required=False)
+    socialchair = db.StringProperty(required=False)
+    operationschair = db.StringProperty(required=False)
+    gapsaliason = db.StringProperty(required=False)
+    communicationschair = db.StringProperty(required=False)
+    webadmin = db.StringProperty(required=False)
+    marketingchair = db.StringProperty(required=False)
 
     #counts
     chair_count = db.IntegerProperty(required=False, default=0)
-    vice_chair_count = db.IntegerProperty(required=False, default=0)
+    vicechair_count = db.IntegerProperty(required=False, default=0)
     treasurer_count = db.IntegerProperty(required=False, default=0)
-    social_chair_count = db.IntegerProperty(required=False, default=0)
-    operations_chair_count = db.IntegerProperty(required=False, default=0)
-    gapsa_liason = db.IntegerProperty(required=False, default=0)
-    communications_chair = db.IntegerProperty(required=False, default=0)
-    web_admin = db.IntegerProperty(required=False, default=0)
-    marketing_chair = db.IntegerProperty(required=False, default=0)
+    socialchair_count = db.IntegerProperty(required=False, default=0)
+    operationschair_count = db.IntegerProperty(required=False, default=0)
+    gapsaliason_count = db.IntegerProperty(required=False, default=0)
+    communicationschair_count = db.IntegerProperty(required=False, default=0)
+    webadmin_count = db.IntegerProperty(required=False, default=0)
+    marketingchair_count = db.IntegerProperty(required=False, default=0)
 
     @classmethod
     def all_data(cls):

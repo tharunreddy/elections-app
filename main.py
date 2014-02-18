@@ -34,6 +34,12 @@ class BaseHandler(webapp2.RequestHandler):
     user. See http://developers.facebook.com/docs/authentication/ for
     more information.
     """
+    @classmethod
+    def is_part_of_group(cls, groups, group_id):
+        for group in groups['data']:
+            if group['id'] == group_id:
+                return True
+
 
     @property
     def current_user(self):
@@ -54,6 +60,7 @@ class BaseHandler(webapp2.RequestHandler):
                     # Not an existing user so get user info
                     graph = facebook.GraphAPI(cookie["access_token"])
                     profile = graph.get_object("me")
+                    groups = graph.get_connections("me", "groups")
                     email_verified = False
                     verification_code = generate_verification_code()
                     user = User(
@@ -63,7 +70,8 @@ class BaseHandler(webapp2.RequestHandler):
                         profile_url=profile["link"],
                         access_token=cookie["access_token"],
                         email_verified = email_verified,
-                        verification_code = verification_code
+                        verification_code = verification_code,
+                        is_part_of_rangoli = BaseHandler.is_part_of_group(groups, "39581072545")
                     )
                     user.put()
                 elif user.access_token != cookie["access_token"]:
@@ -76,7 +84,8 @@ class BaseHandler(webapp2.RequestHandler):
                     id=user.id,
                     access_token=user.access_token,
                     email_verified = user.email_verified,
-                    verification_code = user.verification_code
+                    verification_code = user.verification_code,
+                    is_part_of_rangoli = user.is_part_of_rangoli
                 )
                 return self.session.get("user")
         return None
@@ -155,6 +164,11 @@ class EmailHandler(WriteHandler):
         # if user is not verified, send him a confirmation page
         if self.current_user is None:
             self.redirect('/')
+            return
+
+        if not self.current_user['is_part_of_rangoli']:
+            self.render("not_rangoli.html")
+            self.redirect('/logout')
             return
 
         if not self.current_user['email_verified']:

@@ -38,15 +38,20 @@ class VotingHandler(BaseHandler):
             self.response.out.write(json_dump)
 
     def post(self, position):
-        if self.current_user is not None:
+        if self.current_user is not None and self.current_user['email_verified'] and self.current_user['is_part_of_rangoli']:
             user = User.get_by_key_name(self.current_user['id'])
-            user_chair = self.request.get(position)
-            if user_chair in CANDIDATES[position]:
-                if getattr(user, position+"_count") < 4:
-                    setattr(user, position, user_chair)
-                    count = getattr(user, position+"_count")
-                    setattr(user, position+"_count", count+1)
-            user.put()
+            if user is not None:
+                user_chair = self.request.get(position)
+                if user_chair in CANDIDATES[position]:
+                    if getattr(user, position+"_count") < 4:
+                        setattr(user, position, user_chair)
+                        count = getattr(user, position+"_count")
+                        setattr(user, position+"_count", count+1)
+                user.put()
+            else:
+                logging.warning("User is none while posting for position " + position)
+        else:
+            logging.warning("current user is none when posting for "+position)
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
