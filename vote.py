@@ -26,16 +26,21 @@ class VotingHandler(BaseHandler):
         total_votes = sum(result_dict.values())
         result_dict = {cand: result_dict[cand]*100/float(total_votes) for cand in result_dict}
         result_dict = {DATA[cand]: result_dict[cand] for cand in result_dict}
-        return json.dumps(result_dict)
+
 
     def get(self, position):
-        if position in CANDIDATES:
-            query = "SELECT %s FROM User" % position
-            data = list(db.GqlQuery(query))
-            data = map(lambda obj: getattr(obj, position), data)
-            json_dump = self._get_result(data, CANDIDATES[position])
-            self.response.headers.add_header('content-type', 'application/json', charset='utf-8')
-            self.response.out.write(json_dump)
+        if self.current_user is not None:
+            if position in CANDIDATES:
+                user = User.get_by_key_name(self.current_user['id'])
+                count = getattr(user, position+"_count")
+                query = "SELECT %s FROM User" % position
+                data = list(db.GqlQuery(query))
+                data = map(lambda obj: getattr(obj, position), data)
+                results = self._get_result(data, CANDIDATES[position])
+                dump = {"results": results, "count": count}
+                json_dump = json.dumps(dump)
+                self.response.headers.add_header('content-type', 'application/json', charset='utf-8')
+                self.response.out.write(json_dump)
 
     def post(self, position):
         if self.current_user is not None and self.current_user['email_verified']:
