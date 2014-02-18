@@ -40,7 +40,7 @@ class BaseHandler(webapp2.RequestHandler):
                                                FACEBOOK_APP_ID,
                                                FACEBOOK_APP_SECRET)
         if cookie:
-            graph = facebook.GraphAPI(cookie['uid'])
+            graph = facebook.GraphAPI(cookie['access_token'])
             groups = graph.get_connections("me", "groups")
             for group in groups['data']:
                 if group['id'] == group_id:
