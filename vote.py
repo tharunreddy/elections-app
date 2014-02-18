@@ -21,12 +21,16 @@ class VotingHandler(BaseHandler):
         data = collections.Counter(data)
         result_dict = {cand: 0 for cand in DATA}
         for cand in result_dict:
-            if cand in DATA:
+            if cand in data:
                 result_dict[cand] = data[cand]
         total_votes = sum(result_dict.values())
-        result_dict = {cand: result_dict[cand]*100/float(total_votes) for cand in result_dict}
-        result_dict = {DATA[cand]: result_dict[cand] for cand in result_dict}
-        return result_dict
+        res = None
+        if total_votes > 0:
+            result_dict = {cand: result_dict[cand]*100/float(total_votes) for cand in result_dict}
+            res = {DATA[cand]: result_dict[cand] for cand in result_dict}
+        else:
+            res = {cand: 0 for cand in DATA}
+        return res
 
 
     def get(self, position):
@@ -37,6 +41,7 @@ class VotingHandler(BaseHandler):
                 query = "SELECT %s FROM User" % position
                 data = list(db.GqlQuery(query))
                 data = map(lambda obj: getattr(obj, position), data)
+                logging.info(data)
                 results = self._get_result(data, CANDIDATES[position])
                 dump = {"results": results, "count": count}
                 json_dump = json.dumps(dump)
