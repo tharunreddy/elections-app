@@ -19,15 +19,11 @@ class VotingHandler(BaseHandler):
 
     def _get_result(self, data, DATA):
         data = collections.Counter(data)
-        result_dict = {cand: 0 for cand in DATA}
-        for cand in result_dict:
-            if cand in data:
-                result_dict[cand] = data[cand]
+        result_dict = {cand: data.get(cand, 0) for cand in DATA}
         total_votes = sum(result_dict.values())
         res = None
         if total_votes > 0:
-            result_dict = {cand: result_dict[cand]*100/float(total_votes) for cand in result_dict}
-            res = {DATA[cand]: result_dict[cand] for cand in result_dict}
+            res = {DATA[cand]: result_dict[cand]*100/float(total_votes) for cand in result_dict}
         else:
             res = {cand: 0 for cand in DATA}
         return res
@@ -37,16 +33,14 @@ class VotingHandler(BaseHandler):
         if self.current_user is not None:
             if position in CANDIDATES:
                 user = User.get_by_key_name(self.current_user['id'])
-                count = getattr(user, position+"_count")
+                position_count = getattr(user, position+"_count")
                 query = "SELECT %s FROM User" % position
                 data = list(db.GqlQuery(query))
                 data = map(lambda obj: getattr(obj, position), data)
-                logging.info(data)
                 results = self._get_result(data, CANDIDATES[position])
-                dump = {"results": results, "count": count}
-                json_dump = json.dumps(dump)
+                dump = {"results": results, "count": position_count}
                 self.response.headers.add_header('content-type', 'application/json', charset='utf-8')
-                self.response.out.write(json_dump)
+                self.response.out.write(json.dumps(dump))
 
     def post(self, position):
         if self.current_user is not None and self.current_user['email_verified']:
