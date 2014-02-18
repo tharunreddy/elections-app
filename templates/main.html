@@ -18,6 +18,10 @@
 	
 	<div id="fb-root"></div>
 	<script>
+	$(document).ready(function(){
+		$('header').hide();
+		$('#loading').css({'margin-top':(($(window).height()-180)/2)+'px'});
+	})
 	 window.fbAsyncInit = function() {
 	  FB.init({
 	    appId      : '{{facebook_app_id}}',
@@ -57,6 +61,7 @@
 
 	  function notAuth(){
 		$('#loading').hide();
+		$('header').fadeIn(500);
 		$('#wrapper').fadeIn(500);
 	}
 
@@ -65,8 +70,9 @@
 	
 	{% include 'header.html' %}
 	<div id="loading">
-		<div class="instr" style="padding:10px;font-size:20px">Loading</div>
-		<img src="img/loading.gif">
+		<div class="instr" style="padding:10px;font-size:20px;font-weight:bold">Rangoli Elections 2014</div>
+		<img src="img/logo.png" alt="Logo">
+		<div class="instr" style="padding:10px;font-size:17px">Loading...</div>
 	</div>
 	<div id="wrapper" style="display:none">
 		<div id="election-head">
