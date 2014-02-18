@@ -211,7 +211,7 @@ header{
 	cursor:pointer;
 	border:0;
 }
-.vote-submit:hover{
+.vote-submit:hover, .results-refresh:hover{
 	background-color:#FFA85A;
 }
 .nav-sel{
