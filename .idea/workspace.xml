@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5bf5bc4-6fef-4bf9-92fd-60b1ede45d9d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models.py" afterPath="$PROJECT_DIR$/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vote.py" afterPath="$PROJECT_DIR$/vote.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fbExample.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,10 +35,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vote.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="vote.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vote.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="122" selection-start="1433" selection-end="1433" vertical-scroll-proportion="0.0" vertical-offset="604" max-vertical-offset="1173">
+            <state line="40" column="69" selection-start="1380" selection-end="1380" vertical-scroll-proportion="0.43233743" vertical-offset="434" max-vertical-offset="1173">
               <folding>
                 <element signature="e#96#110#0" expanded="true" />
               </folding>
@@ -46,10 +46,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="63" selection-start="3419" selection-end="3419" vertical-scroll-proportion="0.65745854" vertical-offset="1190" max-vertical-offset="4131">
+            <state line="170" column="18" selection-start="6074" selection-end="6074" vertical-scroll-proportion="-7.1923075" vertical-offset="2703" max-vertical-offset="4131">
               <folding>
                 <element signature="e#152#167#0" expanded="true" />
               </folding>
@@ -151,10 +151,10 @@
         <option value="$PROJECT_DIR$/templates/vote.html" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/helpers.py" />
-        <option value="$PROJECT_DIR$/vote.py" />
         <option value="$PROJECT_DIR$/templates/not_rangoli.html" />
         <option value="$PROJECT_DIR$/models.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/vote.py" />
       </list>
     </option>
   </component>
@@ -831,10 +831,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/candidates.py">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="953" selection-end="953" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <folding />
+        <state line="170" column="18" selection-start="6074" selection-end="6074" vertical-scroll-proportion="-7.1923075" vertical-offset="2703" max-vertical-offset="4131">
+          <folding>
+            <element signature="e#152#167#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -845,20 +847,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vote.py">
+    <entry file="file://$PROJECT_DIR$/candidates.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="122" selection-start="1433" selection-end="1433" vertical-scroll-proportion="0.0" vertical-offset="604" max-vertical-offset="1173">
-          <folding>
-            <element signature="e#96#110#0" expanded="true" />
-          </folding>
+        <state line="12" column="0" selection-start="953" selection-end="953" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/vote.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="63" selection-start="3419" selection-end="3419" vertical-scroll-proportion="0.65745854" vertical-offset="1190" max-vertical-offset="4131">
+        <state line="40" column="69" selection-start="1380" selection-end="1380" vertical-scroll-proportion="0.43233743" vertical-offset="434" max-vertical-offset="1173">
           <folding>
-            <element signature="e#152#167#0" expanded="true" />
+            <element signature="e#96#110#0" expanded="true" />
           </folding>
         </state>
       </provider>

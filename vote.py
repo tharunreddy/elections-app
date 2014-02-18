@@ -38,7 +38,7 @@ class VotingHandler(BaseHandler):
             self.response.out.write(json_dump)
 
     def post(self, position):
-        if self.current_user is not None and self.current_user['email_verified'] and self.current_user['is_part_of_rangoli']:
+        if self.current_user is not None and self.current_user['email_verified']:
             user = User.get_by_key_name(self.current_user['id'])
             if user is not None:
                 user_chair = self.request.get(position)
