@@ -90,7 +90,6 @@ class BaseHandler(webapp2.RequestHandler):
                     access_token=user.access_token,
                     email_verified = user.email_verified,
                     verification_code = user.verification_code,
-                    is_part_of_rangoli = user.is_part_of_rangoli
                 )
                 return self.session.get("user")
         return None
