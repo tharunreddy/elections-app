@@ -46,6 +46,8 @@ class BaseHandler(webapp2.RequestHandler):
                 if group['id'] == group_id:
                     return True
             return False
+        else:
+            self.redirect("/")
 
     @property
     def current_user(self):
