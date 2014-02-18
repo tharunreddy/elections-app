@@ -217,6 +217,7 @@ input[type=radio]{
 	padding:0 10px;
 	text-align:left;
 	font-family:'Yanone Kaffeesatz', sans-serif;
+	width:100px;
 }
 
 .vote-count{
