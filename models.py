@@ -16,7 +16,6 @@ class User(db.Model):
     penn_id = db.StringProperty(required=False)
     email_verified = db.BooleanProperty(required=True)
     verification_code = db.StringProperty(required=True)
-    is_part_of_rangoli = db.BooleanProperty(required=True)
 
     #posts
     chair = db.StringProperty(required=False)

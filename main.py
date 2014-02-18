@@ -34,12 +34,18 @@ class BaseHandler(webapp2.RequestHandler):
     user. See http://developers.facebook.com/docs/authentication/ for
     more information.
     """
-    @classmethod
-    def is_part_of_group(cls, groups, group_id):
-        for group in groups['data']:
-            if group['id'] == group_id:
-                return True
 
+    def is_part_of_group(self, group_id):
+        cookie = facebook.get_user_from_cookie(self.request.cookies,
+                                               FACEBOOK_APP_ID,
+                                               FACEBOOK_APP_SECRET)
+        if cookie:
+            graph = facebook.GraphAPI(cookie['uid'])
+            groups = graph.get_connections("me", "groups")
+            for group in groups['data']:
+                if group['id'] == group_id:
+                    return True
+            return False
 
     @property
     def current_user(self):
@@ -56,6 +62,7 @@ class BaseHandler(webapp2.RequestHandler):
                 # Okay so user logged in.
                 # Now, check to see if existing user
                 user = User.get_by_key_name(cookie["uid"])
+
                 if not user:
                     # Not an existing user so get user info
                     graph = facebook.GraphAPI(cookie["access_token"])
@@ -71,7 +78,6 @@ class BaseHandler(webapp2.RequestHandler):
                         access_token=cookie["access_token"],
                         email_verified = email_verified,
                         verification_code = verification_code,
-                        is_part_of_rangoli = BaseHandler.is_part_of_group(groups, "39581072545")
                     )
                     user.put()
                 elif user.access_token != cookie["access_token"]:
@@ -166,9 +172,8 @@ class EmailHandler(WriteHandler):
             self.redirect('/')
             return
 
-        if not self.current_user['is_part_of_rangoli']:
+        if not self.is_part_of_group("39581072545"):
             self.render("not_rangoli.html")
-            self.redirect('/logout')
             return
 
         if not self.current_user['email_verified']:

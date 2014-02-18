@@ -4,8 +4,6 @@
     <list default="true" id="a5bf5bc4-6fef-4bf9-92fd-60b1ede45d9d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models.py" afterPath="$PROJECT_DIR$/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vote.py" afterPath="$PROJECT_DIR$/vote.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fbExample.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,22 +46,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/models.py">
+      <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="14" selection-start="1764" selection-end="1764" vertical-scroll-proportion="1.1353251" vertical-offset="0" max-vertical-offset="1411">
-              <folding />
+            <state line="174" column="38" selection-start="6237" selection-end="6237" vertical-scroll-proportion="4.1012893" vertical-offset="731" max-vertical-offset="4165">
+              <folding>
+                <element signature="e#152#167#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.py">
+      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="151" column="37" selection-start="5291" selection-end="5291" vertical-scroll-proportion="0.0" vertical-offset="2355" max-vertical-offset="4080">
-              <folding>
-                <element signature="e#152#167#0" expanded="true" />
-              </folding>
+            <state line="19" column="0" selection-start="638" selection-end="638" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="1394">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -89,7 +87,7 @@
       <file leaf-file-name="not_rangoli.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/not_rangoli.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="18" selection-start="2012" selection-end="2012" vertical-scroll-proportion="-15.0" vertical-offset="681" max-vertical-offset="1292">
+            <state line="62" column="112" selection-start="1996" selection-end="1996" vertical-scroll-proportion="-13.692307" vertical-offset="698" max-vertical-offset="1292">
               <folding />
             </state>
           </provider>
@@ -98,7 +96,7 @@
       <file leaf-file-name="candidates.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/candidates.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="953" selection-end="953" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="306">
+            <state line="12" column="0" selection-start="953" selection-end="953" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
               <folding />
             </state>
           </provider>
@@ -153,10 +151,10 @@
         <option value="$PROJECT_DIR$/templates/vote.html" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/helpers.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/vote.py" />
         <option value="$PROJECT_DIR$/templates/not_rangoli.html" />
         <option value="$PROJECT_DIR$/models.py" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -474,7 +472,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -765,23 +763,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="25" selection-start="2179" selection-end="2179" vertical-scroll-proportion="0.0" vertical-offset="1013" max-vertical-offset="1598">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="0" selection-start="221" selection-end="221" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="527">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/candidates.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="953" selection-end="953" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
           <folding />
         </state>
       </provider>
@@ -826,13 +810,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/not_rangoli.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="18" selection-start="2012" selection-end="2012" vertical-scroll-proportion="-15.0" vertical-offset="681" max-vertical-offset="1292">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm30/system/python_stubs/-762174762/__builtin__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="0" selection-start="1104" selection-end="1104" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="86683">
@@ -840,12 +817,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/templates/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="151" column="37" selection-start="5291" selection-end="5291" vertical-scroll-proportion="0.0" vertical-offset="2355" max-vertical-offset="4080">
-          <folding>
-            <element signature="e#152#167#0" expanded="true" />
-          </folding>
+        <state line="73" column="25" selection-start="2179" selection-end="2179" vertical-scroll-proportion="-8.769231" vertical-offset="1013" max-vertical-offset="1598">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/not_rangoli.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="112" selection-start="1996" selection-end="1996" vertical-scroll-proportion="-13.692307" vertical-offset="698" max-vertical-offset="1292">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/candidates.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="0" selection-start="953" selection-end="953" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="638" selection-end="638" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="1394">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -858,10 +854,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models.py">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="14" selection-start="1764" selection-end="1764" vertical-scroll-proportion="1.1353251" vertical-offset="0" max-vertical-offset="1411">
-          <folding />
+        <state line="174" column="38" selection-start="6237" selection-end="6237" vertical-scroll-proportion="4.1012893" vertical-offset="731" max-vertical-offset="4165">
+          <folding>
+            <element signature="e#152#167#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
