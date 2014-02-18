@@ -232,3 +232,11 @@ input[type=radio]{
 .ran-out-text{
 	font-family:'Yanone Kaffeesatz', sans-serif;padding: 40px;color: #888;
 }
+
+footer{
+    text-align: center;
+    padding: 10px 30px;
+    background-color: #ddd;
+    font-size: 12px;
+    font-family: Helvetica, sans-serif;
+}
