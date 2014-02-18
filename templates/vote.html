@@ -80,6 +80,14 @@
 			$(this).addClass('nav-sel');
 		});
 		
+		//Navigation
+		$('.pos-nav').click(function(){
+			var pos=$(this).attr('to');
+			$('html,body').animate({
+				scrollTop: $('#'+pos).offset().top-140
+			},1000);
+		})
+		
 		function getResults(pos){
 			$.ajax({
 				dataType: "json",
@@ -110,8 +118,8 @@
 		
 		function getAllResults(){
 			getResults('chair');
-			/*getResults('vicechair');
-			getResults('treasurer');
+			getResults('vicechair');
+			/*getResults('treasurer');
 			getResults('socialchair');
 			getResults('operationschair');
 			getResults('gapsaliason');
@@ -205,12 +213,30 @@
 			</div>
 		</div>
 		<div class="clear"></div>
-		<div style="position:absolute;top:140px;width:100%">
-			<div id="head-election">ELECTIONS 2014</div>
+		<div style="position:absolute;top:35px;width:100%">
+			<div id="head-election">
+				<div id="head-election-header">ELECTIONS 2014</div>
+				<div class="left">
+					<div class="pos-nav" to="chair">Chair</div>
+					<div class="pos-nav" to="vicechair">Vice Chair</div>
+					<div class="pos-nav" to="treasurer">Treasurer</div>
+					<div class="pos-nav" to="socialchair">Social Chair</div>
+				</div>
+				<div class="right">
+					<div class="pos-nav" to="operationschair">Operations Chair</div>
+					<div class="pos-nav" to="gapsaliason">GAPSA Liaison</div>
+					<div class="pos-nav" to="communicationschair">Communications Chair</div>
+					<div class="pos-nav" to="webadmin">Web Administrator</div>
+				</div>
+				<div class="clear"></div>
+				<div class="last">
+					<div class="pos-nav" to="marketingchair">Marketing Chair</div>
+				</div>
+			</div>
 		</div>
 	</header>
 	
-	<div class="stellar-background" style="background:url(img/love.jpg) no-repeat" data-stellar-background-ratio="0.5"></div>
+	<div class="stellar-background" style="background:url(img/love.jpg) no-repeat;margin-top:100px" data-stellar-background-ratio="0.5"></div>
 	
 	<div class="positions" id="chair">
 		<h1>CHAIR</h1>
@@ -267,6 +293,58 @@
 	</div>
 	
 	<div class="stellar-background" style="background:url(img/college-hall.jpg) no-repeat" data-stellar-background-ratio="0.5"></div>
+	
+	<div class="positions" id="vicechair">
+		<h1>VICE CHAIR</h1>
+		<div class="positions-desc">
+			<ul>
+				<li>Shares responsibilities with the Chair and assists him/her in overseeing the smooth functioning of office. </li><li>Represent Rangoli to outside parties in the absence of the Chair. </li><li>Coordinates with the Social chair, Operations co-chairs, and Marketing chair to organise the various calendar events.</li><li> Must be present at all meetings of the board. </li>
+			</ul>
+		</div>
+		<div class="positions-vote">
+			<div class="positions-nav">
+				<div class="positions-vote-page left nav-sel">VOTE</div>
+				<div class="positions-results-page left">RESULTS</div>
+				<div class="clear"></div>
+			</div>
+			<div class="positions-overflow">
+				<div class="positions-holder">
+					<div class="positions-noms positions-slide">
+						<form id="form-chair" method="POST" style="margin-bottom:10px;">
+							<div class="total-noms">
+								<input type="radio" name="vicechair" value="cand1">
+								<div class="left">
+									<img src="img/nirmal.png">
+									<div class="nom-name">Nirmal Utwani 01</div>
+								</div>
+								<input type="radio" name="vicechair" value="cand2">
+								<div class="left">
+									<img src="img/nirmal.png">
+									<div class="nom-name">Nirmal Utwani 02</div>
+								</div>
+								<input type="radio" name="vicechair" value="cand3">
+								<div class="left">
+									<img src="img/nirmal.png">
+									<div class="nom-name">Nirmal Utwani 03</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<input class="vote-submit" type="submit" value="Vote">
+						</form>
+						<div class="vote-count"></div>
+						<div class="ran-out">
+							<div class="ran-out-smiley">:(</div>
+							<div class="ran-out-text">You ran out of votes.</div>
+						</div>
+					</div>
+					<div class="positions-results positions-slide">
+						<div class="positions-results-holder"></div>
+						<input class="results-refresh" type="button" value="Refresh results">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	
 	<footer>
 		<div class="left">Copyright 2014. Penn Rangoli.</div>

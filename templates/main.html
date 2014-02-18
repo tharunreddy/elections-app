@@ -32,6 +32,9 @@
 
 	FB.getLoginStatus(function(response){
 		if (response.status === 'connected') {
+		 /*$('#loading').show();
+		 $('header').hide();
+		 $('#wrapper').hide();*/
 	     location.replace(location.href+"email");
 	    } else if (response.status === 'not_authorized') {
 	      notAuth();
