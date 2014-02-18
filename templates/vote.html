@@ -47,19 +47,17 @@
 		});
 		
 		$('.positions-results-page').click(function(){
-			$(this).parent().siblings('.positions-overflow').find('.positions-holder').stop().animate({'top':'-300px'});
+			$(this).parent().siblings('.positions-overflow').find('.positions-holder').stop().animate({'top':'-350px'});
 			$(this).siblings('.left').removeClass('nav-sel');
 			$(this).addClass('nav-sel');
 			var pos=$(this).parent().parent().parent().attr('id');
 			getResults(pos);
-			console.log(pos);
 			
 		});
 		
 		$('.positions-results > .results-refresh').click(function(){
 			var pos=$(this).parent().parent().parent().parent().parent().attr('id');
 			getResults(pos);
-			console.log(pos);
 		})
 		
 		$('.positions-vote-page').click(function(){
@@ -75,11 +73,20 @@
 				type: 'GET',
 				success: function(data){
 					var items=[];
+					console.log(data);
 					$.each(data.results,function(key,val){
 						items.push('<div class="positions-results-nom"><div class="left res-nom-name">'+key+'</div><div class="left bar"><div class="filled" style="width:'+val+'%"></div></div><div class="left percentage">'+val+'%</div><div class="clear"></div></div>');
 					});
 					//console.log(data);
 					$('#'+pos).find('.positions-results-holder').html(items.join(""));
+					var votesLeft=4-data.count;
+					if(votesLeft!=0){
+						$('#'+pos).find('.vote-count').html("You have "+votesLeft+" votes left. Use them wisely.");
+					}else{
+						$('#'+pos).find('.vote-count').hide();
+						$('#'+pos).find('form').hide();
+						$('#'+pos).find('.ran-out').fadeIn();
+					}
 				},
 				error: function(jqXHR,textStatus,errorThrown){
 					console.log(textStatus);
@@ -98,6 +105,8 @@
 			getResults('webadmin');
 			getResults('marketingchair');*/
 		}
+		
+		getAllResults();
 		
 		/*var getRes=setInterval(function(){
 			getAllResults();
@@ -206,7 +215,7 @@
 			<div class="positions-overflow">
 				<div class="positions-holder">
 					<div class="positions-noms positions-slide">
-						<form id="form-chair" method="POST">
+						<form id="form-chair" method="POST" style="margin-bottom:10px;">
 							<div class="total-noms">
 								<input type="radio" name="chair" value="cand1">
 								<div class="left">
@@ -227,6 +236,11 @@
 							</div>
 							<input class="vote-submit" type="submit" value="Vote">
 						</form>
+						<div class="vote-count"></div>
+						<div class="ran-out">
+							<div class="ran-out-smiley">:(</div>
+							<div class="ran-out-text">You ran out of votes.</div>
+						</div>
 					</div>
 					<div class="positions-results positions-slide">
 						<div class="positions-results-holder"></div>
