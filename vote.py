@@ -37,7 +37,7 @@ class VotingHandler(BaseHandler):
                 data = list(db.GqlQuery(query))
                 data = map(lambda obj: getattr(obj, position), data)
                 results = self._get_result(data, CANDIDATES[position])
-                dump = {"results": results, "count": count}
+                dump = {results: results, count: count}
                 json_dump = json.dumps(dump)
                 self.response.headers.add_header('content-type', 'application/json', charset='utf-8')
                 self.response.out.write(json_dump)
