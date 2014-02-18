@@ -50,7 +50,17 @@
 			$(this).parent().siblings('.positions-overflow').find('.positions-holder').stop().animate({'top':'-300px'});
 			$(this).siblings('.left').removeClass('nav-sel');
 			$(this).addClass('nav-sel');
+			var pos=$(this).parent().parent().parent().attr('id');
+			getResults(pos);
+			console.log(pos);
+			
 		});
+		
+		$('.positions-results > .results-refresh').click(function(){
+			var pos=$(this).parent().parent().parent().parent().parent().attr('id');
+			getResults(pos);
+			console.log(pos);
+		})
 		
 		$('.positions-vote-page').click(function(){
 			$(this).parent().siblings('.positions-overflow').find('.positions-holder').stop().animate({'top':0});
@@ -65,11 +75,11 @@
 				type: 'GET',
 				success: function(data){
 					var items=[];
-					$.each(data,function(key,val){
+					$.each(data.results,function(key,val){
 						items.push('<div class="positions-results-nom"><div class="left res-nom-name">'+key+'</div><div class="left bar"><div class="filled" style="width:'+val+'%"></div></div><div class="left percentage">'+val+'%</div><div class="clear"></div></div>');
 					});
 					//console.log(data);
-					$('#'+pos).find('.positions-results').append(items.join(""));
+					$('#'+pos).find('.positions-results-holder').html(items.join(""));
 				},
 				error: function(jqXHR,textStatus,errorThrown){
 					console.log(textStatus);
@@ -77,8 +87,21 @@
 			});
 		}
 		
-		getResults('chair');
+		function getAllResults(){
+			getResults('chair');
+			/*getResults('vicechair');
+			getResults('treasurer');
+			getResults('socialchair');
+			getResults('operationschair');
+			getResults('gapsaliason');
+			getResults('communicationschair');
+			getResults('webadmin');
+			getResults('marketingchair');*/
+		}
 		
+		/*var getRes=setInterval(function(){
+			getAllResults();
+		},10000);*/
 	})
 	</script>
     <script src="js/bootstrap.min.js"></script>
@@ -126,19 +149,11 @@
 		
 	function runAPI(accessToken){
 		FB.api(
-		    "/me?fields=picture",
+		    "/me?fields=picture,name",
 		    function (response) {
 		      if (response && !response.error) {
-		        //$('#user-welcome').html('Welcome '+response.name);
 				$('.user-pic').html("<img src='"+response.picture.data.url+"' alt='profile'>");
-		      }
-		    }
-		);
-		FB.api(
-		    "/me",
-		    function (response) {
-		      if (response && !response.error) {
-		        $('#user-welcome').html('Welcome '+response.name);
+				$('#user-welcome').html('Welcome '+response.name);
 		      }
 		    }
 		);
@@ -159,7 +174,9 @@
 			</div>
 			<div id="user-hover">
 				<div class="right user-pic"></div>
-				<div class="right logout" onclick="FB.logout()">Logout of Facebook</div>
+				<div class="right logout" onclick="FB.logout(function(res){
+					location.replace(location.href.substring(0, location.href.indexOf('/'))+'logout');
+				})">Logout of Facebook</div>
 				<div class="clear"></div>
 			</div>
 		</div>
@@ -212,7 +229,8 @@
 						</form>
 					</div>
 					<div class="positions-results positions-slide">
-						
+						<div class="positions-results-holder"></div>
+						<input class="results-refresh" type="button" value="Refresh results">
 					</div>
 				</div>
 			</div>
