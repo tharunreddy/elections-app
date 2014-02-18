@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a5bf5bc4-6fef-4bf9-92fd-60b1ede45d9d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vote.py" afterPath="$PROJECT_DIR$/vote.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fbExample.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,7 +37,7 @@
       <file leaf-file-name="vote.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vote.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="47" selection-start="1330" selection-end="1330" vertical-scroll-proportion="0.82073814" vertical-offset="196" max-vertical-offset="1258">
+            <state line="40" column="51" selection-start="1361" selection-end="1361" vertical-scroll-proportion="0.6713533" vertical-offset="298" max-vertical-offset="1275">
               <folding>
                 <element signature="e#96#110#0" expanded="true" />
               </folding>
@@ -105,7 +104,7 @@
       <file leaf-file-name="vote.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/vote.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="183" column="39" selection-start="5787" selection-end="5787" vertical-scroll-proportion="0.0" vertical-offset="3111" max-vertical-offset="3927">
+            <state line="201" column="39" selection-start="6404" selection-end="6404" vertical-scroll-proportion="0.0" vertical-offset="3417" max-vertical-offset="4233">
               <folding />
             </state>
           </provider>
@@ -777,7 +776,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/vote.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="183" column="39" selection-start="5787" selection-end="5787" vertical-scroll-proportion="0.0" vertical-offset="3111" max-vertical-offset="3927">
+        <state line="201" column="39" selection-start="6404" selection-end="6404" vertical-scroll-proportion="0.0" vertical-offset="3417" max-vertical-offset="4233">
           <folding />
         </state>
       </provider>
@@ -856,7 +855,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vote.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="47" selection-start="1330" selection-end="1330" vertical-scroll-proportion="0.82073814" vertical-offset="196" max-vertical-offset="1258">
+        <state line="40" column="51" selection-start="1361" selection-end="1361" vertical-scroll-proportion="0.6713533" vertical-offset="298" max-vertical-offset="1275">
           <folding>
             <element signature="e#96#110#0" expanded="true" />
           </folding>
