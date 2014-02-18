@@ -67,7 +67,6 @@ class BaseHandler(webapp2.RequestHandler):
                     # Not an existing user so get user info
                     graph = facebook.GraphAPI(cookie["access_token"])
                     profile = graph.get_object("me")
-                    groups = graph.get_connections("me", "groups")
                     email_verified = False
                     verification_code = generate_verification_code()
                     user = User(
