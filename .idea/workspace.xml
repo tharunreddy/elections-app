@@ -37,7 +37,7 @@
       <file leaf-file-name="vote.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vote.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="38" selection-start="379" selection-end="379" vertical-scroll-proportion="0.41827768" vertical-offset="85" max-vertical-offset="1258">
+            <state line="25" column="81" selection-start="662" selection-end="662" vertical-scroll-proportion="0.59753954" vertical-offset="85" max-vertical-offset="1258">
               <folding>
                 <element signature="e#96#110#0" expanded="true" />
               </folding>
@@ -104,7 +104,7 @@
       <file leaf-file-name="vote.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/vote.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="201" column="39" selection-start="6404" selection-end="6404" vertical-scroll-proportion="0.0" vertical-offset="3417" max-vertical-offset="4233">
+            <state line="215" column="39" selection-start="6904" selection-end="6904" vertical-scroll-proportion="0.0" vertical-offset="3655" max-vertical-offset="4471">
               <folding />
             </state>
           </provider>
@@ -776,7 +776,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/vote.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="201" column="39" selection-start="6404" selection-end="6404" vertical-scroll-proportion="0.0" vertical-offset="3417" max-vertical-offset="4233">
+        <state line="215" column="39" selection-start="6904" selection-end="6904" vertical-scroll-proportion="0.0" vertical-offset="3655" max-vertical-offset="4471">
           <folding />
         </state>
       </provider>
@@ -855,7 +855,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vote.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="38" selection-start="379" selection-end="379" vertical-scroll-proportion="0.41827768" vertical-offset="85" max-vertical-offset="1258">
+        <state line="25" column="81" selection-start="662" selection-end="662" vertical-scroll-proportion="0.59753954" vertical-offset="85" max-vertical-offset="1258">
           <folding>
             <element signature="e#96#110#0" expanded="true" />
           </folding>

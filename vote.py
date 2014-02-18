@@ -23,7 +23,7 @@ class VotingHandler(BaseHandler):
         total_votes = sum(result_dict.values())
         res = None
         if total_votes > 0:
-            res = {DATA[cand]: result_dict[cand]*100/float(total_votes) for cand in result_dict}
+            res = {DATA[cand]: round(result_dict[cand]*100/float(total_votes), 2) for cand in result_dict}
         else:
             res = {cand: 0 for cand in DATA}
         return res
