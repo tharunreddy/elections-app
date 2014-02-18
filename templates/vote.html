@@ -73,7 +73,7 @@
 				type: 'GET',
 				success: function(data){
 					var items=[];
-					console.log(data);
+					//console.log(data);
 					$.each(data.results,function(key,val){
 						items.push('<div class="positions-results-nom"><div class="left res-nom-name">'+key+'</div><div class="left bar"><div class="filled" style="width:'+val+'%"></div></div><div class="left percentage">'+val+'%</div><div class="clear"></div></div>');
 					});
