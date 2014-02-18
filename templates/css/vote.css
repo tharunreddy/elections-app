@@ -94,6 +94,7 @@ header{
 	background-color:#333;
 	color:white;
 	overflow:visible;
+	opacity:0.95;
 }
 #head-election-header{
 	padding:20px;
