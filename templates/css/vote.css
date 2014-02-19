@@ -98,6 +98,7 @@ header{
 }
 #head-election-header{
 	padding:20px;
+	padding-bottom:9px;
 }
 #head-election .left, #head-election .right{
 	width:50%;
