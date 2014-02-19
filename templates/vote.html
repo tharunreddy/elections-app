@@ -104,14 +104,22 @@
 					var votesLeft=totalVotes-data.count;
 					if(votesLeft!=0){
 						var time="times";
+						var them="them";
 						if(votesLeft==1){
 							time="time";
+							them="it";
 						}
-						$('#'+pos).find('.vote-count').html("You can change your vote only "+votesLeft+" "+time+"  now. Use them wisely.");
+						$('#'+pos).find('.vote-count').html("You can change your vote only "+votesLeft+" "+time+"  now. Use "+them+" wisely.");
 					}else{
 						$('#'+pos).find('.vote-count').hide();
 						$('#'+pos).find('form').hide();
 						$('#'+pos).find('.ran-out').fadeIn();
+						$('#'+pos).find('.positions-results-page').trigger('click');
+						$('.pos-nav').each(function(){
+							if($(this).attr('to')==pos){
+								$(this).css({'background-color':'rgb(29, 119, 21)'});
+							}
+						})
 					}
 				},
 				error: function(jqXHR,textStatus,errorThrown){
@@ -356,7 +364,7 @@
 		</div>
 	</div>
 	
-	<div class="stellar-background" style="background:url(img/college-hall.jpg) no-repeat" data-stellar-background-ratio="0.5"></div>
+	<div class="stellar-background" style="background:url(img/back09.jpg) no-repeat" data-stellar-background-ratio="0.5"></div>
 	
 	<div class="positions" id="treasurer">
 		<h1>TREASURER</h1>
@@ -410,7 +418,7 @@
 		</div>
 	</div>
 	
-	<div class="stellar-background" style="background:url(img/college-hall.jpg) no-repeat" data-stellar-background-ratio="0.5"></div>
+	<div class="stellar-background" style="background:url(img/back10.jpg) no-repeat" data-stellar-background-ratio="0.5"></div>
 	
 	<div class="positions" id="socialchair">
 		<h1>SOCIAL CHAIR</h1>
@@ -464,7 +472,7 @@
 		</div>
 	</div>
 	
-	<div class="stellar-background" style="background:url(img/college-hall.jpg) no-repeat" data-stellar-background-ratio="0.5"></div>
+	<div class="stellar-background" style="background:url(img/back04.jpg) no-repeat" data-stellar-background-ratio="0.5"></div>
 	
 	<div class="positions" id="operationschair">
 		<h1>OPERATIONS CHAIR</h1>
@@ -519,7 +527,7 @@
 		</div>
 	</div>
 	
-	<div class="stellar-background" style="background:url(img/college-hall.jpg) no-repeat" data-stellar-background-ratio="0.5"></div>
+	<div class="stellar-background" style="background:url(img/back05.jpg) no-repeat" data-stellar-background-ratio="0.5"></div>
 	
 	<div class="positions" id="gapsaliason">
 		<h1>GAPSA LIAISON</h1>
@@ -573,7 +581,7 @@
 		</div>
 	</div>
 	
-	<div class="stellar-background" style="background:url(img/college-hall.jpg) no-repeat" data-stellar-background-ratio="0.5"></div>
+	<div class="stellar-background" style="background:url(img/back02.jpg) no-repeat" data-stellar-background-ratio="0.5"></div>
 	
 	<div class="positions" id="communicationschair">
 		<h1>COMMUNICATIONS CHAIR</h1>
@@ -627,7 +635,7 @@
 		</div>
 	</div>
 	
-	<div class="stellar-background" style="background:url(img/college-hall.jpg) no-repeat" data-stellar-background-ratio="0.5"></div>
+	<div class="stellar-background" style="background:url(img/back06.jpg) no-repeat" data-stellar-background-ratio="0.5"></div>
 	
 	<div class="positions" id="webadmin">
 		<h1>WEB ADMINISTRATOR</h1>
@@ -681,7 +689,7 @@
 		</div>
 	</div>
 	
-	<div class="stellar-background" style="background:url(img/college-hall.jpg) no-repeat" data-stellar-background-ratio="0.5"></div>
+	<div class="stellar-background" style="background:url(img/back07.jpg) no-repeat" data-stellar-background-ratio="0.5"></div>
 	
 	<div class="positions" id="marketingchair">
 		<h1>MARKETING CHAIR</h1>
