@@ -103,7 +103,11 @@
 					$('#'+pos).find('.positions-results-holder').html(items.join(""));
 					var votesLeft=totalVotes-data.count;
 					if(votesLeft!=0){
-						$('#'+pos).find('.vote-count').html("You have "+votesLeft+" votes left. Use them wisely.");
+						var time="times";
+						if(votesLeft==1){
+							time="time";
+						}
+						$('#'+pos).find('.vote-count').html("You can change your vote only "+votesLeft+" "+time+"  now. Use them wisely.");
 					}else{
 						$('#'+pos).find('.vote-count').hide();
 						$('#'+pos).find('form').hide();
@@ -733,7 +737,7 @@
 	
 	<footer>
 		<div class="left">Copyright 2014. Penn Rangoli.</div>
-		<div class="right">Developed by Tharun Reddy. Designed by Gopinath Danda.</div>
+		<div class="right">Site developed by Tharun Reddy and Gopinath Danda.</div>
 		<div class="clear"></div>
 	</footer>
   </body>
