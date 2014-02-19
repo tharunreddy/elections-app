@@ -7,7 +7,6 @@
 	  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300,200,400' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 	<link href="css/vote.css" rel="stylesheet" media="screen">
 	<!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
@@ -95,7 +94,7 @@
 				type: 'GET',
 				success: function(data){
 					var items=[];
-					//console.log(data);
+					console.log(data);
 					$.each(data.results,function(key,val){
 						items.push('<div class="positions-results-nom"><div class="left res-nom-name">'+key+'</div><div class="left bar"><div class="filled" style="width:'+val+'%"></div></div><div class="left percentage">'+val+'%</div><div class="clear"></div></div>');
 					});
