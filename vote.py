@@ -1,7 +1,7 @@
 __author__ = 'Tharun'
 
 config = {}
-config['webapp2_extras.sessions'] = dict(secret_key='fart')
+config['webapp2_extras.sessions'] = dict(secret_key='delivery')
 
 import logging
 import json

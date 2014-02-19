@@ -5,16 +5,13 @@
 
 FACEBOOK_APP_ID = "608511272550491"
 FACEBOOK_APP_SECRET = "7cf6282934b900d77afe7c4ceed90669"
-
+RANGOLI_GROUP_ID = "39581072545"
 
 import facebook
 import webapp2
 import os
 import jinja2
 import logging
-import datetime
-import json
-from collections import Counter
 
 from webapp2_extras import sessions
 from helpers import verify_email,\
@@ -92,6 +89,7 @@ class BaseHandler(webapp2.RequestHandler):
                     access_token=user.access_token,
                     email_verified = user.email_verified,
                     verification_code = user.verification_code,
+                    is_part_of_rangoli = self.is_part_of_group(RANGOLI_GROUP_ID)
                 )
                 return self.session.get("user")
         return None
@@ -172,8 +170,8 @@ class EmailHandler(WriteHandler):
             self.redirect('/')
             return
 
-        if not self.is_part_of_group("39581072545"):
-            self.render("not_rangoli.html")
+        if not self.current_user['is_part_of_rangoli']:
+            self.redirect('/notrangoli')
             return
 
         if not self.current_user['email_verified']:
@@ -183,10 +181,15 @@ class EmailHandler(WriteHandler):
 
     def post(self):
         if self.current_user is not None:
+
+            if not self.current_user['is_part_of_rangoli']:
+                self.redirect('/notrangoli')
+                return
+
             email = self.request.get('email')
 
             if not verify_email(email):
-                self.render("email_form.html", error_msg="Not a valid UPenn email or email not registered with Rangoli")
+                self.render("email_form.html", error_msg="Not a Valid UPenn email or email not registered with Rangoli")
                 return
 
             if User.is_email_verified(email):
@@ -194,6 +197,7 @@ class EmailHandler(WriteHandler):
                 return
 
             if User.is_pennid_verified(email):
+                logging.warning("Penn ID already verified but %s is trying to use different email" % self.current_user['name'])
                 self.render("email_form.html", error_msg="Penn ID already verified")
                 return
 
@@ -211,7 +215,19 @@ class EmailHandler(WriteHandler):
                 send_verification_email(email, self.current_user, webapp2.uri_for('verify', _full=True))
                 self.render("verification_email_sent.html", email=email)
             else:
+                # User's email is already verified so redirecting him to voting page
                 self.redirect("/vote")
+
+        else:
+            # if user is none
+            self.redirect('/logout')
+
+class NotRangoliHandler(WriteHandler):
+    def get(self):
+        if self.current_user is not None:
+            self.session["user"] = None
+        self.render("not_rangoli.html")
+
 
 class VotingPageHandler(WriteHandler):
     def get(self):
@@ -234,7 +250,8 @@ app = webapp2.WSGIApplication(
         webapp2.Route('/logout', handler=LogoutHandler),
         webapp2.Route('/verify', handler=VerifyHandler, name="verify"),
         webapp2.Route('/email', handler=EmailHandler),
-        webapp2.Route('/vote', handler=VotingPageHandler),],
+        webapp2.Route('/vote', handler=VotingPageHandler),
+        webapp2.Route('/notrangoli', handler=NotRangoliHandler),],
     debug=True,
     config=config
 )
