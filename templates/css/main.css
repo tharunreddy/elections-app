@@ -81,6 +81,8 @@ header{
 }
 #election-desc p{
 	margin:10px;
+	font-family:'Helvetica', sans-serif;
+	font-size:14px;
 }
 #login-fb{
 	cursor:pointer;
