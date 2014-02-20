@@ -22,7 +22,6 @@ from models import User
 config = {}
 config['webapp2_extras.sessions'] = dict(secret_key='fart')
 
-
 class BaseHandler(webapp2.RequestHandler):
     """Provides access to the active Facebook user in self.current_user
 
@@ -32,19 +31,15 @@ class BaseHandler(webapp2.RequestHandler):
     more information.
     """
 
-    def is_part_of_group(self, group_id):
-        cookie = facebook.get_user_from_cookie(self.request.cookies,
-                                               FACEBOOK_APP_ID,
-                                               FACEBOOK_APP_SECRET)
-        if cookie:
-            graph = facebook.GraphAPI(cookie['access_token'])
-            groups = graph.get_connections("me", "groups")
-            for group in groups['data']:
-                if group['id'] == group_id:
-                    return True
-            return False
-        else:
-            self.redirect("/")
+    def is_part_of_group(self, cookie, group_id):
+        logging.info("Entering checking for is part of group")
+        graph = facebook.GraphAPI(cookie['access_token'])
+        groups = graph.get_connections("me", "groups")
+        for group in groups['data']:
+            logging.info("group name" + group['name'])
+            if group['id'] == group_id:
+                return True
+        return False
 
     @property
     def current_user(self):
@@ -89,7 +84,7 @@ class BaseHandler(webapp2.RequestHandler):
                     access_token=user.access_token,
                     email_verified = user.email_verified,
                     verification_code = user.verification_code,
-                    is_part_of_rangoli = self.is_part_of_group(RANGOLI_GROUP_ID)
+                    is_part_of_rangoli = self.is_part_of_group(cookie, RANGOLI_GROUP_ID)
                 )
                 return self.session.get("user")
         return None
@@ -171,6 +166,7 @@ class EmailHandler(WriteHandler):
             return
 
         if not self.current_user['is_part_of_rangoli']:
+            logging.info("Not a part of rangoli")
             self.redirect('/notrangoli')
             return
 
@@ -224,8 +220,8 @@ class EmailHandler(WriteHandler):
 
 class NotRangoliHandler(WriteHandler):
     def get(self):
-        if self.current_user is not None:
-            self.session["user"] = None
+        #if self.current_user is not None:
+        #    self.session["user"] = None
         self.render("not_rangoli.html")
 
 
