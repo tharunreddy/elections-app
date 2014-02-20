@@ -129,15 +129,22 @@ header{
 	border-top:10px solid #ff881e;
 	background-color:#222;
 	color:white;
-	font-family: 'Helvetica', sans-serif;
+	/*font-family: 'Helvetica', sans-serif;*/
+	font-family: 'Roboto', sans-serif;
 	position:relative;
 	z-index:100;
+}
+.positions h1{
+	font-family: 'Roboto', sans-serif;
+	font-weight:100;
+	font-size:60px;
 }
 .positions p{
 	font-size:15px;
 }
 .positions li{
-	font-size:14px;
+	font-size:15px;
+	line-height:1.5;
 }
 .positions-desc{
 	padding:0 80px;
