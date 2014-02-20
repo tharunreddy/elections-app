@@ -85,7 +85,7 @@
 		//Navigation
 		$('.pos-nav').click(function(){
 			var pos=$(this).attr('to');
-			$('html,body').animate({
+			$('html,body').stop().animate({
 				scrollTop: $('#'+pos).offset().top-140
 			},1000);
 		})
@@ -237,22 +237,24 @@
 					</div>
 					<div class="clear"></div>
 				</div>
-				<div class="left">
+				<div class="last">
 					<div class="pos-nav" to="chair">Chair</div>
+					
+				</div>
+				<div class="clear"></div>
+				<div class="left">
 					<div class="pos-nav" to="vicechair">Vice Chair</div>
 					<div class="pos-nav" to="treasurer">Treasurer</div>
 					<div class="pos-nav" to="socialchair">Social Chair</div>
+					<div class="pos-nav" to="operationschair">Operations Chair</div>
 				</div>
 				<div class="right">
-					<div class="pos-nav" to="operationschair">Operations Chair</div>
 					<div class="pos-nav" to="gapsaliason">GAPSA Liaison</div>
 					<div class="pos-nav" to="communicationschair">Communications Chair</div>
 					<div class="pos-nav" to="webadmin">Web Administrator</div>
-				</div>
-				<div class="clear"></div>
-				<div class="last">
 					<div class="pos-nav" to="marketingchair">Marketing Chair</div>
 				</div>
+				<div class="clear"></div>
 			</div>
 		</div>
 	</header>
