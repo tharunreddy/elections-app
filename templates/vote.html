@@ -141,7 +141,9 @@
 		}
 		
 		//Get all results the first time
-		getAllResults();
+		$(window).load(function(){
+			getAllResults();
+		});
 		
 		/*var getRes=setInterval(function(){
 			getAllResults();
