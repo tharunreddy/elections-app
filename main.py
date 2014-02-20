@@ -32,11 +32,9 @@ class BaseHandler(webapp2.RequestHandler):
     """
 
     def is_part_of_group(self, cookie, group_id):
-        logging.info("Entering checking for is part of group")
         graph = facebook.GraphAPI(cookie['access_token'])
         groups = graph.get_connections("me", "groups")
         for group in groups['data']:
-            logging.info("group name" + group['name'])
             if group['id'] == group_id:
                 return True
         return False

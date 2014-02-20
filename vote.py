@@ -43,13 +43,13 @@ class VotingHandler(BaseHandler):
                 self.response.out.write(json.dumps(dump))
 
     def post(self, position):
-        if self.current_user is not None and self.current_user['email_verified']:
+        if self.current_user is not None and self.current_user['email_verified'] and self.current_user['is_part_of_rangoli']:
             user = User.get_by_key_name(self.current_user['id'])
             if user is not None:
-                user_chair = self.request.get(position)
-                if user_chair in CANDIDATES[position]:
+                user_vote = self.request.get(position)
+                if user_vote in CANDIDATES[position]:
                     if getattr(user, position+"_count") < 4:
-                        setattr(user, position, user_chair)
+                        setattr(user, position, user_vote)
                         count = getattr(user, position+"_count")
                         setattr(user, position+"_count", count+1)
                 user.put()
