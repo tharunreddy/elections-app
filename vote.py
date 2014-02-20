@@ -1,7 +1,7 @@
 __author__ = 'Tharun'
 
 config = {}
-config['webapp2_extras.sessions'] = dict(secret_key='delivery')
+config['webapp2_extras.sessions'] = dict(secret_key='fart')
 
 import logging
 import json
@@ -41,6 +41,8 @@ class VotingHandler(BaseHandler):
                 dump = {"results": results, "count": position_count}
                 self.response.headers.add_header('content-type', 'application/json', charset='utf-8')
                 self.response.out.write(json.dumps(dump))
+        else:
+            logging.warning("Current user is none in get request for a position")
 
     def post(self, position):
         if self.current_user is not None and self.current_user['email_verified'] and self.current_user['is_part_of_rangoli']:
