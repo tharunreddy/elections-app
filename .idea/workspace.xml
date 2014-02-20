@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a5bf5bc4-6fef-4bf9-92fd-60b1ede45d9d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vote.py" afterPath="$PROJECT_DIR$/vote.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fbExample.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,7 +38,7 @@
       <file leaf-file-name="vote.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vote.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="26" selection-start="930" selection-end="930" vertical-scroll-proportion="0.11525424" vertical-offset="510" max-vertical-offset="1462">
+            <state line="63" column="60" selection-start="2416" selection-end="2416" vertical-scroll-proportion="0.6542373" vertical-offset="685" max-vertical-offset="1479">
               <folding>
                 <element signature="e#96#110#0" expanded="true" />
               </folding>
@@ -49,9 +50,7 @@
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="230" column="51" selection-start="8502" selection-end="8502" vertical-scroll-proportion="0.0" vertical-offset="3741" max-vertical-offset="4352">
-              <folding>
-                <element signature="e#184#199#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -95,7 +94,7 @@
       <file leaf-file-name="candidates.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/candidates.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="953" selection-end="953" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+            <state line="12" column="0" selection-start="953" selection-end="953" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="306">
               <folding />
             </state>
           </provider>
@@ -104,7 +103,7 @@
       <file leaf-file-name="vote.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/vote.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="278" column="39" selection-start="8803" selection-end="8803" vertical-scroll-proportion="0.0" vertical-offset="4726" max-vertical-offset="12937">
+            <state line="278" column="39" selection-start="8828" selection-end="8828" vertical-scroll-proportion="0.0" vertical-offset="4726" max-vertical-offset="12937">
               <folding />
             </state>
           </provider>
@@ -487,12 +486,12 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -510,9 +509,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24981412" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24981412" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32792208" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32792208" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -584,9 +583,7 @@
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="56" selection-start="1167" selection-end="1167" vertical-scroll-proportion="0.0" vertical-offset="282" max-vertical-offset="3502">
-          <folding>
-            <element signature="e#184#199#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -598,9 +595,7 @@
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="174" column="53" selection-start="6266" selection-end="6266" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="4794">
-          <folding>
-            <element signature="e#184#199#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -637,9 +632,7 @@
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="63" column="0" selection-start="2018" selection-end="2018" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="4165">
-          <folding>
-            <element signature="e#184#199#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -661,9 +654,7 @@
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="212" column="45" selection-start="7744" selection-end="7744" vertical-scroll-proportion="0.0" vertical-offset="3503" max-vertical-offset="4012">
-          <folding>
-            <element signature="e#184#199#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -680,9 +671,7 @@
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="221" column="71" selection-start="8046" selection-end="8046" vertical-scroll-proportion="0.0" vertical-offset="3626" max-vertical-offset="4029">
-          <folding>
-            <element signature="e#184#199#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -699,9 +688,7 @@
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="124" column="77" selection-start="4554" selection-end="4554" vertical-scroll-proportion="0.0" vertical-offset="2095" max-vertical-offset="2992">
-          <folding>
-            <element signature="e#184#199#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -718,9 +705,7 @@
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="34" column="9" selection-start="1209" selection-end="1209" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="2822">
-          <folding>
-            <element signature="e#184#199#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -763,7 +748,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/vote.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="278" column="39" selection-start="8803" selection-end="8803" vertical-scroll-proportion="0.0" vertical-offset="4726" max-vertical-offset="12937">
+        <state line="278" column="39" selection-start="8828" selection-end="8828" vertical-scroll-proportion="0.0" vertical-offset="4726" max-vertical-offset="12937">
           <folding />
         </state>
       </provider>
@@ -821,9 +806,7 @@
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="230" column="51" selection-start="8502" selection-end="8502" vertical-scroll-proportion="0.0" vertical-offset="3741" max-vertical-offset="4352">
-          <folding>
-            <element signature="e#184#199#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -836,7 +819,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vote.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="26" selection-start="930" selection-end="930" vertical-scroll-proportion="0.11525424" vertical-offset="510" max-vertical-offset="1462">
+        <state line="63" column="60" selection-start="2416" selection-end="2416" vertical-scroll-proportion="0.6542373" vertical-offset="685" max-vertical-offset="1479">
           <folding>
             <element signature="e#96#110#0" expanded="true" />
           </folding>

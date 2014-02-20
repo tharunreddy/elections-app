@@ -42,6 +42,7 @@ class VotingHandler(BaseHandler):
             if position in CANDIDATES:
                 user = User.get_by_key_name(self.current_user['id'])
                 position_count = getattr(user, position+"_count")
+                position_count = 3 - position_count
                 query = "SELECT %s FROM User" % position
                 data = list(db.GqlQuery(query))
                 data = map(lambda obj: getattr(obj, position), data)
