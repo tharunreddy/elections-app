@@ -16,7 +16,7 @@
 	<script>
 	$(document).ready(function(){
 		
-		var totalVotes=4;
+		var totalVotes=3;
 		
 		$.stellar();
 		
@@ -104,7 +104,7 @@
 					});
 					//console.log(data);
 					$('#'+pos).find('.positions-results-holder').html(items.join(""));
-					var votesLeft=totalVotes-data.count;
+					var votesLeft=data.count;
 					if(votesLeft!=0){
 						var time="times";
 						var them="them";
