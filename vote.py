@@ -14,6 +14,8 @@ from main import BaseHandler
 from models import User
 from candidates import CANDIDATES
 from google.appengine.ext import db
+from google.appengine.api import memcache
+
 
 class VotingHandler(BaseHandler):
 
@@ -28,14 +30,22 @@ class VotingHandler(BaseHandler):
             res = dict([(cand, 0) for cand in DATA.values()])
         return res
 
+    def set_cache(self, query, key):
+        data = list(db.GqlQuery(query))
+        if not memcache.set(key, data):
+            logging.warning("memcache set failed for setting position data")
+            return False
+        return True
 
     def get(self, position):
         if self.current_user is not None:
             if position in CANDIDATES:
                 user = User.get_by_key_name(self.current_user['id'])
                 position_count = getattr(user, position+"_count")
-                query = "SELECT %s FROM User" % position
-                data = list(db.GqlQuery(query))
+                data = memcache.get(position)
+                if data is None:
+                    query = "SELECT %s FROM User" % position
+                    data = list(db.GqlQuery(query))
                 data = map(lambda obj: getattr(obj, position), data)
                 results = self._get_result(data, CANDIDATES[position])
                 dump = {"results": results, "count": position_count}
@@ -55,6 +65,8 @@ class VotingHandler(BaseHandler):
                         count = getattr(user, position+"_count")
                         setattr(user, position+"_count", count+1)
                 user.put()
+                query = "SELECT %s FROM User" % position
+                self.set_cache(query, position)
             else:
                 logging.warning("User is none while posting for position " + position)
         else:

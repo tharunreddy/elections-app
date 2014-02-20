@@ -149,11 +149,11 @@ class VerifyHandler(WriteHandler):
                 user.email_verified = True
                 user.put()
                 #TODO Ask gopi to put a verified email and redirecting to homepage
-                self.render("verified_email.html")
+                #self.render("verified_email.html")
                 self.redirect('/logout')
             else:
                 #TODO Ask gopi to put a verification code is wrong message and take him to login page
-                self.render("email_form.html", error_msg="Your Verification Code is wrong. Try again.")
+                self.render("email_form.html", error_msg="Your Verification Code is wrong. Please enter your email again.")
         return None
 
 class EmailHandler(WriteHandler):
