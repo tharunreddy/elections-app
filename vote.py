@@ -42,10 +42,8 @@ class VotingHandler(BaseHandler):
             if position in CANDIDATES:
                 user = User.get_by_key_name(self.current_user['id'])
                 position_count = getattr(user, position+"_count")
-                data = memcache.get(position)
-                if data is None:
-                    query = "SELECT %s FROM User" % position
-                    data = list(db.GqlQuery(query))
+                query = "SELECT %s FROM User" % position
+                data = list(db.GqlQuery(query))
                 data = map(lambda obj: getattr(obj, position), data)
                 results = self._get_result(data, CANDIDATES[position])
                 dump = {"results": results, "count": position_count}
@@ -55,6 +53,8 @@ class VotingHandler(BaseHandler):
             logging.warning("Current user is none in get request for a position")
 
     def post(self, position):
+        if position not in CANDIDATES:
+            return
         if self.current_user is not None and self.current_user['email_verified'] and self.current_user['is_part_of_rangoli']:
             user = User.get_by_key_name(self.current_user['id'])
             if user is not None:
@@ -65,8 +65,6 @@ class VotingHandler(BaseHandler):
                         count = getattr(user, position+"_count")
                         setattr(user, position+"_count", count+1)
                 user.put()
-                query = "SELECT %s FROM User" % position
-                self.set_cache(query, position)
             else:
                 logging.warning("User is none while posting for position " + position)
         else:
