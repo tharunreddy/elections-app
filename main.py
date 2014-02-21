@@ -229,9 +229,15 @@ class NotRangoliHandler(WriteHandler):
 class VotingPageHandler(WriteHandler):
     def get(self):
         eastern = timezone('US/Eastern')
-        start_time = datetime.datetime(2014, 2, 21, 0, 0, 1, tzinfo=eastern)
+        start_time = datetime.datetime(2014, 2, 22, 0, 0, 1, tzinfo=eastern)
+        end_time = datetime.datetime(2014, 2, 23, 59, 59, 59, tzinfo=eastern)
+
         if datetime.datetime.now(tz=eastern) < start_time:
-            self.render("elections_not_started.html", start_time=start_time.strftime("%a %c"))
+            self.render("elections_not_started.html", start_time=start_time.strftime("%X on %A"))
+            return
+
+        if datetime.datetime.now(tz=eastern) > end_time:
+            self.render("results.html")
             return
 
         if self.current_user is not None:
