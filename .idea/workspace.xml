@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5bf5bc4-6fef-4bf9-92fd-60b1ede45d9d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vote.py" afterPath="$PROJECT_DIR$/vote.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/candidates.py" afterPath="$PROJECT_DIR$/candidates.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fbExample.iws" />
@@ -35,10 +35,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vote.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="vote.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vote.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="60" selection-start="2416" selection-end="2416" vertical-scroll-proportion="0.6542373" vertical-offset="685" max-vertical-offset="1479">
+            <state line="21" column="38" selection-start="422" selection-end="422" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="1479">
               <folding>
                 <element signature="e#96#110#0" expanded="true" />
               </folding>
@@ -85,16 +85,16 @@
       <file leaf-file-name="not_rangoli.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/not_rangoli.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="18" selection-start="2186" selection-end="2186" vertical-scroll-proportion="0.0" vertical-offset="1088" max-vertical-offset="1309">
+            <state line="64" column="18" selection-start="2198" selection-end="2198" vertical-scroll-proportion="0.0" vertical-offset="1088" max-vertical-offset="1309">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="candidates.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="candidates.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/candidates.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="953" selection-end="953" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="306">
+            <state line="10" column="108" selection-start="976" selection-end="976" vertical-scroll-proportion="0.2881356" vertical-offset="0" max-vertical-offset="590">
               <folding />
             </state>
           </provider>
@@ -103,7 +103,7 @@
       <file leaf-file-name="vote.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/vote.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="278" column="39" selection-start="8828" selection-end="8828" vertical-scroll-proportion="0.0" vertical-offset="4726" max-vertical-offset="12937">
+            <state line="280" column="39" selection-start="8860" selection-end="8860" vertical-scroll-proportion="0.0" vertical-offset="4760" max-vertical-offset="12971">
               <folding />
             </state>
           </provider>
@@ -145,7 +145,6 @@
         <option value="$PROJECT_DIR$/templates/main.html" />
         <option value="$PROJECT_DIR$/templates/verification_code_wrong.html" />
         <option value="$PROJECT_DIR$/app.yaml" />
-        <option value="$PROJECT_DIR$/candidates.py" />
         <option value="$PROJECT_DIR$/templates/vote.html" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/helpers.py" />
@@ -153,6 +152,7 @@
         <option value="$PROJECT_DIR$/models.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/vote.py" />
+        <option value="$PROJECT_DIR$/candidates.py" />
       </list>
     </option>
   </component>
@@ -176,7 +176,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -187,51 +187,7 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fbExample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Python 2.7.5 (C:/Python27/python.exe) &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fbExample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rangoli-elections" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fbExample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rangoli-elections" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="C:/Program Files (x86)/Git/cmd/git.exe" />
@@ -748,7 +704,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/vote.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="278" column="39" selection-start="8828" selection-end="8828" vertical-scroll-proportion="0.0" vertical-offset="4726" max-vertical-offset="12937">
+        <state line="280" column="39" selection-start="8860" selection-end="8860" vertical-scroll-proportion="0.0" vertical-offset="4760" max-vertical-offset="12971">
           <folding />
         </state>
       </provider>
@@ -784,7 +740,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/not_rangoli.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="18" selection-start="2186" selection-end="2186" vertical-scroll-proportion="0.0" vertical-offset="1088" max-vertical-offset="1309">
+        <state line="64" column="18" selection-start="2198" selection-end="2198" vertical-scroll-proportion="0.0" vertical-offset="1088" max-vertical-offset="1309">
           <folding />
         </state>
       </provider>
@@ -810,19 +766,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/candidates.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="953" selection-end="953" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vote.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="60" selection-start="2416" selection-end="2416" vertical-scroll-proportion="0.6542373" vertical-offset="685" max-vertical-offset="1479">
+        <state line="21" column="38" selection-start="422" selection-end="422" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="1479">
           <folding>
             <element signature="e#96#110#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/candidates.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="108" selection-start="976" selection-end="976" vertical-scroll-proportion="0.2881356" vertical-offset="0" max-vertical-offset="590">
+          <folding />
         </state>
       </provider>
     </entry>
