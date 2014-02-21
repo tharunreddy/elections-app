@@ -2,6 +2,7 @@
 #
 # Penn Rangoli Elections 2014
 #
+from pytz import timezone
 
 FACEBOOK_APP_ID = "608511272550491"
 FACEBOOK_APP_SECRET = "7cf6282934b900d77afe7c4ceed90669"
@@ -12,6 +13,8 @@ import webapp2
 import os
 import jinja2
 import logging
+from pytz.gae import pytz
+import datetime
 
 from webapp2_extras import sessions
 from helpers import verify_email,\
@@ -225,6 +228,12 @@ class NotRangoliHandler(WriteHandler):
 
 class VotingPageHandler(WriteHandler):
     def get(self):
+        eastern = timezone('US/Eastern')
+        start_time = datetime.datetime(2014, 2, 21, 0, 0, 1, tzinfo=eastern)
+        if datetime.datetime.now(tz=eastern) < start_time:
+            self.render("elections_not_started.html", start_time=start_time.strftime("%a %c"))
+            return
+
         if self.current_user is not None:
             user = User.get_by_key_name(self.current_user['id'])
             if self.current_user['email_verified']:
