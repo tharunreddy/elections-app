@@ -39,7 +39,7 @@ def send_verification_email(email, user, verify_url):
     ## sending mail
     logging.info("Mailing to %s, with link %s", email, url)
     message = mail.EmailMessage()
-    message.sender = "tarunreddy.bethi@gmail.com"
+    message.sender = "rangolielections2014@gmail.com"
     message.subject = "Rangoli Elections 2014"
     message.to = email
     message.body = email_message % (user['name'], user['profile_url'], url)

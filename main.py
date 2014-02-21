@@ -3,8 +3,8 @@
 # Penn Rangoli Elections 2014
 #
 
-FACEBOOK_APP_ID = "608511272550491"
-FACEBOOK_APP_SECRET = "7cf6282934b900d77afe7c4ceed90669"
+FACEBOOK_APP_ID = "1412289302354867"
+FACEBOOK_APP_SECRET = "c455c0f71705292860e617dd60418084"
 RANGOLI_GROUP_ID = "39581072545"
 
 import facebook
@@ -228,9 +228,9 @@ class VotingPageHandler(WriteHandler):
         start_time = datetime.datetime(2014, 2, 22, 0, 0, 1, tzinfo=eastern)
         end_time = datetime.datetime(2014, 2, 23, 23, 59, 59, tzinfo=eastern)
 
-        #if datetime.datetime.now(tz=eastern) < start_time:
-        #    self.render("elections_not_started.html", current_time=datetime.datetime.now(tz=eastern).strftime("%c"), start_time=start_time.strftime("%X on %A"))
-        #    return
+        if datetime.datetime.now(tz=eastern) < start_time:
+            self.render("elections_not_started.html", current_time=datetime.datetime.now(tz=eastern).strftime("%c"), start_time=start_time.strftime("%X on %A"))
+            return
 
         if datetime.datetime.now(tz=eastern) > end_time:
             self.render("results.html")
