@@ -55,6 +55,7 @@ class VotingHandler(BaseHandler):
 
     def post(self, position):
         if position not in CANDIDATES:
+            logging.warning("Got position which is out of candidates")
             return
         if self.current_user is not None and self.current_user['email_verified'] and self.current_user['is_part_of_rangoli']:
             user = User.get_by_key_name(self.current_user['id'])

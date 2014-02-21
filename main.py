@@ -2,7 +2,6 @@
 #
 # Penn Rangoli Elections 2014
 #
-from pytz import timezone
 
 FACEBOOK_APP_ID = "608511272550491"
 FACEBOOK_APP_SECRET = "7cf6282934b900d77afe7c4ceed90669"
@@ -27,15 +26,10 @@ config['webapp2_extras.sessions'] = dict(secret_key='fart')
 
 class BaseHandler(webapp2.RequestHandler):
     """Provides access to the active Facebook user in self.current_user
-
-    The property is lazy-loaded on first access, using the cookie saved
-    by the Facebook JavaScript SDK to determine the user ID of the active
-    user. See http://developers.facebook.com/docs/authentication/ for
-    more information.
     """
 
     def is_part_of_group(self, cookie, group_id):
-        graph = facebook.GraphAPI(cookie['access_token'])
+        graph = facebook.GraphAPI(cookie["access_token"])
         groups = graph.get_connections("me", "groups")
         for group in groups['data']:
             if group['id'] == group_id:
@@ -106,6 +100,9 @@ class BaseHandler(webapp2.RequestHandler):
         return self.session_store.get_session()
 
 class WriteHandler(BaseHandler):
+    """
+    Some convenient methods for writing output
+    """
     def write(self, *a, **kw):
         self.response.out.write(*a, **kw)
 
@@ -119,6 +116,9 @@ class WriteHandler(BaseHandler):
         self.write(self.render_str(template, **kw))
 
 class HomeHandler(WriteHandler):
+    """
+    Handles homepage
+    """
     def get(self):
         self.render("main.html", error_msg="")
 
@@ -144,18 +144,14 @@ class VerifyHandler(WriteHandler):
 
         #user has already been verified, so redirect him to elections page
         if user.email_verified:
-            logging.info("User's email is verified, redirecting him to elections page")
             self.redirect('/vote')
         else:
             logging.info("Verifying user's Verification code")
             if user.verification_code == verification_code:
                 user.email_verified = True
                 user.put()
-                #TODO Ask gopi to put a verified email and redirecting to homepage
-                #self.render("verified_email.html")
                 self.redirect('/logout')
             else:
-                #TODO Ask gopi to put a verification code is wrong message and take him to login page
                 self.render("email_form.html", error_msg="Your Verification Code is wrong. Please enter your email again.")
         return None
 
@@ -167,7 +163,7 @@ class EmailHandler(WriteHandler):
             return
 
         if not self.current_user['is_part_of_rangoli']:
-            logging.info("Not a part of rangoli")
+            logging.warning(str(self.current_user['name']) + " is not a part of rangoli")
             self.redirect('/notrangoli')
             return
 
@@ -190,12 +186,12 @@ class EmailHandler(WriteHandler):
                 return
 
             if User.is_email_verified(email):
-                self.render("email_form.html", error_msg="Email already Verified")
+                self.render("email_form.html", error_msg="This email has already been verified.")
                 return
 
             if User.is_pennid_verified(email):
                 logging.warning("Penn ID already verified but %s is trying to use different email" % self.current_user['name'])
-                self.render("email_form.html", error_msg="Penn ID already verified")
+                self.render("email_form.html", error_msg="This Penn ID has already been verified")
                 return
 
             # if email is not verified
@@ -228,13 +224,13 @@ class NotRangoliHandler(WriteHandler):
 
 class VotingPageHandler(WriteHandler):
     def get(self):
-        eastern = timezone('US/Eastern')
+        eastern = pytz.timezone('US/Eastern')
         start_time = datetime.datetime(2014, 2, 22, 0, 0, 1, tzinfo=eastern)
-        end_time = datetime.datetime(2014, 2, 23, 59, 59, 59, tzinfo=eastern)
+        end_time = datetime.datetime(2014, 2, 23, 23, 59, 59, tzinfo=eastern)
 
-        if datetime.datetime.now(tz=eastern) < start_time:
-            self.render("elections_not_started.html", start_time=start_time.strftime("%X on %A"))
-            return
+        #if datetime.datetime.now(tz=eastern) < start_time:
+        #    self.render("elections_not_started.html", current_time=datetime.datetime.now(tz=eastern).strftime("%c"), start_time=start_time.strftime("%X on %A"))
+        #    return
 
         if datetime.datetime.now(tz=eastern) > end_time:
             self.render("results.html")
