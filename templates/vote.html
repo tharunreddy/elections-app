@@ -105,24 +105,32 @@
 					//console.log(data);
 					$('#'+pos).find('.positions-results-holder').html(items.join(""));
 					var votesLeft=data.count;
-					if(votesLeft!=0){
-						var time="times";
-						var them="them";
-						if(votesLeft==1){
-							time="time";
-							them="it";
-						}
-						$('#'+pos).find('.vote-count').html("You can change your vote only "+votesLeft+" "+time+"  now. Use "+them+" wisely.");
-					}else{
-						$('#'+pos).find('.vote-count').hide();
-						$('#'+pos).find('form').hide();
-						$('#'+pos).find('.ran-out').fadeIn();
-						$('#'+pos).find('.positions-results-page').trigger('click');
-						$('.pos-nav').each(function(){
-							if($(this).attr('to')==pos){
-								$(this).css({'background-color':'rgb(189, 54, 54)'}); //green rgb(29, 119, 21)
+					if(pos!='webadmin'){
+						if(votesLeft!=0){
+							var time="times";
+							var them="them";
+							if(votesLeft==1){
+								time="time";
+								them="it";
 							}
-						})
+							if(votesLeft==3){
+								$('#'+pos).find('.vote-count').html("");
+							}else{
+								$('#'+pos).find('.vote-count').html("You can change your vote only "+votesLeft+" "+time+" now. Use "+them+" wisely.");
+							}
+						}else{
+							$('#'+pos).find('.vote-count').hide();
+							$('#'+pos).find('form').hide();
+							$('#'+pos).find('.ran-out').fadeIn();
+							$('#'+pos).find('.positions-results-page').trigger('click');
+							$('.pos-nav').each(function(){
+								if($(this).attr('to')==pos){
+									$(this).css({'background-color':'rgb(189, 54, 54)'}); //green rgb(29, 119, 21)
+								}
+							})
+						}
+					}else{
+						$('#'+pos).find('.vote-count').html("Well, you can't change your vote. Here's you new web admin!");
 					}
 				},
 				error: function(jqXHR,textStatus,errorThrown){
