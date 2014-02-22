@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5bf5bc4-6fef-4bf9-92fd-60b1ede45d9d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.yaml" afterPath="$PROJECT_DIR$/app.yaml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/helpers.py" afterPath="$PROJECT_DIR$/helpers.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -31,7 +29,7 @@
       <file leaf-file-name="app.yaml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="262" selection-end="262" vertical-scroll-proportion="-12.24" vertical-offset="0" max-vertical-offset="527">
+            <state line="18" column="0" selection-start="262" selection-end="262" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="527">
               <folding />
             </state>
           </provider>
@@ -40,7 +38,7 @@
       <file leaf-file-name="vote.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vote.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="13" selection-start="2823" selection-end="2823" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1309">
+            <state line="71" column="13" selection-start="2823" selection-end="2823" vertical-scroll-proportion="0.0" vertical-offset="1207" max-vertical-offset="1496">
               <folding />
             </state>
           </provider>
@@ -49,7 +47,7 @@
       <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="232" column="12" selection-start="8374" selection-end="8374" vertical-scroll-proportion="0.32733813" vertical-offset="3762" max-vertical-offset="4539">
+            <state line="233" column="11" selection-start="8403" selection-end="8403" vertical-scroll-proportion="0.35791367" vertical-offset="3762" max-vertical-offset="4539">
               <folding>
                 <element signature="e#185#200#0" expanded="true" />
               </folding>
@@ -60,10 +58,8 @@
       <file leaf-file-name="helpers.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/helpers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="433" selection-end="433" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
-              <folding>
-                <element signature="e#23#32#0" expanded="true" />
-              </folding>
+            <state line="17" column="0" selection-start="433" selection-end="433" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="901">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -116,7 +112,7 @@
       <file leaf-file-name="vote.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/vote.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="280" column="39" selection-start="8860" selection-end="8860" vertical-scroll-proportion="0.0" vertical-offset="4760" max-vertical-offset="12801">
+            <state line="288" column="39" selection-start="9127" selection-end="9127" vertical-scroll-proportion="0.0" vertical-offset="4896" max-vertical-offset="12937">
               <folding />
             </state>
           </provider>
@@ -193,6 +189,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -227,7 +224,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -553,9 +549,7 @@
     <entry file="file://$PROJECT_DIR$/helpers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="0" selection-start="361" selection-end="457" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="714">
-          <folding>
-            <element signature="e#23#32#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -739,7 +733,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/vote.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="280" column="39" selection-start="8860" selection-end="8860" vertical-scroll-proportion="0.0" vertical-offset="4760" max-vertical-offset="12971">
+        <state line="288" column="39" selection-start="9127" selection-end="9127" vertical-scroll-proportion="0.0" vertical-offset="4896" max-vertical-offset="12937">
           <folding />
         </state>
       </provider>
@@ -806,14 +800,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/email_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="14" selection-start="2706" selection-end="2706" vertical-scroll-proportion="0.0" vertical-offset="898" max-vertical-offset="1428">
-          <folding />
-        </state>
+        <state line="75" column="14" selection-start="2706" selection-end="2706" vertical-scroll-proportion="0.0" vertical-offset="898" max-vertical-offset="1428" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="262" selection-end="262" vertical-scroll-proportion="-12.24" vertical-offset="0" max-vertical-offset="527">
+        <state line="18" column="0" selection-start="262" selection-end="262" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="527">
           <folding />
         </state>
       </provider>
@@ -828,15 +820,13 @@
     <entry file="file://$PROJECT_DIR$/helpers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="0" selection-start="433" selection-end="433" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
-          <folding>
-            <element signature="e#23#32#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="232" column="12" selection-start="8374" selection-end="8374" vertical-scroll-proportion="0.32733813" vertical-offset="3762" max-vertical-offset="4539">
+        <state line="233" column="11" selection-start="8403" selection-end="8403" vertical-scroll-proportion="0.35791367" vertical-offset="3762" max-vertical-offset="4539">
           <folding>
             <element signature="e#185#200#0" expanded="true" />
           </folding>
