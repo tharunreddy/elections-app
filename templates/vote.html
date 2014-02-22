@@ -130,7 +130,12 @@
 							})
 						}
 					}else{
-						$('#'+pos).find('.vote-count').html("Well, you can't change your vote. Here's you new web admin!");
+					 	if(votesLeft<3)
+						{
+							$('#'+pos).find('.vote-count').html("Well, you can't change your vote. Here's you new web admin!");
+						}else{
+							$('#'+pos).find('.vote-count').html("");
+						}
 					}
 				},
 				error: function(jqXHR,textStatus,errorThrown){
