@@ -17,8 +17,7 @@ class HomepageHandler(WriteHandler):
     def get(self):
 
         questions = list(Question.all())
-        logging.questions(sorted(questions, key=lambda x: x.last_modified, reverse=True))
-        questions = sorted(questions, key=lambda x: len(x.answers), reverse=True)
+        questions = sorted(questions, key=lambda x: x.last_modified, reverse=True)
 
         q_dict = OrderedDict()
         for question in questions:
