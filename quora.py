@@ -25,7 +25,7 @@ class HomepageHandler(WriteHandler):
             if len(answers) != 0:
                 q_dict[question] = answers[0].answer
             else:
-                q_dict[question] = "No answer yet"
+                q_dict[question] = "No answers yet"
         self.render("quora_homepage.html", q_dict=q_dict)
 
 class AskHandler(WriteHandler):
