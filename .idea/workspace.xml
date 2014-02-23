@@ -41,10 +41,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="q.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="q.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/q.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="31" selection-start="969" selection-end="969" vertical-scroll-proportion="0.39594844" vertical-offset="176" max-vertical-offset="2074">
+            <state line="25" column="17" selection-start="772" selection-end="773" vertical-scroll-proportion="-6.9615383" vertical-offset="125" max-vertical-offset="2074">
               <folding />
             </state>
           </provider>
@@ -53,7 +53,7 @@
       <file leaf-file-name="ask_question.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/ask_question.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="154" column="20" selection-start="4108" selection-end="4108" vertical-scroll-proportion="-9.923077" vertical-offset="2360" max-vertical-offset="2924">
+            <state line="154" column="20" selection-start="4100" selection-end="4100" vertical-scroll-proportion="-9.923077" vertical-offset="2360" max-vertical-offset="2924">
               <folding />
             </state>
           </provider>
@@ -62,7 +62,7 @@
       <file leaf-file-name="display_question.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/display_question.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="217" column="29" selection-start="5572" selection-end="5572" vertical-scroll-proportion="-19.73077" vertical-offset="3176" max-vertical-offset="3995">
+            <state line="217" column="29" selection-start="5564" selection-end="5564" vertical-scroll-proportion="-19.73077" vertical-offset="3176" max-vertical-offset="3995">
               <folding />
             </state>
           </provider>
@@ -86,10 +86,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="models.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="124" column="0" selection-start="4512" selection-end="4512" vertical-scroll-proportion="0.0" vertical-offset="2108" max-vertical-offset="2210">
+            <state line="89" column="21" selection-start="3282" selection-end="3284" vertical-scroll-proportion="0.33333334" vertical-offset="1264" max-vertical-offset="2142">
               <folding />
             </state>
           </provider>
@@ -122,13 +122,13 @@
         <option value="$PROJECT_DIR$/quora-app/main.py" />
         <option value="$PROJECT_DIR$/quora-app/templates/display_question.html" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/models.py" />
         <option value="$PROJECT_DIR$/templates/display_question.html" />
         <option value="$PROJECT_DIR$/candidates.py" />
         <option value="$PROJECT_DIR$/templates/ask_question.html" />
         <option value="$PROJECT_DIR$/templates/quora_homepage.html" />
         <option value="$PROJECT_DIR$/quora.py" />
         <option value="$PROJECT_DIR$/app.yaml" />
+        <option value="$PROJECT_DIR$/models.py" />
       </list>
     </option>
   </component>
@@ -479,13 +479,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="0" selection-start="4512" selection-end="4512" vertical-scroll-proportion="0.0" vertical-offset="2108" max-vertical-offset="2210">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/candidates.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="0" selection-start="978" selection-end="978" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
@@ -495,7 +488,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/ask_question.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="20" selection-start="4108" selection-end="4108" vertical-scroll-proportion="-9.923077" vertical-offset="2360" max-vertical-offset="2924">
+        <state line="154" column="20" selection-start="4100" selection-end="4100" vertical-scroll-proportion="-9.923077" vertical-offset="2360" max-vertical-offset="2924">
           <folding />
         </state>
       </provider>
@@ -516,7 +509,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/display_question.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="217" column="29" selection-start="5572" selection-end="5572" vertical-scroll-proportion="-19.73077" vertical-offset="3176" max-vertical-offset="3995">
+        <state line="217" column="29" selection-start="5564" selection-end="5564" vertical-scroll-proportion="-19.73077" vertical-offset="3176" max-vertical-offset="3995">
           <folding />
         </state>
       </provider>
@@ -530,7 +523,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/q.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="31" selection-start="969" selection-end="969" vertical-scroll-proportion="0.39594844" vertical-offset="176" max-vertical-offset="2074">
+        <state line="25" column="17" selection-start="772" selection-end="773" vertical-scroll-proportion="-6.9615383" vertical-offset="125" max-vertical-offset="2074">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="89" column="21" selection-start="3282" selection-end="3284" vertical-scroll-proportion="0.33333334" vertical-offset="1264" max-vertical-offset="2142">
           <folding />
         </state>
       </provider>

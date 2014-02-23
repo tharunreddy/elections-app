@@ -87,7 +87,7 @@ class Answer(db.Model):
         return len(self.upvoted_by)
 
     def get_upvote_link(self):
-        return "/quora/question/upvote/%s"%self.key().id()
+        return "/q/question/upvote/%s"%self.key().id()
 
 def render_str(template, **params):
         template_dir = os.path.join(os.path.dirname(__file__), 'templates')
@@ -119,6 +119,6 @@ class Question(db.Model):
 
     def link(self):
         qid = self.key().id()
-        href_link = "/quora/question/%s"%str(qid)
+        href_link = "/q/question/%s"%str(qid)
         return href_link
 
