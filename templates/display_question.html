@@ -7,11 +7,133 @@
 	  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300,200,400' rel='stylesheet' type='text/css'>
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-	<link href="css/main.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="../../css/main.css" rel="stylesheet">
 	<!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
-	<script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+	<style>
+	body,html{
+		background:white;
+		font-family: 'Helvetica', sans-serif;
+		font-size:15px;
+	}
+	header{
+		margin:0;width:100%;background-color:white;position:fixed;top:0;z-index:100;
+	}
+	a{
+		
+	}
+	a:hover{
+		text-decoration:none;
+	}
+	.ask-ques{
+	    width: 140px;
+	    text-align: center;
+	    font-family: 'Roboto', 'Helvetica', sans-serif;
+	    font-size: 15px;
+	    padding: 10px;
+	    margin: 38px 10px;
+	    background-color: #FFFFFF;
+	    color: #333;
+	    border-radius: 4px;
+	    border: 1px solid #ccc;
+	}
+	.ask-ques:hover{
+		background-color:#eee;
+	}
+	.question{
+		text-align:center;
+		font-size:50px;
+		font-weight:900;
+		font-family:'Roboto', 'Helvetica', sans-serif;
+		line-height:1.2;
+	}
+	.question-section{
+		margin:10px 0;
+	}
+	.answer{
+		text-align:left;
+		padding:10px 0;
+		font-size:17px;
+	}
+	.answerer{
+		padding:0;
+		color:#999;
+	}
+	.total-up{
+		padding:5px 0;
+		color:rgb(45, 202, 51)
+	}
+	.upvote{
+		margin:5px 0;
+	    border: 0;
+	    background-color: white;
+	    padding: 10px;
+	    border: 1px solid #ccc;
+	    border-radius: 10px;
+	    width: 150px;
+	    font-size: 17px;
+	}
+	.upvote:hover{
+		background-color:#eee;
+	}
+	.answer-posted{
+		border-bottom:1px solid #eee;
+		padding:15px 20px
+	}
+	.answer-posted:last-child{
+		border-bottom-width:0;
+	}
+	</style>
+	<script src="../../js/jquery.js"></script>
+	<script>
+	$(document).ready(function(){
+		$('.upvote').click(function(e){
+			e.preventDefault();
+			$.ajax({
+				url:$(this).parent().attr('action'),
+				type:'POST',
+				data:'',
+				success:function(){
+					getUpvotes();
+				}
+			});
+			
+		})
+		
+		function getUpvotes(){
+			$('.answer-posted').each(function(){
+				var t=$(this);
+				var link=$(this).find('form').attr('action');
+				$.ajax({
+					url:link,
+					type:'GET',
+					dataType:'json',
+					data:'',
+					success:function(res){
+						$.each( res, function( key, val ) {
+							console.log(key)
+						    if(key=='upvotes'){
+							 t.find('.total-up').html('Upvotes: '+val);
+							}else if(key=='already_voted'){
+								if(val){
+									t.find('form').hide();
+								}
+							}
+							
+						  });
+						
+					},
+					error: function(jqXHR, textStatus, errorThrown) {
+					  console.log(textStatus, errorThrown);
+					}
+				})
+			})
+		}
+		
+		getUpvotes();
+	})
+	</script>
+    <script src="../../js/bootstrap.min.js"></script>
   </head>
   <body>
 	<div id="fb-root"></div>
@@ -53,45 +175,53 @@
 	   ref.parentNode.insertBefore(js, ref);
 	  }(document));
 	</script>
-	{% include "header.html" %}
+	<header>
+		<div id="head" style="width:auto;padding:0 50px">
+			<div class="left" id="logo" style="padding:20px">
+				<img src="../../img/kohra.png" alt="Logo" style="width:200px">
+				<!--<a href="http://www.dolphin.upenn.edu/rangoli">
+					<img src="img/logotest.png" alt="Logo" style="width:200px">
+				</a>-->
+			</div>
+			<div class="right">
+				<a href="../../quora"><div class="ask-ques">Go back</div></a>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</header>
+	
 
-	<div id="wrapper">
-		<div id="election-head">
-			<h1>ELECTIONS</h1>
-			<h2>2014</h2>
-			<div>
-               {{q.question.replace('\n', '<br>')}}
-                asked by {{q.asker_name}}
-
-                {% for a in answers %}
-                    {{a.answer}}
-                    {{a.answerer_name}}
-                    {{a.get_votes()}}
+	<div id="wrapper" style="padding-top:150px;position:relative;z-index:99">
+		<div id="election-head-ques">
+            <div class="question" style="color:#08c">
+				{{q.question.replace('\n', '<br>')}}
+			</div>
+               <div style="color:#666;text-align:center">asked by {{q.asker_name}}</div>
+			
+               {% for a in answers %}
+				<div class="answer-posted">
+                   <div class="answer">{{a.answer}}</div>
+                   <div class="answerer">Answered by {{a.answerer_name}}</div>
+                   <div class="total-up">Upvotes: {{a.get_votes()}}</div>
 
                    <form method="post" action={{a.get_upvote_link()}}>
-
-                      <label>
-
-                      </label>
-                      <input type="submit" value="upvote">
-                    </form>
-                {% endfor %}
-
-                <form method="post">
-                      <label>
-                        <div>Add an answer</div>
-                        <textarea name="answer"></textarea>
-                      </label>
-                    <select name="user_anon">
-                        <option value="anon">Anonymous</option>
-                        <option value="notanon">{{user.name}}</option>
-                    </select>
-                      <input type="submit">
-                    </form>
-			</div>
-		</div>
-		<div id="election-foot">
-			Copyright 2014. Penn Rangoli.
+                     <input class="upvote" type="submit" value="Upvote">
+                   </form>
+				</div>
+               {% endfor %}
+				
+               <form method="post" style="padding:10px 20px">
+                     <label>Add an answer</label>
+                       <textarea name="answer" style="width:700px;height:200px"></textarea>
+                     
+					<label>Post as:</label>
+                   <select name="user_anon">
+                       <option value="anon">Anonymous</option>
+                       <option value="notanon">{{user.name}}</option>
+                   </select>
+                     <input type="submit">
+                </form>
+				
 		</div>
 	</div>
   </body>

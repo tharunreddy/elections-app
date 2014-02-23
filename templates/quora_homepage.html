@@ -7,10 +7,63 @@
 	  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300,200,400' rel='stylesheet' type='text/css'>
+	<link href="http://fonts.googleapis.com/css?family=Roboto:900,100" rel='stylesheet' type='text/css'>
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 	<link href="css/main.css" rel="stylesheet">
 	<!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
 	<script src="js/jquery.js"></script>
+	<script src="js/jquery.stellar.js"></script>
+	<script>
+	$(document).ready(function(){
+		$.stellar();
+	})
+	</script>
+	<style>
+	body,html{
+		background:white;
+		font-family: 'Helvetica', sans-serif;
+		font-size:15px;
+	}
+	header{
+		margin:0;width:100%;background-color:white;position:fixed;top:0;z-index:100;
+	}
+	a{
+		
+	}
+	a:hover{
+		text-decoration:none;
+	}
+	.ask-ques{
+	    width: 140px;
+	    text-align: center;
+	    font-family: 'Roboto', 'Helvetica', sans-serif;
+	    font-size: 15px;
+	    padding: 10px;
+	    margin: 38px 10px;
+	    background-color: #FFFFFF;
+	    color: #333;
+	    border-radius: 4px;
+	    border: 1px solid #ccc;
+	}
+	.ask-ques:hover{
+		background-color:#eee;
+	}
+	.question{
+		text-align:center;
+		font-size:50px;
+		font-weight:900;
+		font-family:'Roboto', 'Helvetica', sans-serif;
+		line-height:1.2;
+	}
+	.question-section{
+		margin:10px 0;
+	}
+	.answer{
+		text-align:center;
+		padding:20px;
+		font-size:17px;
+	}
+	</style>
     <script src="js/bootstrap.min.js"></script>
   </head>
   <body>
@@ -53,25 +106,36 @@
 	   ref.parentNode.insertBefore(js, ref);
 	  }(document));
 	</script>
-	{% include "header.html" %}
-
-	<div id="wrapper">
-		<div id="election-head">
-			<h1>ELECTIONS</h1>
-			<h2>2014</h2>
-			<div>
-                   <a href="/quora/ask">Ask a question</a>
-                        <br>
-                        {% for q in q_dict %}
-                        <a href={{q.link()}}> {{q.question}}</a>
-                        <br>
-                        {{q_dict[q]}} <!-- this is answer -->
-                        <br>
-                        {% endfor %}
+	
+	<header>
+		<div id="head" style="width:auto;padding:0 50px">
+			<div class="left" id="logo" style="padding:20px">
+				<img src="img/kohra.png" alt="Logo" style="width:200px">
+				<!--<a href="http://www.dolphin.upenn.edu/rangoli">
+					<img src="img/logotest.png" alt="Logo" style="width:200px">
+				</a>-->
 			</div>
+			<div class="right">
+				<a href="/quora/ask"><div class="ask-ques">Ask a question</div></a>
+			</div>
+			<div class="clear"></div>
 		</div>
-		<div id="election-foot">
-			Copyright 2014. Penn Rangoli.
+	</header>
+	
+	<div id="wrapper" style="padding-top:150px;position:relative;z-index:99">
+		<div id="election-head-ques">
+            {% for q in q_dict %}
+			<div class="question-section">
+            	<a href={{q.link()}}> 
+					<div class="question">
+						{{q.question}}
+					</div>
+				</a>
+                <div class="answer">
+                 	{{q_dict[q]}} <!-- this is answer -->
+                 </div>
+			</div>
+            {% endfor %}
 		</div>
 	</div>
   </body>

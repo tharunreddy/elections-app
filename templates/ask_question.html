@@ -7,11 +7,85 @@
 	  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300,200,400' rel='stylesheet' type='text/css'>
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-	<link href="css/main.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="../../css/main.css" rel="stylesheet">
 	<!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
-	<script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+	<style>
+	body,html{
+		background:white;
+		font-family: 'Helvetica', sans-serif;
+		font-size:15px;
+	}
+	header{
+		margin:0;width:100%;background-color:white;position:fixed;top:0;z-index:100;
+	}
+	a{
+		
+	}
+	a:hover{
+		text-decoration:none;
+	}
+	.ask-ques{
+	    width: 140px;
+	    text-align: center;
+	    font-family: 'Roboto', 'Helvetica', sans-serif;
+	    font-size: 15px;
+	    padding: 10px;
+	    margin: 38px 10px;
+	    background-color: #FFFFFF;
+	    color: #333;
+	    border-radius: 4px;
+	    border: 1px solid #ccc;
+	}
+	.ask-ques:hover{
+		background-color:#eee;
+	}
+	.question{
+		text-align:center;
+		font-size:50px;
+		font-weight:900;
+		font-family:'Roboto', 'Helvetica', sans-serif;
+		line-height:1.2;
+	}
+	.question-section{
+		margin:10px 0;
+	}
+	.answer{
+		text-align:left;
+		padding:10px 0;
+		font-size:17px;
+	}
+	.answerer{
+		padding:0;
+		color:#999;
+	}
+	.total-up{
+		padding:5px 0;
+		color:rgb(45, 202, 51)
+	}
+	.upvote{
+		margin:5px 0;
+	    border: 0;
+	    background-color: white;
+	    padding: 10px;
+	    border: 1px solid #ccc;
+	    border-radius: 10px;
+	    width: 150px;
+	    font-size: 17px;
+	}
+	.upvote:hover{
+		background-color:#eee;
+	}
+	.answer-posted{
+		border-bottom:1px solid #eee;
+		padding:15px 20px
+	}
+	.answer-posted:last-child{
+		border-bottom-width:0;
+	}
+	</style>
+	<script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
   </head>
   <body>
 	<div id="fb-root"></div>
@@ -53,29 +127,38 @@
 	   ref.parentNode.insertBefore(js, ref);
 	  }(document));
 	</script>
-	{% include "header.html" %}
+	<header>
+		<div id="head" style="width:auto;padding:0 50px">
+			<div class="left" id="logo" style="padding:20px">
+				<img src="../../img/kohra.png" alt="Logo" style="width:200px">
+				<!--<a href="http://www.dolphin.upenn.edu/rangoli">
+					<img src="img/logotest.png" alt="Logo" style="width:200px">
+				</a>-->
+			</div>
+			<div class="right">
+				<a href="../../quora"><div class="ask-ques">Go back</div></a>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</header>
 
-	<div id="wrapper">
-		<div id="election-head">
-			<h1>QnA</h1>
-			<h2></h2>
-			<div>
+	<div id="wrapper" style="padding-top:150px;position:relative;z-index:99">
+		<div id="election-head-ques">
+            <div class="question" style="color:#08c;padding-bottom:30px">
+				Ask a question
+			</div>
                   <form method="post">
-                    <label>
-                    <div>Ask a question</div>
-                    <textarea name="question"></textarea>
-                    </label>
-                    <select name="user_anon">
+                    <textarea name="question" style="width:100%;height:200px;padding-bottom:10px"></textarea>
+					<div style="clear:both"></div>
+                    <label style="float:left;padding:5px 10px 0 0">Post as</label>
+                    <select name="user_anon" style="float:left">
                         <option value="anon">Anonymous</option>
                         <option value="notanon">{{user.name}}</option>
                     </select>
-                    <input type="submit">
+ 					<input type="submit" style="float:left;margin:2px 10px;">
+					<div style="clear:both"></div>
+                   
                   </form>
-
-			</div>
-		</div>
-		<div id="election-foot">
-			Copyright 2014. Penn Rangoli.
 		</div>
 	</div>
   </body>
