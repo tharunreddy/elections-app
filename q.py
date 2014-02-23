@@ -15,17 +15,22 @@ config['webapp2_extras.sessions'] = dict(secret_key='fart')
 
 class HomepageHandler(WriteHandler):
     def get(self):
+
         questions = list(Question.all())
+        logging.questions(sorted(questions, key=lambda x: x.last_modified, reverse=True))
         questions = sorted(questions, key=lambda x: len(x.answers), reverse=True)
+
         q_dict = OrderedDict()
         for question in questions:
             answers = question.answers
             answers = list(db.get(answers))
-            answers = sorted(answers, key=lambda answer: answer.get_votes(), reverse=True)
-            if len(answers) != 0:
-                q_dict[question] = answers[0].answer
-            else:
-                q_dict[question] = "No answers yet"
+            if answers is not None:
+                answers = filter(lambda x: x is not None, answers)
+                answers = sorted(answers, key=lambda answer: answer.get_votes(), reverse=True)
+                if len(answers) != 0:
+                    q_dict[question] = answers[0].answer
+                else:
+                    q_dict[question] = "No answers yet"
         self.render("quora_homepage.html", q_dict=q_dict)
 
 class AskHandler(WriteHandler):
@@ -58,8 +63,9 @@ class QuestionHandler(WriteHandler):
             if not question:
                 self.error(404)
                 return
-
-            self.render("display_question.html", q=question, answers = db.get(question.answers), user=self.current_user)
+            answers = list(db.get(question.answers))
+            answers = filter(lambda x: x is not None, answers)
+            self.render("display_question.html", q=question, answers = answers, user=self.current_user)
 
     def post(self, qid):
         if self.current_user is not None:
