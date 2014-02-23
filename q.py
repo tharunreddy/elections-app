@@ -46,7 +46,7 @@ class AskHandler(WriteHandler):
                 pass
             q = Question(question=question, asked_by=self.current_user['name'], asker_name = asker_name)
             q.put()
-            self.redirect("/quora")
+            self.redirect("/q")
 
 class QuestionHandler(WriteHandler):
     def get(self, qid):
@@ -82,7 +82,7 @@ class QuestionHandler(WriteHandler):
 
             question.answers.append(a.key())
             question.put()
-            self.redirect('/quora/question/%s'%qid)
+            self.redirect('/q/question/%s'%qid)
 
 class UpvoteHandler(WriteHandler):
     def get_answer(self, aid):
@@ -111,14 +111,14 @@ class UpvoteHandler(WriteHandler):
             answer.put()
             #self.redirect("/quora")
 
-template_dir = os.path.join(os.path.dirname(__file__), 'templates/quora')
+template_dir = os.path.join(os.path.dirname(__file__), 'templates/q')
 jinja_environment = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
                                autoescape = True)
 
 
 app = webapp2.WSGIApplication([
-    webapp2.Route('/quora', handler=HomepageHandler),
-    webapp2.Route('/quora/ask', handler=AskHandler),
-    ('/quora/question/([0-9]+)',QuestionHandler,'question'),
-    ('/quora/question/upvote/([0-9]+)', UpvoteHandler)
+    webapp2.Route('/q', handler=HomepageHandler),
+    webapp2.Route('/q/ask', handler=AskHandler),
+    ('/q/question/([0-9]+)',QuestionHandler,'question'),
+    ('/q/question/upvote/([0-9]+)', UpvoteHandler)
 ], debug=True, config=config)

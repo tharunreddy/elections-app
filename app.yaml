@@ -18,8 +18,8 @@ handlers:
 - url: /css
   static_dir: templates/css
 
-- url: /quora/?.*
-  script: quora.app
+- url: /q/?.*
+  script: q.app
 
 - url: /vote/.*
   script: vote.app
