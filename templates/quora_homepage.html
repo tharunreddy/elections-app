@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Penn Rangoli Election 2014</title>
+    <!-- Bootstrap -->
+	<!--[if IE]>
+	  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300,200,400' rel='stylesheet' type='text/css'>
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="css/main.css" rel="stylesheet">
+	<!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
+	<script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </head>
+  <body>
+	<div id="fb-root"></div>
+	<script>
+	 window.fbAsyncInit = function() {
+	  FB.init({
+	    appId      : '{{facebook_app_id}}',
+	    status     : true, // check login status
+	    cookie     : true, // enable cookies to allow the server to access the session
+	    xfbml      : true  // parse XFBML
+	  });
+
+	FB.getLoginStatus(function(response){
+		if (response.status === 'connected') {
+	      //Auth();
+	    } else if (response.status === 'not_authorized') {
+	      //notAuth();
+	    } else {
+	      //notAuth();
+	    }
+	});
+	  FB.Event.subscribe('auth.authResponseChange', function(response) {
+	    if (response.status === 'connected') {
+	      //Auth();
+	    } else if (response.status === 'not_authorized') {
+	      //notAuth();
+	    } else {
+	      //notAuth();
+	    }
+	  });
+	  };
+
+	  // Load the SDK asynchronously
+	  (function(d){
+	   var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+	   if (d.getElementById(id)) {return;}
+	   js = d.createElement('script'); js.id = id; js.async = true;
+	   js.src = "//connect.facebook.net/en_US/all.js";
+	   ref.parentNode.insertBefore(js, ref);
+	  }(document));
+	</script>
+	{% include "header.html" %}
+
+	<div id="wrapper">
+		<div id="election-head">
+			<h1>ELECTIONS</h1>
+			<h2>2014</h2>
+			<div>
+                   <a href="/quora/ask">Ask a question</a>
+                    <br>
+                        {% for q in q_dict %}
+                        <a href={{q.link()}}> {{q.question}}</a>
+                    <br>
+                        {{q_dict[q]}}
+                    <br>
+                        {% endfor %}
+			</div>
+		</div>
+		<div id="election-foot">
+			Copyright 2014. Penn Rangoli.
+		</div>
+	</div>
+  </body>
+</html>
+

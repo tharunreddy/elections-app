@@ -3,6 +3,8 @@ __author__ = 'Tharun'
 from google.appengine.api import memcache
 from google.appengine.ext import db
 import logging
+import os
+import jinja2
 
 class User(db.Model):
 
@@ -75,4 +77,48 @@ class User(db.Model):
 
 
 
+class Answer(db.Model):
+    answer = db.TextProperty(required=True)
+    answered_by = db.StringProperty(required=True)
+    answerer_name = db.StringProperty(required=True)
+    upvoted_by = db.ListProperty(str)
+
+    def get_votes(self):
+        return len(self.upvoted_by)
+
+    def get_upvote_link(self):
+        return "/quora/question/upvote/%s"%self.key().id()
+
+def render_str(template, **params):
+        template_dir = os.path.join(os.path.dirname(__file__), 'templates')
+        jinja_environment = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
+                               autoescape = True)
+        t = jinja_environment.get_template(template)
+        return t.render(params)
+
+
+class Question(db.Model):
+    question = db.TextProperty(required = True)
+    created = db.DateTimeProperty(auto_now_add = True)
+    last_modified = db.DateTimeProperty(auto_now = True)
+    answers = db.ListProperty(item_type=db.Key,required=True)
+    asked_by = db.StringProperty(required=True)
+    asker_name = db.StringProperty(required=True)
+
+
+    def render(self):
+        self._render_text = self.question.replace('\n', '<br>')
+        return render_str("question.html", q = self)
+
+    def as_dict(self):
+        time_fmt = '%c'
+        d = {'question': self.question,
+             'created': self.created.strftime(time_fmt),
+             'last_modified': self.last_modified.strftime(time_fmt)}
+        return d
+
+    def link(self):
+        qid = self.key().id()
+        href_link = "/quora/question/%s"%str(qid)
+        return href_link
 

@@ -1,10 +1,14 @@
-application: rangolielections2014
+	application: elections-test
 version: 1
 runtime: python27
 api_version: 1
 threadsafe: true
 
 handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
 - url: /js
   static_dir: templates/js
 
@@ -14,6 +18,9 @@ handlers:
 - url: /css
   static_dir: templates/css
 
+- url: /quora/?.*
+  script: quora.app
+
 - url: /vote/.*
   script: vote.app
 
@@ -22,4 +29,6 @@ handlers:
 
 libraries:
 - name: jinja2
+  version: latest
+- name: markupsafe
   version: latest

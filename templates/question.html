@@ -1,0 +1,12 @@
+<div class="post">
+  <div class="post-heading">
+    <div class="post-date">
+      {{q.created.strftime("%b %d, %Y")}}
+    </div>
+  </div>
+
+  <div class="post-content">
+    <a href={{q.link()}}>{{q._render_text | safe}}</a>
+
+  </div>
+</div>

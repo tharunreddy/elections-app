@@ -3,8 +3,8 @@
 # Penn Rangoli Elections 2014
 #
 
-FACEBOOK_APP_ID = "1412289302354867"
-FACEBOOK_APP_SECRET = "c455c0f71705292860e617dd60418084"
+FACEBOOK_APP_ID = "608511272550491"
+FACEBOOK_APP_SECRET = "7cf6282934b900d77afe7c4ceed90669"
 RANGOLI_GROUP_ID = "39581072545"
 
 import facebook
@@ -20,6 +20,7 @@ from helpers import verify_email,\
                     send_verification_email, \
                     generate_verification_code
 from models import User
+import json
 
 config = {}
 config['webapp2_extras.sessions'] = dict(secret_key='fart')
@@ -114,6 +115,11 @@ class WriteHandler(BaseHandler):
 
     def render(self, template, **kw):
         self.write(self.render_str(template, **kw))
+
+    def render_json(self, d):
+        json_txt = json.dumps(d)
+        self.response.headers['Content-Type'] = 'application/json; charset=UTF-8'
+        self.write(json_txt)
 
 class HomeHandler(WriteHandler):
     """
@@ -245,6 +251,7 @@ class VotingPageHandler(WriteHandler):
 
     def post(self):
         pass
+
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),

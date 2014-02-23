@@ -62,7 +62,7 @@ class VotingHandler(BaseHandler):
             if user is not None:
                 user_vote = self.request.get(position)
                 if user_vote in CANDIDATES[position]:
-                    if getattr(user, position+"_count") < 4:
+                    if getattr(user, position+"_count") < 3:
                         setattr(user, position, user_vote)
                         count = getattr(user, position+"_count")
                         setattr(user, position+"_count", count+1)
