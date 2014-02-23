@@ -59,10 +59,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="display_question.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="display_question.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/display_question.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="217" column="44" selection-start="5579" selection-end="5579" vertical-scroll-proportion="0.4364641" vertical-offset="3452" max-vertical-offset="3995">
+            <state line="216" column="43" selection-start="5534" selection-end="5534" vertical-scroll-proportion="-8.461538" vertical-offset="3452" max-vertical-offset="3995">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vote.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/vote.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="58" column="64" selection-start="1999" selection-end="1999" vertical-scroll-proportion="0.6115993" vertical-offset="451" max-vertical-offset="1462">
               <folding />
             </state>
           </provider>
@@ -130,6 +139,7 @@
         <option value="$PROJECT_DIR$/q.py" />
         <option value="$PROJECT_DIR$/templates/ask_question.html" />
         <option value="$PROJECT_DIR$/templates/display_question.html" />
+        <option value="$PROJECT_DIR$/vote.py" />
       </list>
     </option>
   </component>
@@ -657,11 +667,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vote.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="23" selection-end="95" vertical-scroll-proportion="0.11525424" vertical-offset="0" max-vertical-offset="1309" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/verification_email_sent.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="43" selection-start="743" selection-end="743" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1292">
@@ -706,7 +711,9 @@
     </entry>
     <entry file="file://$USER_HOME$/.PyCharm30/system/python_stubs/-762174762/__builtin__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="1184" selection-end="1184" vertical-scroll-proportion="0.3321617" vertical-offset="338" max-vertical-offset="86683" />
+        <state line="31" column="0" selection-start="1184" selection-end="1184" vertical-scroll-proportion="0.3321617" vertical-offset="338" max-vertical-offset="86683">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/q.py">
@@ -725,7 +732,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/display_question.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="217" column="44" selection-start="5579" selection-end="5579" vertical-scroll-proportion="0.4364641" vertical-offset="3452" max-vertical-offset="3995">
+        <state line="216" column="43" selection-start="5534" selection-end="5534" vertical-scroll-proportion="-8.461538" vertical-offset="3452" max-vertical-offset="3995">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vote.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="64" selection-start="1999" selection-end="1999" vertical-scroll-proportion="0.6115993" vertical-offset="451" max-vertical-offset="1462">
           <folding />
         </state>
       </provider>

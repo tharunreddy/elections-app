@@ -30,6 +30,14 @@ class VotingHandler(BaseHandler):
             res = dict([(cand, 0) for cand in DATA.values()])
         return res
 
+
+    def _get_result_votes(self, data, DATA):
+        data = collections.Counter(data)
+        result_dict = {cand: data.get(cand, 0) for cand in DATA}
+        res = {DATA[cand]: result_dict[cand] for cand in result_dict}
+        return res
+
+
     def set_cache(self, query, key):
         data = list(db.GqlQuery(query))
         if not memcache.set(key, data):
@@ -47,7 +55,8 @@ class VotingHandler(BaseHandler):
                 data = list(db.GqlQuery(query))
                 data = map(lambda obj: getattr(obj, position), data)
                 results = self._get_result(data, CANDIDATES[position])
-                dump = {"results": results, "count": position_count}
+                results_votes = self._get_result_votes(data, CANDIDATES[position])
+                dump = {"results_votes": results_votes, "results": results, "count": position_count}
                 self.response.headers.add_header('content-type', 'application/json', charset='utf-8')
                 self.response.out.write(json.dumps(dump))
         else:
