@@ -64,8 +64,9 @@ class VotingHandler(BaseHandler):
                 results = self._get_result(data, CANDIDATES[position])
                 results_votes = self._get_result_votes(data, CANDIDATES[position])
                 results_votes_perc = self.get_votes_perc(results, results_votes)
-                logging.info(results_votes_perc)
+                
                 dump = {"results": results_votes_perc, "count": position_count}
+                logging.info(dump)
                 self.response.headers.add_header('content-type', 'application/json', charset='utf-8')
                 self.response.out.write(json.dumps(dump))
         else:
