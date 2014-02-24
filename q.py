@@ -57,7 +57,7 @@ class QuestionHandler(WriteHandler):
         if self.current_user is not None:
             key = db.Key.from_path('Question', int(qid))
             question = db.get(key)
-            logging.info(question.question)
+            #logging.info(question.question)
 
             if not question:
                 self.error(404)

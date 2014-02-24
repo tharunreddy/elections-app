@@ -45,6 +45,13 @@ class VotingHandler(BaseHandler):
             return False
         return True
 
+    def get_votes_perc(self, dict1, dict2):
+        results = {}
+        keys = dict1.keys()
+        for key in keys:
+            results[key] = [dict1[key], dict2[key]]
+        return results
+
     def get(self, position):
         if self.current_user is not None:
             if position in CANDIDATES:
@@ -56,7 +63,9 @@ class VotingHandler(BaseHandler):
                 data = map(lambda obj: getattr(obj, position), data)
                 results = self._get_result(data, CANDIDATES[position])
                 results_votes = self._get_result_votes(data, CANDIDATES[position])
-                dump = {"results_votes": results_votes, "results": results, "count": position_count}
+                results_votes_perc = self.get_votes_perc(results, results_votes)
+                logging.info(results_votes_perc)
+                dump = {"results": results_votes_perc, "count": position_count}
                 self.response.headers.add_header('content-type', 'application/json', charset='utf-8')
                 self.response.out.write(json.dumps(dump))
         else:
