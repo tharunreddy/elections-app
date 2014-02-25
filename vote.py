@@ -15,6 +15,7 @@ from models import User
 from candidates import CANDIDATES
 from google.appengine.ext import db
 from google.appengine.api import memcache
+import datetime
 
 
 class VotingHandler(BaseHandler):
@@ -71,6 +72,8 @@ class VotingHandler(BaseHandler):
             logging.warning("Current user is none in get request for a position")
 
     def post(self, position):
+        """
+
         if position not in CANDIDATES:
             logging.warning("Got position which is out of candidates")
             return
@@ -88,7 +91,7 @@ class VotingHandler(BaseHandler):
                 logging.warning("User is none while posting for position " + position)
         else:
             logging.warning("current user is none when posting for "+position)
-
+"""
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
                                autoescape = True)

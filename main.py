@@ -239,7 +239,7 @@ class VotingPageHandler(WriteHandler):
             return
 
         if datetime.datetime.now(tz=eastern) > end_time:
-            self.render("results.html")
+            self.render("elections_not_started.html")
             return
 
         if self.current_user is not None:

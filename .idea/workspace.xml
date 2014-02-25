@@ -26,16 +26,16 @@
       <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="9" selection-start="225" selection-end="225" vertical-scroll-proportion="0.33633092" vertical-offset="0" max-vertical-offset="4658">
+            <state line="242" column="8" selection-start="8688" selection-end="8688" vertical-scroll-proportion="0.1205036" vertical-offset="3826" max-vertical-offset="4437">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ask_question.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/ask_question.html">
+      <file leaf-file-name="elections_not_started.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/elections_not_started.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="154" column="63" selection-start="4143" selection-end="4143" vertical-scroll-proportion="0.0" vertical-offset="2279" max-vertical-offset="2941">
+            <state line="62" column="115" selection-start="1999" selection-end="1999" vertical-scroll-proportion="0.0" vertical-offset="749" max-vertical-offset="1292">
               <folding />
             </state>
           </provider>
@@ -53,7 +53,7 @@
       <file leaf-file-name="vote.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vote.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="19" selection-start="2628" selection-end="2635" vertical-scroll-proportion="0.0" vertical-offset="1077" max-vertical-offset="1785">
+            <state line="89" column="17" selection-start="3363" selection-end="3363" vertical-scroll-proportion="0.0" vertical-offset="1207" max-vertical-offset="1836">
               <folding />
             </state>
           </provider>
@@ -62,7 +62,7 @@
       <file leaf-file-name="helpers.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/helpers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="54" selection-start="228" selection-end="228" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
+            <state line="10" column="54" selection-start="228" selection-end="228" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="901">
               <folding />
             </state>
           </provider>
@@ -71,7 +71,7 @@
       <file leaf-file-name="vote.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/vote.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="16" selection-end="16" vertical-scroll-proportion="0.0" vertical-offset="629" max-vertical-offset="10506">
+            <state line="7" column="0" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0" vertical-offset="731" max-vertical-offset="10591">
               <folding />
             </state>
           </provider>
@@ -95,10 +95,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="results.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/results.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="18" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="374">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="21" selection-start="3282" selection-end="3284" vertical-scroll-proportion="0.0" vertical-offset="1513" max-vertical-offset="2210">
+            <state line="17" column="17" selection-start="518" selection-end="518" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="2210">
               <folding />
             </state>
           </provider>
@@ -128,8 +137,10 @@
         <option value="$PROJECT_DIR$/app.yaml" />
         <option value="$PROJECT_DIR$/templates/ask_question.html" />
         <option value="$PROJECT_DIR$/templates/display_question.html" />
-        <option value="$PROJECT_DIR$/vote.py" />
         <option value="$PROJECT_DIR$/q.py" />
+        <option value="$PROJECT_DIR$/templates/elections_not_started.html" />
+        <option value="$PROJECT_DIR$/results.py" />
+        <option value="$PROJECT_DIR$/vote.py" />
         <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
@@ -166,6 +177,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -200,13 +212,13 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="FullScreen" value="false" />
+    <property name="recentsLimit" value="5" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -214,7 +226,25 @@
       <recent name="C:\Users\Tharun\Dropbox\GAE projects\quora-app\templates\quora" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.results">
+    <configuration default="false" name="results" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="quora-app" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/results.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
     <configuration default="true" type="tests" factoryName="py.test">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -336,7 +366,14 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <list size="0" />
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Python.results" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Python.results" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="TaskManager">
@@ -349,25 +386,25 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24981412" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24981412" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -384,7 +421,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24981412" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout-to-restore>
@@ -406,18 +443,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="55" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4658">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="330" selection-end="330" vertical-scroll-proportion="0.0" vertical-offset="69" max-vertical-offset="680" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/q.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="8" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="2159" />
@@ -425,9 +450,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/ask_question.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="20" selection-start="4100" selection-end="4100" vertical-scroll-proportion="0.0" vertical-offset="2618" max-vertical-offset="2924">
-          <folding />
-        </state>
+        <state line="154" column="20" selection-start="4100" selection-end="4100" vertical-scroll-proportion="0.0" vertical-offset="2618" max-vertical-offset="2924" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/display_question.html">
@@ -460,9 +483,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/verification_email_sent.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="43" selection-start="743" selection-end="743" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1292">
-          <folding />
-        </state>
+        <state line="20" column="43" selection-start="743" selection-end="743" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1292" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
@@ -484,9 +505,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/ask_question.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="20" selection-start="4100" selection-end="4100" vertical-scroll-proportion="0.0" vertical-offset="2360" max-vertical-offset="2924">
-          <folding />
-        </state>
+        <state line="154" column="20" selection-start="4100" selection-end="4100" vertical-scroll-proportion="0.0" vertical-offset="2360" max-vertical-offset="2924" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/display_question.html">
@@ -519,9 +538,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/verification_email_sent.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="43" selection-start="743" selection-end="743" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1292">
-          <folding />
-        </state>
+        <state line="20" column="43" selection-start="743" selection-end="743" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1292" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
@@ -543,9 +560,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/ask_question.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="20" selection-start="4100" selection-end="4100" vertical-scroll-proportion="0.0" vertical-offset="2360" max-vertical-offset="2924">
-          <folding />
-        </state>
+        <state line="154" column="20" selection-start="4100" selection-end="4100" vertical-scroll-proportion="0.0" vertical-offset="2360" max-vertical-offset="2924" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/display_question.html">
@@ -578,9 +593,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/verification_email_sent.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="43" selection-start="743" selection-end="743" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1292">
-          <folding />
-        </state>
+        <state line="20" column="43" selection-start="743" selection-end="743" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1292" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
@@ -611,9 +624,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/verification_email_sent.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="20" selection-start="0" selection-end="2085" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1292">
-          <folding />
-        </state>
+        <state line="11" column="20" selection-start="0" selection-end="2085" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1292" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
@@ -644,28 +655,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/verification_email_sent.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="43" selection-start="743" selection-end="743" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1292">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/candidates.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="978" selection-end="978" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <folding />
-        </state>
+        <state line="20" column="43" selection-start="743" selection-end="743" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1292" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/quora_homepage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="112" column="19" selection-start="2928" selection-end="2928" vertical-scroll-proportion="0.0" vertical-offset="1752" max-vertical-offset="2533">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="21" selection-start="3282" selection-end="3284" vertical-scroll-proportion="0.0" vertical-offset="1513" max-vertical-offset="2210">
           <folding />
         </state>
       </provider>
@@ -682,9 +677,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/ask_question.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="63" selection-start="4143" selection-end="4143" vertical-scroll-proportion="0.0" vertical-offset="2279" max-vertical-offset="2941">
-          <folding />
-        </state>
+        <state line="154" column="63" selection-start="4143" selection-end="4143" vertical-scroll-proportion="0.0" vertical-offset="2279" max-vertical-offset="2941" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/display_question.html">
@@ -696,14 +689,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/vote.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="16" selection-end="16" vertical-scroll-proportion="0.0" vertical-offset="629" max-vertical-offset="10506">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vote.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="19" selection-start="2628" selection-end="2635" vertical-scroll-proportion="0.0" vertical-offset="1077" max-vertical-offset="1785">
+        <state line="7" column="0" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0" vertical-offset="731" max-vertical-offset="10591">
           <folding />
         </state>
       </provider>
@@ -722,21 +708,52 @@
     </entry>
     <entry file="file://C:/Python27/Lib/logging/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1594" column="4" selection-start="56070" selection-end="56070" vertical-scroll-proportion="0.3321617" vertical-offset="26909" max-vertical-offset="29444">
-          <folding />
-        </state>
+        <state line="1594" column="4" selection-start="56070" selection-end="56070" vertical-scroll-proportion="0.3321617" vertical-offset="26909" max-vertical-offset="29444" />
       </provider>
     </entry>
     <entry file="file://C:/Python27/Lib/os.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12682">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12682" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/elections_not_started.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="115" selection-start="1999" selection-end="1999" vertical-scroll-proportion="0.0" vertical-offset="749" max-vertical-offset="1292">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="18" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="17" selection-start="518" selection-end="518" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2142">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vote.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="89" column="17" selection-start="3363" selection-end="3363" vertical-scroll-proportion="0.0" vertical-offset="1207" max-vertical-offset="1836">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/candidates.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="0" selection-start="978" selection-end="978" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="9" selection-start="225" selection-end="225" vertical-scroll-proportion="0.33633092" vertical-offset="0" max-vertical-offset="4658">
+        <state line="242" column="8" selection-start="8688" selection-end="8688" vertical-scroll-proportion="0.1205036" vertical-offset="3826" max-vertical-offset="4437">
           <folding />
         </state>
       </provider>
