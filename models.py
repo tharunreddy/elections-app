@@ -1,4 +1,4 @@
-__author__ = 'Tharun'
+__author__ = 'Chitrang'
 
 from google.appengine.api import memcache
 from google.appengine.ext import db

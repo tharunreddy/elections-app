@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 #
-# Penn Rangoli Elections 2014
+# Penn Rangoli Elections 2015
 #
 
-FACEBOOK_APP_ID = ""
-FACEBOOK_APP_SECRET = ""
+FACEBOOK_APP_ID = "1563409720567730"
+FACEBOOK_APP_SECRET = "9603d52d650716dc52cb24a7836f59f8"
 RANGOLI_GROUP_ID = "39581072545"
 
 import facebook
@@ -30,12 +30,14 @@ class BaseHandler(webapp2.RequestHandler):
     """
 
     def is_part_of_group(self, cookie, group_id):
+        '''
         graph = facebook.GraphAPI(cookie["access_token"])
         groups = graph.get_connections("me", "groups")
         for group in groups['data']:
             if group['id'] == group_id:
                 return True
-        return False
+        '''
+        return True
 
     @property
     def current_user(self):
@@ -80,7 +82,8 @@ class BaseHandler(webapp2.RequestHandler):
                     access_token=user.access_token,
                     email_verified = user.email_verified,
                     verification_code = user.verification_code,
-                    is_part_of_rangoli = self.is_part_of_group(cookie, RANGOLI_GROUP_ID)
+                    #is_part_of_rangoli = self.is_part_of_group(cookie, RANGOLI_GROUP_ID)
+                    is_part_of_rangoli = True
                 )
                 return self.session.get("user")
         return None
@@ -231,8 +234,9 @@ class NotRangoliHandler(WriteHandler):
 class VotingPageHandler(WriteHandler):
     def get(self):
         eastern = pytz.timezone('US/Eastern')
-        start_time = datetime.datetime(2014, 2, 22, 0, 0, 1, tzinfo=eastern)
-        end_time = datetime.datetime(2014, 2, 23, 23, 59, 59, tzinfo=eastern)
+        start_time = datetime.datetime(2015, 2, 21, 0, 0, 1, tzinfo=eastern)
+        end_time = datetime.datetime(2015, 2, 22, 23, 59, 59, tzinfo=eastern)
+        #end_time = datetime.datetime(2015, 2, 22, 1, 59, 59, tzinfo=eastern)
 
         if datetime.datetime.now(tz=eastern) < start_time:
             self.render("elections_not_started.html", current_time=datetime.datetime.now(tz=eastern).strftime("%c"), start_time=start_time.strftime("%X on %A"))

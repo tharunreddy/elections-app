@@ -1,12 +1,12 @@
-__author__ = 'Tharun'
+__author__ = 'Chitrang'
 
-CANDIDATES = {"chair": {"cand1": "Priyank Chaudhary", "cand2": "Tushar Nakra", "cand3": "Siddharth Saxena", "cand4": "Sonal Ektaa"},
-              "vicechair": {"cand1": "Chaitali Gondhalekar", "cand2": "Karthik Alle", "cand3": "Tushar Nakra", "cand4": "Vibhor Nigam"},
-              "treasurer": {"cand1": "VamsiKrishna Sonti", "cand2": "Siddharth Saxena"},
-              "socialchair": {"cand1": "Neha Kakkar", "cand2": "VamsiKrishna Sonti"},
-              "operationschair": {"cand1": "Divya Vemuri", "cand2": "Neha Kakkar", "cand3": "Vibhor Nigam"},
-              "gapsaliason": {"cand1": "Swapil Paliwal", "cand2": "Shivani Singh", "cand3": "Sonal Ektaa"},
-              "communicationschair": {"cand1": "Priyank Chaudhary", "cand2": "Swapil Paliwal", "cand3": "Chaitali Gondhalekar"},
-              "webadmin": {"cand1": "Chitrang Shah"},
-              "marketingchair": {"cand1": "Kiran Vetteth", "cand2": "Rohit Gupte", "cand3": "Divya Vemuri"}}
+CANDIDATES = {"chair": {"cand1": "Akshay Varik", "cand2": "Harikesh Muralidhar", "cand3": "Manas Shukla"},
+              "vicechair": {"cand1": "Lahari Uppuluri", "cand2": "Sujay Suresh Kumar", "cand3": "Priya Venkataraman", "cand4": "Alagiavanan Saravanan"},
+              "treasurer": {"cand1": "Jubi Krishnamoorthy"},
+              "socialchair": {"cand1": "Ganesh Kumar"},
+              "operationschair": {"cand1": "Srijani Dutta", "cand2": "Satya Rama Aditya", "cand3": "Akshay Varik"},
+              "gapsaliason": {"cand1": "Srijani Dutta", "cand2": "Manas Shukla", "cand3": "Dhanashree Mahadik", "cand4": "Harikesh Muralidhar"},
+              "communicationschair": {"cand1": "Eshita Malik", "cand2": "Alagiavanan Saravanan"},
+              "webadmin": {"cand1": "Lahari Uppuluri", "cand2": "Krishna Chaitanya Daliparthy"},
+              "marketingchair": {"cand1": "Dhanashree Mahadik", "cand2": "Satya Rama Aditya"}}
 

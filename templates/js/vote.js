@@ -11,7 +11,8 @@ $(document).ready(function () {
                 });
                 $("#" + e).find(".positions-results-holder").html(n.join(""));
                 var r = t.count;
-                if (e != "webadmin") {
+                //if (e != "webadmin") {
+                if (e != "socialchair" && e != "treasurer") {    
                     if (r != 0) {
                         var i = "times";
                         var s = "them";
@@ -38,11 +39,23 @@ $(document).ready(function () {
                         })
                     }
                 } else {
-                    if (r < 3) {
-                        $("#" + e).find(".vote-count").html("Well, you can't change your vote. Here's your new web admin!")
-                    } else {
-                        $("#" + e).find(".vote-count").html("")
+                    if(e == "socialchair")
+                    {
+                        if (r < 3) {
+                            $("#" + e).find(".vote-count").html("Well, you can't change your vote. Here's your new social chair!")
+                        } else {
+                            $("#" + e).find(".vote-count").html("")
+                        }
                     }
+                    else if(e == "treasurer")
+                    {
+                        if (r < 3) {
+                            $("#" + e).find(".vote-count").html("Well, you can't change your vote. Here's your new treasurer!")
+                        } else {
+                            $("#" + e).find(".vote-count").html("")
+                        }   
+                    }
+
                 }
             },
             error: function (e, t, n) {
