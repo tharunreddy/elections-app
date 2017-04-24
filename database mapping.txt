@@ -1,0 +1,8 @@
+Since I do not have access to the database, here is a mapping consistent to the earlier board positions
+
+president : chair
+treasurer : treasurer
+culturalandsocialaffairssecretary : socialchair
+administratorofemailandwebservices : webadmin
+marketingandcommunicationaffairssecretary : marketing chair
+gapsaliason : gapsaliason

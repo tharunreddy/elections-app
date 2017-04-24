@@ -1,9 +1,10 @@
 __author__ = 'Chitrang'
+#__modificationsdoneby__ = 'Anupam'
 
 import requests
 from candidates import CANDIDATES
 
-URL = "http://rangolielections2015.appspot.com/vote/"
+URL = "https://rangolielections2017-160817.appspot.com/vote/"
 
 def main():
     for position in CANDIDATES:

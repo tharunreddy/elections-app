@@ -1,9 +1,9 @@
 __author__ = 'Chitrang'
+#__modificationsdoneby__ = 'Anupam'
 
 import random
 import string
 import re
-
 
 def generate_verification_code():
     code = ""

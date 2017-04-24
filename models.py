@@ -1,4 +1,5 @@
 __author__ = 'Chitrang'
+#__modificationsdoneby__ = 'Anupam'
 
 from google.appengine.api import memcache
 from google.appengine.ext import db
@@ -21,30 +22,26 @@ class User(db.Model):
 
     #posts
     chair = db.StringProperty(required=False)
-    vicechair = db.StringProperty(required=False)
     treasurer = db.StringProperty(required=False)
     socialchair = db.StringProperty(required=False)
-    operationschair = db.StringProperty(required=False)
-    gapsaliason = db.StringProperty(required=False)
-    communicationschair = db.StringProperty(required=False)
     webadmin = db.StringProperty(required=False)
     marketingchair = db.StringProperty(required=False)
-
+    gapsaliason = db.StringProperty(required=False)
+    
     #counts
     chair_count = db.IntegerProperty(required=False, default=0)
-    vicechair_count = db.IntegerProperty(required=False, default=0)
     treasurer_count = db.IntegerProperty(required=False, default=0)
     socialchair_count = db.IntegerProperty(required=False, default=0)
-    operationschair_count = db.IntegerProperty(required=False, default=0)
-    gapsaliason_count = db.IntegerProperty(required=False, default=0)
-    communicationschair_count = db.IntegerProperty(required=False, default=0)
     webadmin_count = db.IntegerProperty(required=False, default=0)
     marketingchair_count = db.IntegerProperty(required=False, default=0)
-
+    gapsaliason_count = db.IntegerProperty(required=False, default=0)
+ 
     @classmethod
     def all_data(cls):
         all_data = db.GqlQuery("SELECT *"
                                     "FROM User")
+        logging.info(all_data)
+        
         return list(all_data)
         #logging.info("updating cache")
         #memcache.set('users', list(all_data))

@@ -43,6 +43,7 @@ import hmac
 import base64
 import logging
 import socket
+import json
 
 # Find a JSON parser
 try:
@@ -60,6 +61,7 @@ try:
 except ImportError:
     from cgi import parse_qs
 
+from urllib import urlencode
 
 class GraphAPI(object):
     """A client for the Facebook Graph API.
@@ -432,11 +434,13 @@ class GraphAPI(object):
         }
         response = urllib.urlopen("https://graph.facebook.com/oauth/"
                             "access_token?" + urllib.urlencode(args)).read()
-        query_str = parse_qs(response)
+        #query_str = parse_qs(response)
+        query_str = json.loads(response)
+
         if "access_token" in query_str:
-            result = {"access_token": query_str["access_token"][0]}
+            result = {"access_token": query_str["access_token"]}
             if "expires" in query_str:
-                result["expires"] = query_str["expires"][0]
+                result["expires"] = query_str["expires"]
             return result
         else:
             response = json.loads(response)
@@ -493,9 +497,9 @@ def get_user_from_cookie(cookies, app_id, app_secret):
         return None
     parsed_request = parse_signed_request(cookie, app_secret)
     try:
-        result = get_access_token_from_code(parsed_request["code"], "",
-                                          app_id, app_secret)
+        result = get_access_token_from_code(parsed_request["code"], "",app_id, app_secret)
     except GraphAPIError:
+        logging.info("Error is here 2")
         return None
     result["uid"] = parsed_request["user_id"]
     return result
@@ -569,16 +573,26 @@ def get_access_token_from_code(code, redirect_uri, app_id, app_secret):
     }
     # We would use GraphAPI.request() here, except for that the fact
     # that the response is a key-value pair, and not JSON.
-    response = urllib.urlopen("https://graph.facebook.com/oauth/access_token" +
-                              "?" + urllib.urlencode(args)).read()
-    query_str = parse_qs(response)
+    response = urllib.urlopen("https://graph.facebook.com/oauth/access_token" + "?" + urllib.urlencode(args)).read()
+    
+    #query_str = parse_qs(response)
+    query_str = json.loads(response)
+    
+    logging.info("Query string is")
+    logging.info(query_str)
+    logging.info("Response string is")
+    logging.info(response)
+    
     if "access_token" in query_str:
-        result = {"access_token": query_str["access_token"][0]}
+        result = {"access_token": query_str["access_token"]}
+        logging.info("Result is")
+        logging.info(result)
         if "expires" in query_str:
-            result["expires"] = query_str["expires"][0]
+            result["expires"] = query_str["expires"]
         return result
     else:
         response = json.loads(response)
+        logging.info("Still error")
         raise GraphAPIError(response)
 
 

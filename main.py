@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 #
-# Penn Rangoli Elections 2015
+# Penn Rangoli Elections 2017
 #
+#__modificationsdoneby__ = 'Anupam'
 
-FACEBOOK_APP_ID = "1563409720567730"
-FACEBOOK_APP_SECRET = "9603d52d650716dc52cb24a7836f59f8"
-RANGOLI_GROUP_ID = "39581072545"
+FACEBOOK_APP_ID = "789712994513281"
+FACEBOOK_APP_SECRET = "63abd2d9f6ef4661bc9a839fdf98f546"
+RANGOLI_GROUP_ID = "107624029388670"
 
 import facebook
 import webapp2
@@ -41,25 +42,27 @@ class BaseHandler(webapp2.RequestHandler):
 
     @property
     def current_user(self):
+        
         if self.session.get("user"):
             # User is logged in
             return self.session.get("user")
         else:
             # Either used just logged in or just saw the first page
             # We'll see here
-            cookie = facebook.get_user_from_cookie(self.request.cookies,
-                                                   FACEBOOK_APP_ID,
-                                                   FACEBOOK_APP_SECRET)
+            cookie = facebook.get_user_from_cookie(self.request.cookies,FACEBOOK_APP_ID,FACEBOOK_APP_SECRET)
+
             if cookie:
                 # Okay so user logged in.
                 # Now, check to see if existing user
                 user = User.get_by_key_name(cookie["uid"])
-
+                
                 if not user:
                     # Not an existing user so get user info
+                    logging.info("Testing 1")
                     graph = facebook.GraphAPI(cookie["access_token"])
-                    profile = graph.get_object("me")
-                    email_verified = False
+                    args = {'fields' : 'id,name,link'} 
+                    profile = graph.get_object("me",**args)
+                    email_verified = False 
                     verification_code = generate_verification_code()
                     user = User(
                         key_name=str(profile["id"]),
@@ -74,6 +77,7 @@ class BaseHandler(webapp2.RequestHandler):
                 elif user.access_token != cookie["access_token"]:
                     user.access_token = cookie["access_token"]
                     user.put()
+                    
                 # User is now logged in
                 self.session["user"] = dict(
                     name=user.name,
@@ -89,8 +93,7 @@ class BaseHandler(webapp2.RequestHandler):
         return None
 
     def dispatch(self):
-        """
-        """
+        
         self.session_store = sessions.get_store(request=self.request)
         try:
             webapp2.RequestHandler.dispatch(self)
@@ -155,12 +158,15 @@ class VerifyHandler(WriteHandler):
         if user.email_verified:
             self.redirect('/vote')
         else:
-            logging.info("Verifying user's Verification code")
             if user.verification_code == verification_code:
                 user.email_verified = True
                 user.put()
                 self.redirect('/logout')
             else:
+                logging.info("Verification 1")
+                logging.info(user.verification_code)
+                logging.info("Verification 1")
+                logging.info(verification_code)
                 self.render("email_form.html", error_msg="Your Verification Code is wrong. Please enter your email again.")
         return None
 
@@ -234,9 +240,8 @@ class NotRangoliHandler(WriteHandler):
 class VotingPageHandler(WriteHandler):
     def get(self):
         eastern = pytz.timezone('US/Eastern')
-        start_time = datetime.datetime(2015, 2, 21, 0, 0, 1, tzinfo=eastern)
-        end_time = datetime.datetime(2015, 2, 22, 23, 59, 59, tzinfo=eastern)
-        #end_time = datetime.datetime(2015, 2, 22, 1, 59, 59, tzinfo=eastern)
+        start_time = datetime.datetime(2017, 2, 21, 0, 0, 1, tzinfo=eastern)
+        end_time = datetime.datetime(2017, 2, 23, 23, 59, 59, tzinfo=eastern)
 
         if datetime.datetime.now(tz=eastern) < start_time:
             self.render("elections_not_started.html", current_time=datetime.datetime.now(tz=eastern).strftime("%c"), start_time=start_time.strftime("%X on %A"))

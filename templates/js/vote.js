@@ -11,8 +11,7 @@ $(document).ready(function () {
                 });
                 $("#" + e).find(".positions-results-holder").html(n.join(""));
                 var r = t.count;
-                //if (e != "webadmin") {
-                if (e != "socialchair" && e != "treasurer") {    
+                if (e != "") {    
                     if (r != 0) {
                         var i = "times";
                         var s = "them";
@@ -38,25 +37,7 @@ $(document).ready(function () {
                             }
                         })
                     }
-                } else {
-                    if(e == "socialchair")
-                    {
-                        if (r < 3) {
-                            $("#" + e).find(".vote-count").html("Well, you can't change your vote. Here's your new social chair!")
-                        } else {
-                            $("#" + e).find(".vote-count").html("")
-                        }
-                    }
-                    else if(e == "treasurer")
-                    {
-                        if (r < 3) {
-                            $("#" + e).find(".vote-count").html("Well, you can't change your vote. Here's your new treasurer!")
-                        } else {
-                            $("#" + e).find(".vote-count").html("")
-                        }   
-                    }
-
-                }
+                } 
             },
             error: function (e, t, n) {
                 console.log(t)
@@ -66,14 +47,11 @@ $(document).ready(function () {
 
     function n() {
         t("chair");
-        t("vicechair");
         t("treasurer");
         t("socialchair");
-        t("operationschair");
-        t("gapsaliason");
-        t("communicationschair");
         t("webadmin");
-        t("marketingchair")
+        t("marketingchair");
+        t("gapsaliason")
     }
     var e = 3;
     $.stellar();
